@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This is
+The GNU C Library Reference Manual, for version
+2.36.
+
+Copyright (C) 1993-2022 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version
+1.3 or any later version published by the Free
+Software Foundation; with the Invariant Sections being "Free Software
+Needs Free Documentation" and "GNU Lesser General Public License",
+the Front-Cover texts being "A GNU Manual", and with the Back-Cover
+Texts as in (a) below.  A copy of the license is included in the
+section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: "You have the freedom to
+copy and modify this GNU manual.  Buying copies from the FSF
+supports it in developing GNU and promoting software freedom." -->
+<title>Inverse Trig Functions (The GNU C Library)</title>
+
+<meta name="description" content="Inverse Trig Functions (The GNU C Library)">
+<meta name="keywords" content="Inverse Trig Functions (The GNU C Library)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Mathematics.html" rel="up" title="Mathematics">
+<link href="Exponents-and-Logarithms.html" rel="next" title="Exponents and Logarithms">
+<link href="Trig-Functions.html" rel="prev" title="Trig Functions">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<div class="section" id="Inverse-Trig-Functions">
+<div class="header">
+<p>
+Next: <a href="Exponents-and-Logarithms.html" accesskey="n" rel="next">Exponentiation and Logarithms</a>, Previous: <a href="Trig-Functions.html" accesskey="p" rel="prev">Trigonometric Functions</a>, Up: <a href="Mathematics.html" accesskey="u" rel="up">Mathematics</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Inverse-Trigonometric-Functions"></span><h3 class="section">19.3 Inverse Trigonometric Functions</h3>
+<span id="index-inverse-trigonometric-functions"></span>
+
+<p>These are the usual arcsine, arccosine and arctangent functions,
+which are the inverses of the sine, cosine and tangent functions
+respectively.
+</p>
+<dl class="def">
+<dt id="index-asin"><span class="category">Function: </span><span><em>double</em> <strong>asin</strong> <em>(double <var>x</var>)</em><a href='#index-asin' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-asinf"><span class="category">Function: </span><span><em>float</em> <strong>asinf</strong> <em>(float <var>x</var>)</em><a href='#index-asinf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-asinl"><span class="category">Function: </span><span><em>long double</em> <strong>asinl</strong> <em>(long double <var>x</var>)</em><a href='#index-asinl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-asinfN"><span class="category">Function: </span><span><em>_FloatN</em> <strong>asinfN</strong> <em>(_Float<var>N</var> <var>x</var>)</em><a href='#index-asinfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-asinfNx"><span class="category">Function: </span><span><em>_FloatNx</em> <strong>asinfNx</strong> <em>(_Float<var>N</var>x <var>x</var>)</em><a href='#index-asinfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>These functions compute the arcsine of <var>x</var>&mdash;that is, the value whose
+sine is <var>x</var>.  The value is in units of radians.  Mathematically,
+there are infinitely many such values; the one actually returned is the
+one between <code>-pi/2</code> and <code>pi/2</code> (inclusive).
+</p>
+<p>The arcsine function is defined mathematically only
+over the domain <code>-1</code> to <code>1</code>.  If <var>x</var> is outside the
+domain, <code>asin</code> signals a domain error.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-acos"><span class="category">Function: </span><span><em>double</em> <strong>acos</strong> <em>(double <var>x</var>)</em><a href='#index-acos' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-acosf"><span class="category">Function: </span><span><em>float</em> <strong>acosf</strong> <em>(float <var>x</var>)</em><a href='#index-acosf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-acosl"><span class="category">Function: </span><span><em>long double</em> <strong>acosl</strong> <em>(long double <var>x</var>)</em><a href='#index-acosl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-acosfN"><span class="category">Function: </span><span><em>_FloatN</em> <strong>acosfN</strong> <em>(_Float<var>N</var> <var>x</var>)</em><a href='#index-acosfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-acosfNx"><span class="category">Function: </span><span><em>_FloatNx</em> <strong>acosfNx</strong> <em>(_Float<var>N</var>x <var>x</var>)</em><a href='#index-acosfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>These functions compute the arccosine of <var>x</var>&mdash;that is, the value
+whose cosine is <var>x</var>.  The value is in units of radians.
+Mathematically, there are infinitely many such values; the one actually
+returned is the one between <code>0</code> and <code>pi</code> (inclusive).
+</p>
+<p>The arccosine function is defined mathematically only
+over the domain <code>-1</code> to <code>1</code>.  If <var>x</var> is outside the
+domain, <code>acos</code> signals a domain error.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-atan"><span class="category">Function: </span><span><em>double</em> <strong>atan</strong> <em>(double <var>x</var>)</em><a href='#index-atan' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-atanf"><span class="category">Function: </span><span><em>float</em> <strong>atanf</strong> <em>(float <var>x</var>)</em><a href='#index-atanf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-atanl"><span class="category">Function: </span><span><em>long double</em> <strong>atanl</strong> <em>(long double <var>x</var>)</em><a href='#index-atanl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-atanfN"><span class="category">Function: </span><span><em>_FloatN</em> <strong>atanfN</strong> <em>(_Float<var>N</var> <var>x</var>)</em><a href='#index-atanfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-atanfNx"><span class="category">Function: </span><span><em>_FloatNx</em> <strong>atanfNx</strong> <em>(_Float<var>N</var>x <var>x</var>)</em><a href='#index-atanfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>These functions compute the arctangent of <var>x</var>&mdash;that is, the value
+whose tangent is <var>x</var>.  The value is in units of radians.
+Mathematically, there are infinitely many such values; the one actually
+returned is the one between <code>-pi/2</code> and <code>pi/2</code> (inclusive).
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-atan2"><span class="category">Function: </span><span><em>double</em> <strong>atan2</strong> <em>(double <var>y</var>, double <var>x</var>)</em><a href='#index-atan2' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-atan2f"><span class="category">Function: </span><span><em>float</em> <strong>atan2f</strong> <em>(float <var>y</var>, float <var>x</var>)</em><a href='#index-atan2f' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-atan2l"><span class="category">Function: </span><span><em>long double</em> <strong>atan2l</strong> <em>(long double <var>y</var>, long double <var>x</var>)</em><a href='#index-atan2l' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-atan2fN"><span class="category">Function: </span><span><em>_FloatN</em> <strong>atan2fN</strong> <em>(_Float<var>N</var> <var>y</var>, _Float<var>N</var> <var>x</var>)</em><a href='#index-atan2fN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-atan2fNx"><span class="category">Function: </span><span><em>_FloatNx</em> <strong>atan2fNx</strong> <em>(_Float<var>N</var>x <var>y</var>, _Float<var>N</var>x <var>x</var>)</em><a href='#index-atan2fNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>This function computes the arctangent of <var>y</var>/<var>x</var>, but the signs
+of both arguments are used to determine the quadrant of the result, and
+<var>x</var> is permitted to be zero.  The return value is given in radians
+and is in the range <code>-pi</code> to <code>pi</code>, inclusive.
+</p>
+<p>If <var>x</var> and <var>y</var> are coordinates of a point in the plane,
+<code>atan2</code> returns the signed angle between the line from the origin
+to that point and the x-axis.  Thus, <code>atan2</code> is useful for
+converting Cartesian coordinates to polar coordinates.  (To compute the
+radial coordinate, use <code>hypot</code>; see <a href="Exponents-and-Logarithms.html">Exponentiation and Logarithms</a>.)
+</p>
+<p>If both <var>x</var> and <var>y</var> are zero, <code>atan2</code> returns zero.
+</p></dd></dl>
+
+<span id="index-inverse-complex-trigonometric-functions"></span>
+<p>ISO&nbsp;C99<!-- /@w --> defines complex versions of the inverse trig functions.
+</p>
+<dl class="def">
+<dt id="index-casin"><span class="category">Function: </span><span><em>complex double</em> <strong>casin</strong> <em>(complex double <var>z</var>)</em><a href='#index-casin' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-casinf"><span class="category">Function: </span><span><em>complex float</em> <strong>casinf</strong> <em>(complex float <var>z</var>)</em><a href='#index-casinf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-casinl"><span class="category">Function: </span><span><em>complex long double</em> <strong>casinl</strong> <em>(complex long double <var>z</var>)</em><a href='#index-casinl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-casinfN"><span class="category">Function: </span><span><em>complex _FloatN</em> <strong>casinfN</strong> <em>(complex _Float<var>N</var> <var>z</var>)</em><a href='#index-casinfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-casinfNx"><span class="category">Function: </span><span><em>complex _FloatNx</em> <strong>casinfNx</strong> <em>(complex _Float<var>N</var>x <var>z</var>)</em><a href='#index-casinfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>These functions compute the complex arcsine of <var>z</var>&mdash;that is, the
+value whose sine is <var>z</var>.  The value returned is in radians.
+</p>
+<p>Unlike the real-valued functions, <code>casin</code> is defined for all
+values of <var>z</var>.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-cacos"><span class="category">Function: </span><span><em>complex double</em> <strong>cacos</strong> <em>(complex double <var>z</var>)</em><a href='#index-cacos' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-cacosf"><span class="category">Function: </span><span><em>complex float</em> <strong>cacosf</strong> <em>(complex float <var>z</var>)</em><a href='#index-cacosf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-cacosl"><span class="category">Function: </span><span><em>complex long double</em> <strong>cacosl</strong> <em>(complex long double <var>z</var>)</em><a href='#index-cacosl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-cacosfN"><span class="category">Function: </span><span><em>complex _FloatN</em> <strong>cacosfN</strong> <em>(complex _Float<var>N</var> <var>z</var>)</em><a href='#index-cacosfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-cacosfNx"><span class="category">Function: </span><span><em>complex _FloatNx</em> <strong>cacosfNx</strong> <em>(complex _Float<var>N</var>x <var>z</var>)</em><a href='#index-cacosfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>These functions compute the complex arccosine of <var>z</var>&mdash;that is, the
+value whose cosine is <var>z</var>.  The value returned is in radians.
+</p>
+<p>Unlike the real-valued functions, <code>cacos</code> is defined for all
+values of <var>z</var>.
+</p></dd></dl>
+
+
+<dl class="def">
+<dt id="index-catan"><span class="category">Function: </span><span><em>complex double</em> <strong>catan</strong> <em>(complex double <var>z</var>)</em><a href='#index-catan' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-catanf"><span class="category">Function: </span><span><em>complex float</em> <strong>catanf</strong> <em>(complex float <var>z</var>)</em><a href='#index-catanf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-catanl"><span class="category">Function: </span><span><em>complex long double</em> <strong>catanl</strong> <em>(complex long double <var>z</var>)</em><a href='#index-catanl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-catanfN"><span class="category">Function: </span><span><em>complex _FloatN</em> <strong>catanfN</strong> <em>(complex _Float<var>N</var> <var>z</var>)</em><a href='#index-catanfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-catanfNx"><span class="category">Function: </span><span><em>complex _FloatNx</em> <strong>catanfNx</strong> <em>(complex _Float<var>N</var>x <var>z</var>)</em><a href='#index-catanfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>These functions compute the complex arctangent of <var>z</var>&mdash;that is,
+the value whose tangent is <var>z</var>.  The value is in units of radians.
+</p></dd></dl>
+
+
+</div>
+<hr>
+<div class="header">
+<p>
+Next: <a href="Exponents-and-Logarithms.html">Exponentiation and Logarithms</a>, Previous: <a href="Trig-Functions.html">Trigonometric Functions</a>, Up: <a href="Mathematics.html">Mathematics</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

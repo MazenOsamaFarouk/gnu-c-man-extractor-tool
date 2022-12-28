@@ -1,0 +1,1256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This is
+The GNU C Library Reference Manual, for version
+2.36.
+
+Copyright (C) 1993-2022 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version
+1.3 or any later version published by the Free
+Software Foundation; with the Invariant Sections being "Free Software
+Needs Free Documentation" and "GNU Lesser General Public License",
+the Front-Cover texts being "A GNU Manual", and with the Back-Cover
+Texts as in (a) below.  A copy of the license is included in the
+section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: "You have the freedom to
+copy and modify this GNU manual.  Buying copies from the FSF
+supports it in developing GNU and promoting software freedom." -->
+<title>Top (The GNU C Library)</title>
+
+<meta name="description" content="Top (The GNU C Library)">
+<meta name="keywords" content="Top (The GNU C Library)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="#Top" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="../dir/index.html" rel="up" title="(dir)">
+<link href="Introduction.html" rel="next" title="Introduction">
+<link href="../dir/index.html" rel="prev" title="(dir)">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<h1 class="settitle" align="center">The GNU C Library</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>This is
+<cite>The GNU C Library Reference Manual</cite>, for version
+2.36.
+</p>
+<p>Copyright &copy; 1993&ndash;2022 Free Software Foundation, Inc.
+</p>
+<p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version
+1.3 or any later version published by the Free
+Software Foundation; with the Invariant Sections being &ldquo;Free Software
+Needs Free Documentation&rdquo; and &ldquo;GNU Lesser General Public License&rdquo;,
+the Front-Cover texts being &ldquo;A GNU Manual&rdquo;, and with the Back-Cover
+Texts as in (a) below.  A copy of the license is included in the
+section entitled &quot;GNU Free Documentation License&quot;.
+</p>
+<p>(a) The FSF&rsquo;s Back-Cover Text is: &ldquo;You have the freedom to
+copy and modify this GNU manual.  Buying copies from the FSF
+supports it in developing GNU and promoting software freedom.&rdquo;
+</p>
+
+<div class="top" id="Top">
+<div class="header">
+<p>
+Next: <a href="Introduction.html" accesskey="n" rel="next">Introduction</a>, Previous: <a href="../dir/index.html" accesskey="p" rel="prev">(dir)</a>, Up: <a href="../dir/index.html" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Main-Menu"></span><h1 class="top">Main Menu</h1>
+
+<div class="Contents_element" id="SEC_Contents">
+<h2 class="contents-heading">Table of Contents</h2>
+
+<div class="contents">
+
+<ul class="no-bullet">
+  <li><a id="toc-Introduction-1" href="Introduction.html">1 Introduction</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Getting-Started-1" href="Getting-Started.html">1.1 Getting Started</a></li>
+    <li><a id="toc-Standards-and-Portability-1" href="Standards-and-Portability.html">1.2 Standards and Portability</a>
+    <ul class="no-bullet">
+      <li><a id="toc-ISO-C-1" href="ISO-C.html">1.2.1 ISO C</a></li>
+      <li><a id="toc-POSIX-_0028The-Portable-Operating-System-Interface_0029" href="POSIX.html">1.2.2 POSIX (The Portable Operating System Interface)</a>
+      <ul class="no-bullet">
+        <li><a id="toc-POSIX-Safety-Concepts-1" href="POSIX-Safety-Concepts.html">1.2.2.1 POSIX Safety Concepts</a></li>
+        <li><a id="toc-Unsafe-Features-1" href="Unsafe-Features.html">1.2.2.2 Unsafe Features</a></li>
+        <li><a id="toc-Conditionally-Safe-Features-1" href="Conditionally-Safe-Features.html">1.2.2.3 Conditionally Safe Features</a></li>
+        <li><a id="toc-Other-Safety-Remarks-1" href="Other-Safety-Remarks.html">1.2.2.4 Other Safety Remarks</a></li>
+      </ul></li>
+      <li><a id="toc-Berkeley-Unix-1" href="Berkeley-Unix.html">1.2.3 Berkeley Unix</a></li>
+      <li><a id="toc-SVID-_0028The-System-V-Interface-Description_0029" href="SVID.html">1.2.4 SVID (The System V Interface Description)</a></li>
+      <li><a id="toc-XPG-_0028The-X_002fOpen-Portability-Guide_0029" href="XPG.html">1.2.5 XPG (The X/Open Portability Guide)</a></li>
+    </ul></li>
+    <li><a id="toc-Using-the-Library-1" href="Using-the-Library.html">1.3 Using the Library</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Header-Files-1" href="Header-Files.html">1.3.1 Header Files</a></li>
+      <li><a id="toc-Macro-Definitions-of-Functions" href="Macro-Definitions.html">1.3.2 Macro Definitions of Functions</a></li>
+      <li><a id="toc-Reserved-Names-1" href="Reserved-Names.html">1.3.3 Reserved Names</a></li>
+      <li><a id="toc-Feature-Test-Macros-1" href="Feature-Test-Macros.html">1.3.4 Feature Test Macros</a></li>
+    </ul></li>
+    <li><a id="toc-Roadmap-to-the-Manual-1" href="Roadmap-to-the-Manual.html">1.4 Roadmap to the Manual</a></li>
+  </ul></li>
+  <li><a id="toc-Error-Reporting-1" href="Error-Reporting.html">2 Error Reporting</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Checking-for-Errors-1" href="Checking-for-Errors.html">2.1 Checking for Errors</a></li>
+    <li><a id="toc-Error-Codes-1" href="Error-Codes.html">2.2 Error Codes</a></li>
+    <li><a id="toc-Error-Messages-1" href="Error-Messages.html">2.3 Error Messages</a></li>
+  </ul></li>
+  <li><a id="toc-Virtual-Memory-Allocation-And-Paging" href="Memory.html">3 Virtual Memory Allocation And Paging</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Process-Memory-Concepts" href="Memory-Concepts.html">3.1 Process Memory Concepts</a></li>
+    <li><a id="toc-Allocating-Storage-For-Program-Data" href="Memory-Allocation.html">3.2 Allocating Storage For Program Data</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Memory-Allocation-in-C-Programs" href="Memory-Allocation-and-C.html">3.2.1 Memory Allocation in C Programs</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Dynamic-Memory-Allocation" href="Memory-Allocation-and-C.html#Dynamic-Memory-Allocation">3.2.1.1 Dynamic Memory Allocation</a></li>
+      </ul></li>
+      <li><a id="toc-The-GNU-Allocator-1" href="The-GNU-Allocator.html">3.2.2 The GNU Allocator</a></li>
+      <li><a id="toc-Unconstrained-Allocation-1" href="Unconstrained-Allocation.html">3.2.3 Unconstrained Allocation</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Basic-Memory-Allocation" href="Basic-Allocation.html">3.2.3.1 Basic Memory Allocation</a></li>
+        <li><a id="toc-Examples-of-malloc" href="Malloc-Examples.html">3.2.3.2 Examples of <code>malloc</code></a></li>
+        <li><a id="toc-Freeing-Memory-Allocated-with-malloc" href="Freeing-after-Malloc.html">3.2.3.3 Freeing Memory Allocated with <code>malloc</code></a></li>
+        <li><a id="toc-Changing-the-Size-of-a-Block" href="Changing-Block-Size.html">3.2.3.4 Changing the Size of a Block</a></li>
+        <li><a id="toc-Allocating-Cleared-Space-1" href="Allocating-Cleared-Space.html">3.2.3.5 Allocating Cleared Space</a></li>
+        <li><a id="toc-Allocating-Aligned-Memory-Blocks" href="Aligned-Memory-Blocks.html">3.2.3.6 Allocating Aligned Memory Blocks</a></li>
+        <li><a id="toc-Malloc-Tunable-Parameters-1" href="Malloc-Tunable-Parameters.html">3.2.3.7 Malloc Tunable Parameters</a></li>
+        <li><a id="toc-Heap-Consistency-Checking-1" href="Heap-Consistency-Checking.html">3.2.3.8 Heap Consistency Checking</a></li>
+        <li><a id="toc-Statistics-for-Memory-Allocation-with-malloc" href="Statistics-of-Malloc.html">3.2.3.9 Statistics for Memory Allocation with <code>malloc</code></a></li>
+        <li><a id="toc-Summary-of-malloc_002dRelated-Functions" href="Summary-of-Malloc.html">3.2.3.10 Summary of <code>malloc</code>-Related Functions</a></li>
+      </ul></li>
+      <li><a id="toc-Allocation-Debugging-1" href="Allocation-Debugging.html">3.2.4 Allocation Debugging</a>
+      <ul class="no-bullet">
+        <li><a id="toc-How-to-install-the-tracing-functionality" href="Tracing-malloc.html">3.2.4.1 How to install the tracing functionality</a></li>
+        <li><a id="toc-Example-program-excerpts" href="Using-the-Memory-Debugger.html">3.2.4.2 Example program excerpts</a></li>
+        <li><a id="toc-Some-more-or-less-clever-ideas" href="Tips-for-the-Memory-Debugger.html">3.2.4.3 Some more or less clever ideas</a></li>
+        <li><a id="toc-Interpreting-the-traces-1" href="Interpreting-the-traces.html">3.2.4.4 Interpreting the traces</a></li>
+      </ul></li>
+      <li><a id="toc-Replacing-malloc-1" href="Replacing-malloc.html">3.2.5 Replacing <code>malloc</code></a></li>
+      <li><a id="toc-Obstacks-1" href="Obstacks.html">3.2.6 Obstacks</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Creating-Obstacks-1" href="Creating-Obstacks.html">3.2.6.1 Creating Obstacks</a></li>
+        <li><a id="toc-Preparing-for-Using-Obstacks" href="Preparing-for-Obstacks.html">3.2.6.2 Preparing for Using Obstacks</a></li>
+        <li><a id="toc-Allocation-in-an-Obstack-1" href="Allocation-in-an-Obstack.html">3.2.6.3 Allocation in an Obstack</a></li>
+        <li><a id="toc-Freeing-Objects-in-an-Obstack" href="Freeing-Obstack-Objects.html">3.2.6.4 Freeing Objects in an Obstack</a></li>
+        <li><a id="toc-Obstack-Functions-and-Macros" href="Obstack-Functions.html">3.2.6.5 Obstack Functions and Macros</a></li>
+        <li><a id="toc-Growing-Objects-1" href="Growing-Objects.html">3.2.6.6 Growing Objects</a></li>
+        <li><a id="toc-Extra-Fast-Growing-Objects" href="Extra-Fast-Growing.html">3.2.6.7 Extra Fast Growing Objects</a></li>
+        <li><a id="toc-Status-of-an-Obstack-1" href="Status-of-an-Obstack.html">3.2.6.8 Status of an Obstack</a></li>
+        <li><a id="toc-Alignment-of-Data-in-Obstacks" href="Obstacks-Data-Alignment.html">3.2.6.9 Alignment of Data in Obstacks</a></li>
+        <li><a id="toc-Obstack-Chunks-1" href="Obstack-Chunks.html">3.2.6.10 Obstack Chunks</a></li>
+        <li><a id="toc-Summary-of-Obstack-Functions" href="Summary-of-Obstacks.html">3.2.6.11 Summary of Obstack Functions</a></li>
+      </ul></li>
+      <li><a id="toc-Automatic-Storage-with-Variable-Size" href="Variable-Size-Automatic.html">3.2.7 Automatic Storage with Variable Size</a>
+      <ul class="no-bullet">
+        <li><a id="toc-alloca-Example" href="Alloca-Example.html">3.2.7.1 <code>alloca</code> Example</a></li>
+        <li><a id="toc-Advantages-of-alloca" href="Advantages-of-Alloca.html">3.2.7.2 Advantages of <code>alloca</code></a></li>
+        <li><a id="toc-Disadvantages-of-alloca" href="Disadvantages-of-Alloca.html">3.2.7.3 Disadvantages of <code>alloca</code></a></li>
+        <li><a id="toc-GNU-C-Variable_002dSize-Arrays-1" href="GNU-C-Variable_002dSize-Arrays.html">3.2.7.4 GNU C Variable-Size Arrays</a></li>
+      </ul></li>
+    </ul></li>
+    <li><a id="toc-Resizing-the-Data-Segment-1" href="Resizing-the-Data-Segment.html">3.3 Resizing the Data Segment</a></li>
+    <li><a id="toc-Memory-Protection-1" href="Memory-Protection.html">3.4 Memory Protection</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Memory-Protection-Keys" href="Memory-Protection.html#Memory-Protection-Keys">3.4.1 Memory Protection Keys</a></li>
+    </ul></li>
+    <li><a id="toc-Locking-Pages-1" href="Locking-Pages.html">3.5 Locking Pages</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Why-Lock-Pages-1" href="Why-Lock-Pages.html">3.5.1 Why Lock Pages</a></li>
+      <li><a id="toc-Locked-Memory-Details-1" href="Locked-Memory-Details.html">3.5.2 Locked Memory Details</a></li>
+      <li><a id="toc-Functions-To-Lock-And-Unlock-Pages" href="Page-Lock-Functions.html">3.5.3 Functions To Lock And Unlock Pages</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-Character-Handling-1" href="Character-Handling.html">4 Character Handling</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Classification-of-Characters-1" href="Classification-of-Characters.html">4.1 Classification of Characters</a></li>
+    <li><a id="toc-Case-Conversion-1" href="Case-Conversion.html">4.2 Case Conversion</a></li>
+    <li><a id="toc-Character-class-determination-for-wide-characters" href="Classification-of-Wide-Characters.html">4.3 Character class determination for wide characters</a></li>
+    <li><a id="toc-Notes-on-using-the-wide-character-classes" href="Using-Wide-Char-Classes.html">4.4 Notes on using the wide character classes</a></li>
+    <li><a id="toc-Mapping-of-wide-characters_002e" href="Wide-Character-Case-Conversion.html">4.5 Mapping of wide characters.</a></li>
+  </ul></li>
+  <li><a id="toc-String-and-Array-Utilities-1" href="String-and-Array-Utilities.html">5 String and Array Utilities</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Representation-of-Strings-1" href="Representation-of-Strings.html">5.1 Representation of Strings</a></li>
+    <li><a id="toc-String-and-Array-Conventions" href="String_002fArray-Conventions.html">5.2 String and Array Conventions</a></li>
+    <li><a id="toc-String-Length-1" href="String-Length.html">5.3 String Length</a></li>
+    <li><a id="toc-Copying-Strings-and-Arrays-1" href="Copying-Strings-and-Arrays.html">5.4 Copying Strings and Arrays</a></li>
+    <li><a id="toc-Concatenating-Strings-1" href="Concatenating-Strings.html">5.5 Concatenating Strings</a></li>
+    <li><a id="toc-Truncating-Strings-while-Copying" href="Truncating-Strings.html">5.6 Truncating Strings while Copying</a></li>
+    <li><a id="toc-String_002fArray-Comparison-1" href="String_002fArray-Comparison.html">5.7 String/Array Comparison</a></li>
+    <li><a id="toc-Collation-Functions-1" href="Collation-Functions.html">5.8 Collation Functions</a></li>
+    <li><a id="toc-Search-Functions-1" href="Search-Functions.html">5.9 Search Functions</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Compatibility-String-Search-Functions" href="Search-Functions.html#Compatibility-String-Search-Functions">5.9.1 Compatibility String Search Functions</a></li>
+    </ul></li>
+    <li><a id="toc-Finding-Tokens-in-a-String-1" href="Finding-Tokens-in-a-String.html">5.10 Finding Tokens in a String</a></li>
+    <li><a id="toc-Erasing-Sensitive-Data-1" href="Erasing-Sensitive-Data.html">5.11 Erasing Sensitive Data</a></li>
+    <li><a id="toc-Shuffling-Bytes-1" href="Shuffling-Bytes.html">5.12 Shuffling Bytes</a></li>
+    <li><a id="toc-Obfuscating-Data-1" href="Obfuscating-Data.html">5.13 Obfuscating Data</a></li>
+    <li><a id="toc-Encode-Binary-Data-1" href="Encode-Binary-Data.html">5.14 Encode Binary Data</a></li>
+    <li><a id="toc-Argz-and-Envz-Vectors-1" href="Argz-and-Envz-Vectors.html">5.15 Argz and Envz Vectors</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Argz-Functions-1" href="Argz-Functions.html">5.15.1 Argz Functions</a></li>
+      <li><a id="toc-Envz-Functions-1" href="Envz-Functions.html">5.15.2 Envz Functions</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-Character-Set-Handling-1" href="Character-Set-Handling.html">6 Character Set Handling</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Introduction-to-Extended-Characters" href="Extended-Char-Intro.html">6.1 Introduction to Extended Characters</a></li>
+    <li><a id="toc-Overview-about-Character-Handling-Functions" href="Charset-Function-Overview.html">6.2 Overview about Character Handling Functions</a></li>
+    <li><a id="toc-Restartable-Multibyte-Conversion-Functions" href="Restartable-multibyte-conversion.html">6.3 Restartable Multibyte Conversion Functions</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Selecting-the-conversion-and-its-properties" href="Selecting-the-Conversion.html">6.3.1 Selecting the conversion and its properties</a></li>
+      <li><a id="toc-Representing-the-state-of-the-conversion" href="Keeping-the-state.html">6.3.2 Representing the state of the conversion</a></li>
+      <li><a id="toc-Converting-Single-Characters" href="Converting-a-Character.html">6.3.3 Converting Single Characters</a></li>
+      <li><a id="toc-Converting-Multibyte-and-Wide-Character-Strings" href="Converting-Strings.html">6.3.4 Converting Multibyte and Wide Character Strings</a></li>
+      <li><a id="toc-A-Complete-Multibyte-Conversion-Example" href="Multibyte-Conversion-Example.html">6.3.5 A Complete Multibyte Conversion Example</a></li>
+    </ul></li>
+    <li><a id="toc-Non_002dreentrant-Conversion-Function" href="Non_002dreentrant-Conversion.html">6.4 Non-reentrant Conversion Function</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Non_002dreentrant-Conversion-of-Single-Characters" href="Non_002dreentrant-Character-Conversion.html">6.4.1 Non-reentrant Conversion of Single Characters</a></li>
+      <li><a id="toc-Non_002dreentrant-Conversion-of-Strings" href="Non_002dreentrant-String-Conversion.html">6.4.2 Non-reentrant Conversion of Strings</a></li>
+      <li><a id="toc-States-in-Non_002dreentrant-Functions" href="Shift-State.html">6.4.3 States in Non-reentrant Functions</a></li>
+    </ul></li>
+    <li><a id="toc-Generic-Charset-Conversion-1" href="Generic-Charset-Conversion.html">6.5 Generic Charset Conversion</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Generic-Character-Set-Conversion-Interface" href="Generic-Conversion-Interface.html">6.5.1 Generic Character Set Conversion Interface</a></li>
+      <li><a id="toc-A-complete-iconv-example" href="iconv-Examples.html">6.5.2 A complete <code>iconv</code> example</a></li>
+      <li><a id="toc-Some-Details-about-other-iconv-Implementations" href="Other-iconv-Implementations.html">6.5.3 Some Details about other <code>iconv</code> Implementations</a></li>
+      <li><a id="toc-The-iconv-Implementation-in-the-GNU-C-Library" href="glibc-iconv-Implementation.html">6.5.4 The <code>iconv</code> Implementation in the GNU C Library</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Format-of-gconv_002dmodules-files" href="glibc-iconv-Implementation.html#Format-of-gconv_002dmodules-files">6.5.4.1 Format of <samp>gconv-modules</samp> files</a></li>
+        <li><a id="toc-Finding-the-conversion-path-in-iconv" href="glibc-iconv-Implementation.html#Finding-the-conversion-path-in-iconv">6.5.4.2 Finding the conversion path in <code>iconv</code></a></li>
+        <li><a id="toc-iconv-module-data-structures" href="glibc-iconv-Implementation.html#iconv-module-data-structures">6.5.4.3 <code>iconv</code> module data structures</a></li>
+        <li><a id="toc-iconv-module-interfaces" href="glibc-iconv-Implementation.html#iconv-module-interfaces">6.5.4.4 <code>iconv</code> module interfaces</a></li>
+      </ul></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-Locales-and-Internationalization" href="Locales.html">7 Locales and Internationalization</a>
+  <ul class="no-bullet">
+    <li><a id="toc-What-Effects-a-Locale-Has" href="Effects-of-Locale.html">7.1 What Effects a Locale Has</a></li>
+    <li><a id="toc-Choosing-a-Locale" href="Choosing-Locale.html">7.2 Choosing a Locale</a></li>
+    <li><a id="toc-Locale-Categories-1" href="Locale-Categories.html">7.3 Locale Categories</a></li>
+    <li><a id="toc-How-Programs-Set-the-Locale" href="Setting-the-Locale.html">7.4 How Programs Set the Locale</a></li>
+    <li><a id="toc-Standard-Locales-1" href="Standard-Locales.html">7.5 Standard Locales</a></li>
+    <li><a id="toc-Locale-Names-1" href="Locale-Names.html">7.6 Locale Names</a></li>
+    <li><a id="toc-Accessing-Locale-Information" href="Locale-Information.html">7.7 Accessing Locale Information</a>
+    <ul class="no-bullet">
+      <li><a id="toc-localeconv_003a-It-is-portable-but-_2026" href="The-Lame-Way-to-Locale-Data.html">7.7.1 <code>localeconv</code>: It is portable but &hellip;</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Generic-Numeric-Formatting-Parameters" href="General-Numeric.html">7.7.1.1 Generic Numeric Formatting Parameters</a></li>
+        <li><a id="toc-Printing-the-Currency-Symbol" href="Currency-Symbol.html">7.7.1.2 Printing the Currency Symbol</a></li>
+        <li><a id="toc-Printing-the-Sign-of-a-Monetary-Amount" href="Sign-of-Money-Amount.html">7.7.1.3 Printing the Sign of a Monetary Amount</a></li>
+      </ul></li>
+      <li><a id="toc-Pinpoint-Access-to-Locale-Data" href="The-Elegant-and-Fast-Way.html">7.7.2 Pinpoint Access to Locale Data</a></li>
+    </ul></li>
+    <li><a id="toc-A-dedicated-function-to-format-numbers" href="Formatting-Numbers.html">7.8 A dedicated function to format numbers</a></li>
+    <li><a id="toc-Yes_002dor_002dNo-Questions-1" href="Yes_002dor_002dNo-Questions.html">7.9 Yes-or-No Questions</a></li>
+  </ul></li>
+  <li><a id="toc-Message-Translation-1" href="Message-Translation.html">8 Message Translation</a>
+  <ul class="no-bullet">
+    <li><a id="toc-X_002fOpen-Message-Catalog-Handling" href="Message-catalogs-a-la-X_002fOpen.html">8.1 X/Open Message Catalog Handling</a>
+    <ul class="no-bullet">
+      <li><a id="toc-The-catgets-function-family" href="The-catgets-Functions.html">8.1.1 The <code>catgets</code> function family</a></li>
+      <li><a id="toc-Format-of-the-message-catalog-files" href="The-message-catalog-files.html">8.1.2 Format of the message catalog files</a></li>
+      <li><a id="toc-Generate-Message-Catalogs-files" href="The-gencat-program.html">8.1.3 Generate Message Catalogs files</a></li>
+      <li><a id="toc-How-to-use-the-catgets-interface" href="Common-Usage.html">8.1.4 How to use the <code>catgets</code> interface</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Not-using-symbolic-names" href="Common-Usage.html#Not-using-symbolic-names">8.1.4.1 Not using symbolic names</a></li>
+        <li><a id="toc-Using-symbolic-names" href="Common-Usage.html#Using-symbolic-names">8.1.4.2 Using symbolic names</a></li>
+        <li><a id="toc-How-does-to-this-allow-to-develop" href="Common-Usage.html#How-does-to-this-allow-to-develop">8.1.4.3 How does to this allow to develop</a></li>
+      </ul></li>
+    </ul></li>
+    <li><a id="toc-The-Uniforum-approach-to-Message-Translation" href="The-Uniforum-approach.html">8.2 The Uniforum approach to Message Translation</a>
+    <ul class="no-bullet">
+      <li><a id="toc-The-gettext-family-of-functions" href="Message-catalogs-with-gettext.html">8.2.1 The <code>gettext</code> family of functions</a>
+      <ul class="no-bullet">
+        <li><a id="toc-What-has-to-be-done-to-translate-a-message_003f" href="Translation-with-gettext.html">8.2.1.1 What has to be done to translate a message?</a></li>
+        <li><a id="toc-How-to-determine-which-catalog-to-be-used" href="Locating-gettext-catalog.html">8.2.1.2 How to determine which catalog to be used</a></li>
+        <li><a id="toc-Additional-functions-for-more-complicated-situations" href="Advanced-gettext-functions.html">8.2.1.3 Additional functions for more complicated situations</a></li>
+        <li><a id="toc-How-to-specify-the-output-character-set-gettext-uses" href="Charset-conversion-in-gettext.html">8.2.1.4 How to specify the output character set <code>gettext</code> uses</a></li>
+        <li><a id="toc-How-to-use-gettext-in-GUI-programs" href="GUI-program-problems.html">8.2.1.5 How to use <code>gettext</code> in GUI programs</a></li>
+        <li><a id="toc-User-influence-on-gettext" href="Using-gettextized-software.html">8.2.1.6 User influence on <code>gettext</code></a></li>
+      </ul></li>
+      <li><a id="toc-Programs-to-handle-message-catalogs-for-gettext" href="Helper-programs-for-gettext.html">8.2.2 Programs to handle message catalogs for <code>gettext</code></a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-Searching-and-Sorting-1" href="Searching-and-Sorting.html">9 Searching and Sorting</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Defining-the-Comparison-Function" href="Comparison-Functions.html">9.1 Defining the Comparison Function</a></li>
+    <li><a id="toc-Array-Search-Function-1" href="Array-Search-Function.html">9.2 Array Search Function</a></li>
+    <li><a id="toc-Array-Sort-Function-1" href="Array-Sort-Function.html">9.3 Array Sort Function</a></li>
+    <li><a id="toc-Searching-and-Sorting-Example" href="Search_002fSort-Example.html">9.4 Searching and Sorting Example</a></li>
+    <li><a id="toc-The-hsearch-function_002e" href="Hash-Search-Function.html">9.5 The <code>hsearch</code> function.</a></li>
+    <li><a id="toc-The-tsearch-function_002e" href="Tree-Search-Function.html">9.6 The <code>tsearch</code> function.</a></li>
+  </ul></li>
+  <li><a id="toc-Pattern-Matching-1" href="Pattern-Matching.html">10 Pattern Matching</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Wildcard-Matching-1" href="Wildcard-Matching.html">10.1 Wildcard Matching</a></li>
+    <li><a id="toc-Globbing-1" href="Globbing.html">10.2 Globbing</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Calling-glob" href="Calling-Glob.html">10.2.1 Calling <code>glob</code></a></li>
+      <li><a id="toc-Flags-for-Globbing-1" href="Flags-for-Globbing.html">10.2.2 Flags for Globbing</a></li>
+      <li><a id="toc-More-Flags-for-Globbing-1" href="More-Flags-for-Globbing.html">10.2.3 More Flags for Globbing</a></li>
+    </ul></li>
+    <li><a id="toc-Regular-Expression-Matching" href="Regular-Expressions.html">10.3 Regular Expression Matching</a>
+    <ul class="no-bullet">
+      <li><a id="toc-POSIX-Regular-Expression-Compilation" href="POSIX-Regexp-Compilation.html">10.3.1 POSIX Regular Expression Compilation</a></li>
+      <li><a id="toc-Flags-for-POSIX-Regular-Expressions" href="Flags-for-POSIX-Regexps.html">10.3.2 Flags for POSIX Regular Expressions</a></li>
+      <li><a id="toc-Matching-a-Compiled-POSIX-Regular-Expression" href="Matching-POSIX-Regexps.html">10.3.3 Matching a Compiled POSIX Regular Expression</a></li>
+      <li><a id="toc-Match-Results-with-Subexpressions" href="Regexp-Subexpressions.html">10.3.4 Match Results with Subexpressions</a></li>
+      <li><a id="toc-Complications-in-Subexpression-Matching" href="Subexpression-Complications.html">10.3.5 Complications in Subexpression Matching</a></li>
+      <li><a id="toc-POSIX-Regexp-Matching-Cleanup" href="Regexp-Cleanup.html">10.3.6 POSIX Regexp Matching Cleanup</a></li>
+    </ul></li>
+    <li><a id="toc-Shell_002dStyle-Word-Expansion" href="Word-Expansion.html">10.4 Shell-Style Word Expansion</a>
+    <ul class="no-bullet">
+      <li><a id="toc-The-Stages-of-Word-Expansion" href="Expansion-Stages.html">10.4.1 The Stages of Word Expansion</a></li>
+      <li><a id="toc-Calling-wordexp" href="Calling-Wordexp.html">10.4.2 Calling <code>wordexp</code></a></li>
+      <li><a id="toc-Flags-for-Word-Expansion" href="Flags-for-Wordexp.html">10.4.3 Flags for Word Expansion</a></li>
+      <li><a id="toc-wordexp-Example" href="Wordexp-Example.html">10.4.4 <code>wordexp</code> Example</a></li>
+      <li><a id="toc-Details-of-Tilde-Expansion" href="Tilde-Expansion.html">10.4.5 Details of Tilde Expansion</a></li>
+      <li><a id="toc-Details-of-Variable-Substitution" href="Variable-Substitution.html">10.4.6 Details of Variable Substitution</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-Input_002fOutput-Overview" href="I_002fO-Overview.html">11 Input/Output Overview</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Input_002fOutput-Concepts" href="I_002fO-Concepts.html">11.1 Input/Output Concepts</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Streams-and-File-Descriptors-1" href="Streams-and-File-Descriptors.html">11.1.1 Streams and File Descriptors</a></li>
+      <li><a id="toc-File-Position-1" href="File-Position.html">11.1.2 File Position</a></li>
+    </ul></li>
+    <li><a id="toc-File-Names-1" href="File-Names.html">11.2 File Names</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Directories-1" href="Directories.html">11.2.1 Directories</a></li>
+      <li><a id="toc-File-Name-Resolution-1" href="File-Name-Resolution.html">11.2.2 File Name Resolution</a></li>
+      <li><a id="toc-File-Name-Errors-1" href="File-Name-Errors.html">11.2.3 File Name Errors</a></li>
+      <li><a id="toc-Portability-of-File-Names" href="File-Name-Portability.html">11.2.4 Portability of File Names</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-Input_002fOutput-on-Streams" href="I_002fO-on-Streams.html">12 Input/Output on Streams</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Streams-1" href="Streams.html">12.1 Streams</a></li>
+    <li><a id="toc-Standard-Streams-1" href="Standard-Streams.html">12.2 Standard Streams</a></li>
+    <li><a id="toc-Opening-Streams-1" href="Opening-Streams.html">12.3 Opening Streams</a></li>
+    <li><a id="toc-Closing-Streams-1" href="Closing-Streams.html">12.4 Closing Streams</a></li>
+    <li><a id="toc-Streams-and-Threads-1" href="Streams-and-Threads.html">12.5 Streams and Threads</a></li>
+    <li><a id="toc-Streams-in-Internationalized-Applications" href="Streams-and-I18N.html">12.6 Streams in Internationalized Applications</a></li>
+    <li><a id="toc-Simple-Output-by-Characters-or-Lines" href="Simple-Output.html">12.7 Simple Output by Characters or Lines</a></li>
+    <li><a id="toc-Character-Input-1" href="Character-Input.html">12.8 Character Input</a></li>
+    <li><a id="toc-Line_002dOriented-Input" href="Line-Input.html">12.9 Line-Oriented Input</a></li>
+    <li><a id="toc-Unreading-1" href="Unreading.html">12.10 Unreading</a>
+    <ul class="no-bullet">
+      <li><a id="toc-What-Unreading-Means" href="Unreading-Idea.html">12.10.1 What Unreading Means</a></li>
+      <li><a id="toc-Using-ungetc-To-Do-Unreading" href="How-Unread.html">12.10.2 Using <code>ungetc</code> To Do Unreading</a></li>
+    </ul></li>
+    <li><a id="toc-Block-Input_002fOutput-1" href="Block-Input_002fOutput.html">12.11 Block Input/Output</a></li>
+    <li><a id="toc-Formatted-Output-1" href="Formatted-Output.html">12.12 Formatted Output</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Formatted-Output-Basics-1" href="Formatted-Output-Basics.html">12.12.1 Formatted Output Basics</a></li>
+      <li><a id="toc-Output-Conversion-Syntax-1" href="Output-Conversion-Syntax.html">12.12.2 Output Conversion Syntax</a></li>
+      <li><a id="toc-Table-of-Output-Conversions-1" href="Table-of-Output-Conversions.html">12.12.3 Table of Output Conversions</a></li>
+      <li><a id="toc-Integer-Conversions-1" href="Integer-Conversions.html">12.12.4 Integer Conversions</a></li>
+      <li><a id="toc-Floating_002dPoint-Conversions-1" href="Floating_002dPoint-Conversions.html">12.12.5 Floating-Point Conversions</a></li>
+      <li><a id="toc-Other-Output-Conversions-1" href="Other-Output-Conversions.html">12.12.6 Other Output Conversions</a></li>
+      <li><a id="toc-Formatted-Output-Functions-1" href="Formatted-Output-Functions.html">12.12.7 Formatted Output Functions</a></li>
+      <li><a id="toc-Dynamically-Allocating-Formatted-Output" href="Dynamic-Output.html">12.12.8 Dynamically Allocating Formatted Output</a></li>
+      <li><a id="toc-Variable-Arguments-Output-Functions" href="Variable-Arguments-Output.html">12.12.9 Variable Arguments Output Functions</a></li>
+      <li><a id="toc-Parsing-a-Template-String-1" href="Parsing-a-Template-String.html">12.12.10 Parsing a Template String</a></li>
+      <li><a id="toc-Example-of-Parsing-a-Template-String" href="Example-of-Parsing.html">12.12.11 Example of Parsing a Template String</a></li>
+    </ul></li>
+    <li><a id="toc-Customizing-printf" href="Customizing-Printf.html">12.13 Customizing <code>printf</code></a>
+    <ul class="no-bullet">
+      <li><a id="toc-Registering-New-Conversions-1" href="Registering-New-Conversions.html">12.13.1 Registering New Conversions</a></li>
+      <li><a id="toc-Conversion-Specifier-Options-1" href="Conversion-Specifier-Options.html">12.13.2 Conversion Specifier Options</a></li>
+      <li><a id="toc-Defining-the-Output-Handler-1" href="Defining-the-Output-Handler.html">12.13.3 Defining the Output Handler</a></li>
+      <li><a id="toc-printf-Extension-Example" href="Printf-Extension-Example.html">12.13.4 <code>printf</code> Extension Example</a></li>
+      <li><a id="toc-Predefined-printf-Handlers" href="Predefined-Printf-Handlers.html">12.13.5 Predefined <code>printf</code> Handlers</a></li>
+    </ul></li>
+    <li><a id="toc-Formatted-Input-1" href="Formatted-Input.html">12.14 Formatted Input</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Formatted-Input-Basics-1" href="Formatted-Input-Basics.html">12.14.1 Formatted Input Basics</a></li>
+      <li><a id="toc-Input-Conversion-Syntax-1" href="Input-Conversion-Syntax.html">12.14.2 Input Conversion Syntax</a></li>
+      <li><a id="toc-Table-of-Input-Conversions-1" href="Table-of-Input-Conversions.html">12.14.3 Table of Input Conversions</a></li>
+      <li><a id="toc-Numeric-Input-Conversions-1" href="Numeric-Input-Conversions.html">12.14.4 Numeric Input Conversions</a></li>
+      <li><a id="toc-String-Input-Conversions-1" href="String-Input-Conversions.html">12.14.5 String Input Conversions</a></li>
+      <li><a id="toc-Dynamically-Allocating-String-Conversions" href="Dynamic-String-Input.html">12.14.6 Dynamically Allocating String Conversions</a></li>
+      <li><a id="toc-Other-Input-Conversions-1" href="Other-Input-Conversions.html">12.14.7 Other Input Conversions</a></li>
+      <li><a id="toc-Formatted-Input-Functions-1" href="Formatted-Input-Functions.html">12.14.8 Formatted Input Functions</a></li>
+      <li><a id="toc-Variable-Arguments-Input-Functions" href="Variable-Arguments-Input.html">12.14.9 Variable Arguments Input Functions</a></li>
+    </ul></li>
+    <li><a id="toc-End_002dOf_002dFile-and-Errors" href="EOF-and-Errors.html">12.15 End-Of-File and Errors</a></li>
+    <li><a id="toc-Recovering-from-errors" href="Error-Recovery.html">12.16 Recovering from errors</a></li>
+    <li><a id="toc-Text-and-Binary-Streams" href="Binary-Streams.html">12.17 Text and Binary Streams</a></li>
+    <li><a id="toc-File-Positioning-1" href="File-Positioning.html">12.18 File Positioning</a></li>
+    <li><a id="toc-Portable-File_002dPosition-Functions" href="Portable-Positioning.html">12.19 Portable File-Position Functions</a></li>
+    <li><a id="toc-Stream-Buffering-1" href="Stream-Buffering.html">12.20 Stream Buffering</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Buffering-Concepts-1" href="Buffering-Concepts.html">12.20.1 Buffering Concepts</a></li>
+      <li><a id="toc-Flushing-Buffers-1" href="Flushing-Buffers.html">12.20.2 Flushing Buffers</a></li>
+      <li><a id="toc-Controlling-Which-Kind-of-Buffering" href="Controlling-Buffering.html">12.20.3 Controlling Which Kind of Buffering</a></li>
+    </ul></li>
+    <li><a id="toc-Other-Kinds-of-Streams-1" href="Other-Kinds-of-Streams.html">12.21 Other Kinds of Streams</a>
+    <ul class="no-bullet">
+      <li><a id="toc-String-Streams-1" href="String-Streams.html">12.21.1 String Streams</a></li>
+      <li><a id="toc-Programming-Your-Own-Custom-Streams" href="Custom-Streams.html">12.21.2 Programming Your Own Custom Streams</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Custom-Streams-and-Cookies" href="Streams-and-Cookies.html">12.21.2.1 Custom Streams and Cookies</a></li>
+        <li><a id="toc-Custom-Stream-Hook-Functions" href="Hook-Functions.html">12.21.2.2 Custom Stream Hook Functions</a></li>
+      </ul></li>
+    </ul></li>
+    <li><a id="toc-Formatted-Messages-1" href="Formatted-Messages.html">12.22 Formatted Messages</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Printing-Formatted-Messages-1" href="Printing-Formatted-Messages.html">12.22.1 Printing Formatted Messages</a></li>
+      <li><a id="toc-Adding-Severity-Classes-1" href="Adding-Severity-Classes.html">12.22.2 Adding Severity Classes</a></li>
+      <li><a id="toc-How-to-use-fmtmsg-and-addseverity" href="Example.html">12.22.3 How to use <code>fmtmsg</code> and <code>addseverity</code></a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-Low_002dLevel-Input_002fOutput" href="Low_002dLevel-I_002fO.html">13 Low-Level Input/Output</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Opening-and-Closing-Files-1" href="Opening-and-Closing-Files.html">13.1 Opening and Closing Files</a></li>
+    <li><a id="toc-Input-and-Output-Primitives" href="I_002fO-Primitives.html">13.2 Input and Output Primitives</a></li>
+    <li><a id="toc-Setting-the-File-Position-of-a-Descriptor" href="File-Position-Primitive.html">13.3 Setting the File Position of a Descriptor</a></li>
+    <li><a id="toc-Descriptors-and-Streams-1" href="Descriptors-and-Streams.html">13.4 Descriptors and Streams</a></li>
+    <li><a id="toc-Dangers-of-Mixing-Streams-and-Descriptors" href="Stream_002fDescriptor-Precautions.html">13.5 Dangers of Mixing Streams and Descriptors</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Linked-Channels-1" href="Linked-Channels.html">13.5.1 Linked Channels</a></li>
+      <li><a id="toc-Independent-Channels-1" href="Independent-Channels.html">13.5.2 Independent Channels</a></li>
+      <li><a id="toc-Cleaning-Streams-1" href="Cleaning-Streams.html">13.5.3 Cleaning Streams</a></li>
+    </ul></li>
+    <li><a id="toc-Fast-Scatter_002dGather-I_002fO" href="Scatter_002dGather.html">13.6 Fast Scatter-Gather I/O</a></li>
+    <li><a id="toc-Copying-data-between-two-files" href="Copying-File-Data.html">13.7 Copying data between two files</a></li>
+    <li><a id="toc-Memory_002dmapped-I_002fO-1" href="Memory_002dmapped-I_002fO.html">13.8 Memory-mapped I/O</a></li>
+    <li><a id="toc-Waiting-for-Input-or-Output" href="Waiting-for-I_002fO.html">13.9 Waiting for Input or Output</a></li>
+    <li><a id="toc-Synchronizing-I_002fO-operations" href="Synchronizing-I_002fO.html">13.10 Synchronizing I/O operations</a></li>
+    <li><a id="toc-Perform-I_002fO-Operations-in-Parallel" href="Asynchronous-I_002fO.html">13.11 Perform I/O Operations in Parallel</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Asynchronous-Read-and-Write-Operations" href="Asynchronous-Reads_002fWrites.html">13.11.1 Asynchronous Read and Write Operations</a></li>
+      <li><a id="toc-Getting-the-Status-of-AIO-Operations" href="Status-of-AIO-Operations.html">13.11.2 Getting the Status of AIO Operations</a></li>
+      <li><a id="toc-Getting-into-a-Consistent-State" href="Synchronizing-AIO-Operations.html">13.11.3 Getting into a Consistent State</a></li>
+      <li><a id="toc-Cancellation-of-AIO-Operations" href="Cancel-AIO-Operations.html">13.11.4 Cancellation of AIO Operations</a></li>
+      <li><a id="toc-How-to-optimize-the-AIO-implementation" href="Configuration-of-AIO.html">13.11.5 How to optimize the AIO implementation</a></li>
+    </ul></li>
+    <li><a id="toc-Control-Operations-on-Files" href="Control-Operations.html">13.12 Control Operations on Files</a></li>
+    <li><a id="toc-Duplicating-Descriptors-1" href="Duplicating-Descriptors.html">13.13 Duplicating Descriptors</a></li>
+    <li><a id="toc-File-Descriptor-Flags" href="Descriptor-Flags.html">13.14 File Descriptor Flags</a></li>
+    <li><a id="toc-File-Status-Flags-1" href="File-Status-Flags.html">13.15 File Status Flags</a>
+    <ul class="no-bullet">
+      <li><a id="toc-File-Access-Modes" href="Access-Modes.html">13.15.1 File Access Modes</a></li>
+      <li><a id="toc-Open_002dtime-Flags-1" href="Open_002dtime-Flags.html">13.15.2 Open-time Flags</a></li>
+      <li><a id="toc-I_002fO-Operating-Modes" href="Operating-Modes.html">13.15.3 I/O Operating Modes</a></li>
+      <li><a id="toc-Getting-and-Setting-File-Status-Flags" href="Getting-File-Status-Flags.html">13.15.4 Getting and Setting File Status Flags</a></li>
+    </ul></li>
+    <li><a id="toc-File-Locks-1" href="File-Locks.html">13.16 File Locks</a></li>
+    <li><a id="toc-Open-File-Description-Locks-1" href="Open-File-Description-Locks.html">13.17 Open File Description Locks</a></li>
+    <li><a id="toc-Open-File-Description-Locks-Example-1" href="Open-File-Description-Locks-Example.html">13.18 Open File Description Locks Example</a></li>
+    <li><a id="toc-Interrupt_002dDriven-Input" href="Interrupt-Input.html">13.19 Interrupt-Driven Input</a></li>
+    <li><a id="toc-Generic-I_002fO-Control-operations" href="IOCTLs.html">13.20 Generic I/O Control operations</a></li>
+  </ul></li>
+  <li><a id="toc-File-System-Interface-1" href="File-System-Interface.html">14 File System Interface</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Working-Directory-1" href="Working-Directory.html">14.1 Working Directory</a></li>
+    <li><a id="toc-Accessing-Directories-1" href="Accessing-Directories.html">14.2 Accessing Directories</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Format-of-a-Directory-Entry" href="Directory-Entries.html">14.2.1 Format of a Directory Entry</a></li>
+      <li><a id="toc-Opening-a-Directory-Stream" href="Opening-a-Directory.html">14.2.2 Opening a Directory Stream</a></li>
+      <li><a id="toc-Reading-and-Closing-a-Directory-Stream" href="Reading_002fClosing-Directory.html">14.2.3 Reading and Closing a Directory Stream</a></li>
+      <li><a id="toc-Simple-Program-to-List-a-Directory" href="Simple-Directory-Lister.html">14.2.4 Simple Program to List a Directory</a></li>
+      <li><a id="toc-Random-Access-in-a-Directory-Stream" href="Random-Access-Directory.html">14.2.5 Random Access in a Directory Stream</a></li>
+      <li><a id="toc-Scanning-the-Content-of-a-Directory" href="Scanning-Directory-Content.html">14.2.6 Scanning the Content of a Directory</a></li>
+      <li><a id="toc-Simple-Program-to-List-a-Directory_002c-Mark-II" href="Simple-Directory-Lister-Mark-II.html">14.2.7 Simple Program to List a Directory, Mark II</a></li>
+      <li><a id="toc-Low_002dlevel-Directory-Access-1" href="Low_002dlevel-Directory-Access.html">14.2.8 Low-level Directory Access</a></li>
+    </ul></li>
+    <li><a id="toc-Working-with-Directory-Trees-1" href="Working-with-Directory-Trees.html">14.3 Working with Directory Trees</a></li>
+    <li><a id="toc-Hard-Links-1" href="Hard-Links.html">14.4 Hard Links</a></li>
+    <li><a id="toc-Symbolic-Links-1" href="Symbolic-Links.html">14.5 Symbolic Links</a></li>
+    <li><a id="toc-Deleting-Files-1" href="Deleting-Files.html">14.6 Deleting Files</a></li>
+    <li><a id="toc-Renaming-Files-1" href="Renaming-Files.html">14.7 Renaming Files</a></li>
+    <li><a id="toc-Creating-Directories-1" href="Creating-Directories.html">14.8 Creating Directories</a></li>
+    <li><a id="toc-File-Attributes-1" href="File-Attributes.html">14.9 File Attributes</a>
+    <ul class="no-bullet">
+      <li><a id="toc-The-meaning-of-the-File-Attributes" href="Attribute-Meanings.html">14.9.1 The meaning of the File Attributes</a></li>
+      <li><a id="toc-Reading-the-Attributes-of-a-File" href="Reading-Attributes.html">14.9.2 Reading the Attributes of a File</a></li>
+      <li><a id="toc-Testing-the-Type-of-a-File" href="Testing-File-Type.html">14.9.3 Testing the Type of a File</a></li>
+      <li><a id="toc-File-Owner-1" href="File-Owner.html">14.9.4 File Owner</a></li>
+      <li><a id="toc-The-Mode-Bits-for-Access-Permission" href="Permission-Bits.html">14.9.5 The Mode Bits for Access Permission</a></li>
+      <li><a id="toc-How-Your-Access-to-a-File-is-Decided" href="Access-Permission.html">14.9.6 How Your Access to a File is Decided</a></li>
+      <li><a id="toc-Assigning-File-Permissions" href="Setting-Permissions.html">14.9.7 Assigning File Permissions</a></li>
+      <li><a id="toc-Testing-Permission-to-Access-a-File" href="Testing-File-Access.html">14.9.8 Testing Permission to Access a File</a></li>
+      <li><a id="toc-File-Times-1" href="File-Times.html">14.9.9 File Times</a></li>
+      <li><a id="toc-File-Size-1" href="File-Size.html">14.9.10 File Size</a></li>
+      <li><a id="toc-Storage-Allocation-1" href="Storage-Allocation.html">14.9.11 Storage Allocation</a></li>
+    </ul></li>
+    <li><a id="toc-Making-Special-Files-1" href="Making-Special-Files.html">14.10 Making Special Files</a></li>
+    <li><a id="toc-Temporary-Files-1" href="Temporary-Files.html">14.11 Temporary Files</a></li>
+  </ul></li>
+  <li><a id="toc-Pipes-and-FIFOs-1" href="Pipes-and-FIFOs.html">15 Pipes and FIFOs</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Creating-a-Pipe-1" href="Creating-a-Pipe.html">15.1 Creating a Pipe</a></li>
+    <li><a id="toc-Pipe-to-a-Subprocess-1" href="Pipe-to-a-Subprocess.html">15.2 Pipe to a Subprocess</a></li>
+    <li><a id="toc-FIFO-Special-Files-1" href="FIFO-Special-Files.html">15.3 FIFO Special Files</a></li>
+    <li><a id="toc-Atomicity-of-Pipe-I_002fO" href="Pipe-Atomicity.html">15.4 Atomicity of Pipe I/O</a></li>
+  </ul></li>
+  <li><a id="toc-Sockets-1" href="Sockets.html">16 Sockets</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Socket-Concepts-1" href="Socket-Concepts.html">16.1 Socket Concepts</a></li>
+    <li><a id="toc-Communication-Styles-1" href="Communication-Styles.html">16.2 Communication Styles</a></li>
+    <li><a id="toc-Socket-Addresses-1" href="Socket-Addresses.html">16.3 Socket Addresses</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Address-Formats-1" href="Address-Formats.html">16.3.1 Address Formats</a></li>
+      <li><a id="toc-Setting-the-Address-of-a-Socket" href="Setting-Address.html">16.3.2 Setting the Address of a Socket</a></li>
+      <li><a id="toc-Reading-the-Address-of-a-Socket" href="Reading-Address.html">16.3.3 Reading the Address of a Socket</a></li>
+    </ul></li>
+    <li><a id="toc-Interface-Naming-1" href="Interface-Naming.html">16.4 Interface Naming</a></li>
+    <li><a id="toc-The-Local-Namespace" href="Local-Namespace.html">16.5 The Local Namespace</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Local-Namespace-Concepts-1" href="Local-Namespace-Concepts.html">16.5.1 Local Namespace Concepts</a></li>
+      <li><a id="toc-Details-of-Local-Namespace" href="Local-Namespace-Details.html">16.5.2 Details of Local Namespace</a></li>
+      <li><a id="toc-Example-of-Local_002dNamespace-Sockets" href="Local-Socket-Example.html">16.5.3 Example of Local-Namespace Sockets</a></li>
+    </ul></li>
+    <li><a id="toc-The-Internet-Namespace" href="Internet-Namespace.html">16.6 The Internet Namespace</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Internet-Socket-Address-Formats" href="Internet-Address-Formats.html">16.6.1 Internet Socket Address Formats</a></li>
+      <li><a id="toc-Host-Addresses-1" href="Host-Addresses.html">16.6.2 Host Addresses</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Internet-Host-Addresses" href="Abstract-Host-Addresses.html">16.6.2.1 Internet Host Addresses</a></li>
+        <li><a id="toc-Host-Address-Data-Type-1" href="Host-Address-Data-Type.html">16.6.2.2 Host Address Data Type</a></li>
+        <li><a id="toc-Host-Address-Functions-1" href="Host-Address-Functions.html">16.6.2.3 Host Address Functions</a></li>
+        <li><a id="toc-Host-Names-1" href="Host-Names.html">16.6.2.4 Host Names</a></li>
+      </ul></li>
+      <li><a id="toc-Internet-Ports" href="Ports.html">16.6.3 Internet Ports</a></li>
+      <li><a id="toc-The-Services-Database" href="Services-Database.html">16.6.4 The Services Database</a></li>
+      <li><a id="toc-Byte-Order-Conversion" href="Byte-Order.html">16.6.5 Byte Order Conversion</a></li>
+      <li><a id="toc-Protocols-Database-1" href="Protocols-Database.html">16.6.6 Protocols Database</a></li>
+      <li><a id="toc-Internet-Socket-Example" href="Inet-Example.html">16.6.7 Internet Socket Example</a></li>
+    </ul></li>
+    <li><a id="toc-Other-Namespaces" href="Misc-Namespaces.html">16.7 Other Namespaces</a></li>
+    <li><a id="toc-Opening-and-Closing-Sockets" href="Open_002fClose-Sockets.html">16.8 Opening and Closing Sockets</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Creating-a-Socket-1" href="Creating-a-Socket.html">16.8.1 Creating a Socket</a></li>
+      <li><a id="toc-Closing-a-Socket-1" href="Closing-a-Socket.html">16.8.2 Closing a Socket</a></li>
+      <li><a id="toc-Socket-Pairs-1" href="Socket-Pairs.html">16.8.3 Socket Pairs</a></li>
+    </ul></li>
+    <li><a id="toc-Using-Sockets-with-Connections" href="Connections.html">16.9 Using Sockets with Connections</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Making-a-Connection" href="Connecting.html">16.9.1 Making a Connection</a></li>
+      <li><a id="toc-Listening-for-Connections" href="Listening.html">16.9.2 Listening for Connections</a></li>
+      <li><a id="toc-Accepting-Connections-1" href="Accepting-Connections.html">16.9.3 Accepting Connections</a></li>
+      <li><a id="toc-Who-is-Connected-to-Me_003f" href="Who-is-Connected.html">16.9.4 Who is Connected to Me?</a></li>
+      <li><a id="toc-Transferring-Data-1" href="Transferring-Data.html">16.9.5 Transferring Data</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Sending-Data-1" href="Sending-Data.html">16.9.5.1 Sending Data</a></li>
+        <li><a id="toc-Receiving-Data-1" href="Receiving-Data.html">16.9.5.2 Receiving Data</a></li>
+        <li><a id="toc-Socket-Data-Options-1" href="Socket-Data-Options.html">16.9.5.3 Socket Data Options</a></li>
+      </ul></li>
+      <li><a id="toc-Byte-Stream-Socket-Example" href="Byte-Stream-Example.html">16.9.6 Byte Stream Socket Example</a></li>
+      <li><a id="toc-Byte-Stream-Connection-Server-Example" href="Server-Example.html">16.9.7 Byte Stream Connection Server Example</a></li>
+      <li><a id="toc-Out_002dof_002dBand-Data-1" href="Out_002dof_002dBand-Data.html">16.9.8 Out-of-Band Data</a></li>
+    </ul></li>
+    <li><a id="toc-Datagram-Socket-Operations" href="Datagrams.html">16.10 Datagram Socket Operations</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Sending-Datagrams-1" href="Sending-Datagrams.html">16.10.1 Sending Datagrams</a></li>
+      <li><a id="toc-Receiving-Datagrams-1" href="Receiving-Datagrams.html">16.10.2 Receiving Datagrams</a></li>
+      <li><a id="toc-Datagram-Socket-Example" href="Datagram-Example.html">16.10.3 Datagram Socket Example</a></li>
+      <li><a id="toc-Example-of-Reading-Datagrams" href="Example-Receiver.html">16.10.4 Example of Reading Datagrams</a></li>
+    </ul></li>
+    <li><a id="toc-The-inetd-Daemon" href="Inetd.html">16.11 The <code>inetd</code> Daemon</a>
+    <ul class="no-bullet">
+      <li><a id="toc-inetd-Servers" href="Inetd-Servers.html">16.11.1 <code>inetd</code> Servers</a></li>
+      <li><a id="toc-Configuring-inetd" href="Configuring-Inetd.html">16.11.2 Configuring <code>inetd</code></a></li>
+    </ul></li>
+    <li><a id="toc-Socket-Options-1" href="Socket-Options.html">16.12 Socket Options</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Socket-Option-Functions-1" href="Socket-Option-Functions.html">16.12.1 Socket Option Functions</a></li>
+      <li><a id="toc-Socket_002dLevel-Options-1" href="Socket_002dLevel-Options.html">16.12.2 Socket-Level Options</a></li>
+    </ul></li>
+    <li><a id="toc-Networks-Database-1" href="Networks-Database.html">16.13 Networks Database</a></li>
+  </ul></li>
+  <li><a id="toc-Low_002dLevel-Terminal-Interface-1" href="Low_002dLevel-Terminal-Interface.html">17 Low-Level Terminal Interface</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Identifying-Terminals" href="Is-It-a-Terminal.html">17.1 Identifying Terminals</a></li>
+    <li><a id="toc-I_002fO-Queues-1" href="I_002fO-Queues.html">17.2 I/O Queues</a></li>
+    <li><a id="toc-Two-Styles-of-Input_003a-Canonical-or-Not" href="Canonical-or-Not.html">17.3 Two Styles of Input: Canonical or Not</a></li>
+    <li><a id="toc-Terminal-Modes-1" href="Terminal-Modes.html">17.4 Terminal Modes</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Terminal-Mode-Data-Types" href="Mode-Data-Types.html">17.4.1 Terminal Mode Data Types</a></li>
+      <li><a id="toc-Terminal-Mode-Functions" href="Mode-Functions.html">17.4.2 Terminal Mode Functions</a></li>
+      <li><a id="toc-Setting-Terminal-Modes-Properly" href="Setting-Modes.html">17.4.3 Setting Terminal Modes Properly</a></li>
+      <li><a id="toc-Input-Modes-1" href="Input-Modes.html">17.4.4 Input Modes</a></li>
+      <li><a id="toc-Output-Modes-1" href="Output-Modes.html">17.4.5 Output Modes</a></li>
+      <li><a id="toc-Control-Modes-1" href="Control-Modes.html">17.4.6 Control Modes</a></li>
+      <li><a id="toc-Local-Modes-1" href="Local-Modes.html">17.4.7 Local Modes</a></li>
+      <li><a id="toc-Line-Speed-1" href="Line-Speed.html">17.4.8 Line Speed</a></li>
+      <li><a id="toc-Special-Characters-1" href="Special-Characters.html">17.4.9 Special Characters</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Characters-for-Input-Editing" href="Editing-Characters.html">17.4.9.1 Characters for Input Editing</a></li>
+        <li><a id="toc-Characters-that-Cause-Signals" href="Signal-Characters.html">17.4.9.2 Characters that Cause Signals</a></li>
+        <li><a id="toc-Special-Characters-for-Flow-Control" href="Start_002fStop-Characters.html">17.4.9.3 Special Characters for Flow Control</a></li>
+        <li><a id="toc-Other-Special-Characters" href="Other-Special.html">17.4.9.4 Other Special Characters</a></li>
+      </ul></li>
+      <li><a id="toc-Noncanonical-Input-1" href="Noncanonical-Input.html">17.4.10 Noncanonical Input</a></li>
+    </ul></li>
+    <li><a id="toc-BSD-Terminal-Modes-1" href="BSD-Terminal-Modes.html">17.5 BSD Terminal Modes</a></li>
+    <li><a id="toc-Line-Control-Functions" href="Line-Control.html">17.6 Line Control Functions</a></li>
+    <li><a id="toc-Noncanonical-Mode-Example" href="Noncanon-Example.html">17.7 Noncanonical Mode Example</a></li>
+    <li><a id="toc-Reading-Passphrases" href="getpass.html">17.8 Reading Passphrases</a></li>
+    <li><a id="toc-Pseudo_002dTerminals-1" href="Pseudo_002dTerminals.html">17.9 Pseudo-Terminals</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Allocating-Pseudo_002dTerminals" href="Allocation.html">17.9.1 Allocating Pseudo-Terminals</a></li>
+      <li><a id="toc-Opening-a-Pseudo_002dTerminal-Pair" href="Pseudo_002dTerminal-Pairs.html">17.9.2 Opening a Pseudo-Terminal Pair</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-Syslog-1" href="Syslog.html">18 Syslog</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Overview-of-Syslog-1" href="Overview-of-Syslog.html">18.1 Overview of Syslog</a></li>
+    <li><a id="toc-Submitting-Syslog-Messages-1" href="Submitting-Syslog-Messages.html">18.2 Submitting Syslog Messages</a>
+    <ul class="no-bullet">
+      <li><a id="toc-openlog-1" href="openlog.html">18.2.1 openlog</a></li>
+      <li><a id="toc-syslog_002c-vsyslog" href="syslog_003b-vsyslog.html">18.2.2 syslog, vsyslog</a></li>
+      <li><a id="toc-closelog-1" href="closelog.html">18.2.3 closelog</a></li>
+      <li><a id="toc-setlogmask-1" href="setlogmask.html">18.2.4 setlogmask</a></li>
+      <li><a id="toc-Syslog-Example-1" href="Syslog-Example.html">18.2.5 Syslog Example</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-Mathematics-1" href="Mathematics.html">19 Mathematics</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Predefined-Mathematical-Constants" href="Mathematical-Constants.html">19.1 Predefined Mathematical Constants</a></li>
+    <li><a id="toc-Trigonometric-Functions" href="Trig-Functions.html">19.2 Trigonometric Functions</a></li>
+    <li><a id="toc-Inverse-Trigonometric-Functions" href="Inverse-Trig-Functions.html">19.3 Inverse Trigonometric Functions</a></li>
+    <li><a id="toc-Exponentiation-and-Logarithms" href="Exponents-and-Logarithms.html">19.4 Exponentiation and Logarithms</a></li>
+    <li><a id="toc-Hyperbolic-Functions-1" href="Hyperbolic-Functions.html">19.5 Hyperbolic Functions</a></li>
+    <li><a id="toc-Special-Functions-1" href="Special-Functions.html">19.6 Special Functions</a></li>
+    <li><a id="toc-Known-Maximum-Errors-in-Math-Functions" href="Errors-in-Math-Functions.html">19.7 Known Maximum Errors in Math Functions</a></li>
+    <li><a id="toc-Pseudo_002dRandom-Numbers-1" href="Pseudo_002dRandom-Numbers.html">19.8 Pseudo-Random Numbers</a>
+    <ul class="no-bullet">
+      <li><a id="toc-ISO-C-Random-Number-Functions" href="ISO-Random.html">19.8.1 ISO C Random Number Functions</a></li>
+      <li><a id="toc-BSD-Random-Number-Functions" href="BSD-Random.html">19.8.2 BSD Random Number Functions</a></li>
+      <li><a id="toc-SVID-Random-Number-Function" href="SVID-Random.html">19.8.3 SVID Random Number Function</a></li>
+      <li><a id="toc-High-Quality-Random-Number-Functions" href="High-Quality-Random.html">19.8.4 High Quality Random Number Functions</a></li>
+    </ul></li>
+    <li><a id="toc-Is-Fast-Code-or-Small-Code-preferred_003f" href="FP-Function-Optimizations.html">19.9 Is Fast Code or Small Code preferred?</a></li>
+  </ul></li>
+  <li><a id="toc-Arithmetic-Functions-1" href="Arithmetic.html">20 Arithmetic Functions</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Integers-1" href="Integers.html">20.1 Integers</a></li>
+    <li><a id="toc-Integer-Division-1" href="Integer-Division.html">20.2 Integer Division</a></li>
+    <li><a id="toc-Floating-Point-Numbers-1" href="Floating-Point-Numbers.html">20.3 Floating Point Numbers</a></li>
+    <li><a id="toc-Floating_002dPoint-Number-Classification-Functions" href="Floating-Point-Classes.html">20.4 Floating-Point Number Classification Functions</a></li>
+    <li><a id="toc-Errors-in-Floating_002dPoint-Calculations" href="Floating-Point-Errors.html">20.5 Errors in Floating-Point Calculations</a>
+    <ul class="no-bullet">
+      <li><a id="toc-FP-Exceptions-1" href="FP-Exceptions.html">20.5.1 FP Exceptions</a></li>
+      <li><a id="toc-Infinity-and-NaN-1" href="Infinity-and-NaN.html">20.5.2 Infinity and NaN</a></li>
+      <li><a id="toc-Examining-the-FPU-status-word" href="Status-bit-operations.html">20.5.3 Examining the FPU status word</a></li>
+      <li><a id="toc-Error-Reporting-by-Mathematical-Functions" href="Math-Error-Reporting.html">20.5.4 Error Reporting by Mathematical Functions</a></li>
+    </ul></li>
+    <li><a id="toc-Rounding-Modes" href="Rounding.html">20.6 Rounding Modes</a></li>
+    <li><a id="toc-Floating_002dPoint-Control-Functions" href="Control-Functions.html">20.7 Floating-Point Control Functions</a></li>
+    <li><a id="toc-Arithmetic-Functions-2" href="Arithmetic-Functions.html">20.8 Arithmetic Functions</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Absolute-Value-1" href="Absolute-Value.html">20.8.1 Absolute Value</a></li>
+      <li><a id="toc-Normalization-Functions-1" href="Normalization-Functions.html">20.8.2 Normalization Functions</a></li>
+      <li><a id="toc-Rounding-Functions-1" href="Rounding-Functions.html">20.8.3 Rounding Functions</a></li>
+      <li><a id="toc-Remainder-Functions-1" href="Remainder-Functions.html">20.8.4 Remainder Functions</a></li>
+      <li><a id="toc-Setting-and-modifying-single-bits-of-FP-values" href="FP-Bit-Twiddling.html">20.8.5 Setting and modifying single bits of FP values</a></li>
+      <li><a id="toc-Floating_002dPoint-Comparison-Functions" href="FP-Comparison-Functions.html">20.8.6 Floating-Point Comparison Functions</a></li>
+      <li><a id="toc-Miscellaneous-FP-arithmetic-functions" href="Misc-FP-Arithmetic.html">20.8.7 Miscellaneous FP arithmetic functions</a></li>
+    </ul></li>
+    <li><a id="toc-Complex-Numbers-1" href="Complex-Numbers.html">20.9 Complex Numbers</a></li>
+    <li><a id="toc-Projections_002c-Conjugates_002c-and-Decomposing-of-Complex-Numbers" href="Operations-on-Complex.html">20.10 Projections, Conjugates, and Decomposing of Complex Numbers</a></li>
+    <li><a id="toc-Parsing-of-Numbers-1" href="Parsing-of-Numbers.html">20.11 Parsing of Numbers</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Parsing-of-Integers-1" href="Parsing-of-Integers.html">20.11.1 Parsing of Integers</a></li>
+      <li><a id="toc-Parsing-of-Floats-1" href="Parsing-of-Floats.html">20.11.2 Parsing of Floats</a></li>
+    </ul></li>
+    <li><a id="toc-Printing-of-Floats-1" href="Printing-of-Floats.html">20.12 Printing of Floats</a></li>
+    <li><a id="toc-Old_002dfashioned-System-V-number_002dto_002dstring-functions" href="System-V-Number-Conversion.html">20.13 Old-fashioned System V number-to-string functions</a></li>
+  </ul></li>
+  <li><a id="toc-Date-and-Time-1" href="Date-and-Time.html">21 Date and Time</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Time-Basics-1" href="Time-Basics.html">21.1 Time Basics</a></li>
+    <li><a id="toc-Time-Types-1" href="Time-Types.html">21.2 Time Types</a></li>
+    <li><a id="toc-Calculating-Elapsed-Time-1" href="Calculating-Elapsed-Time.html">21.3 Calculating Elapsed Time</a></li>
+    <li><a id="toc-Processor-And-CPU-Time-1" href="Processor-And-CPU-Time.html">21.4 Processor And CPU Time</a>
+    <ul class="no-bullet">
+      <li><a id="toc-CPU-Time-Inquiry" href="CPU-Time.html">21.4.1 CPU Time Inquiry</a></li>
+      <li><a id="toc-Processor-Time-Inquiry" href="Processor-Time.html">21.4.2 Processor Time Inquiry</a></li>
+    </ul></li>
+    <li><a id="toc-Calendar-Time-1" href="Calendar-Time.html">21.5 Calendar Time</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Getting-the-Time-1" href="Getting-the-Time.html">21.5.1 Getting the Time</a></li>
+      <li><a id="toc-Setting-and-Adjusting-the-Time-1" href="Setting-and-Adjusting-the-Time.html">21.5.2 Setting and Adjusting the Time</a></li>
+      <li><a id="toc-Broken_002ddown-Time-1" href="Broken_002ddown-Time.html">21.5.3 Broken-down Time</a></li>
+      <li><a id="toc-Formatting-Calendar-Time-1" href="Formatting-Calendar-Time.html">21.5.4 Formatting Calendar Time</a></li>
+      <li><a id="toc-Convert-textual-time-and-date-information-back" href="Parsing-Date-and-Time.html">21.5.5 Convert textual time and date information back</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Interpret-string-according-to-given-format" href="Low_002dLevel-Time-String-Parsing.html">21.5.5.1 Interpret string according to given format</a></li>
+        <li><a id="toc-A-More-User_002dfriendly-Way-to-Parse-Times-and-Dates" href="General-Time-String-Parsing.html">21.5.5.2 A More User-friendly Way to Parse Times and Dates</a></li>
+      </ul></li>
+      <li><a id="toc-Specifying-the-Time-Zone-with-TZ" href="TZ-Variable.html">21.5.6 Specifying the Time Zone with <code>TZ</code></a></li>
+      <li><a id="toc-Functions-and-Variables-for-Time-Zones" href="Time-Zone-Functions.html">21.5.7 Functions and Variables for Time Zones</a></li>
+      <li><a id="toc-Time-Functions-Example-1" href="Time-Functions-Example.html">21.5.8 Time Functions Example</a></li>
+    </ul></li>
+    <li><a id="toc-Setting-an-Alarm-1" href="Setting-an-Alarm.html">21.6 Setting an Alarm</a></li>
+    <li><a id="toc-Sleeping-1" href="Sleeping.html">21.7 Sleeping</a></li>
+  </ul></li>
+  <li><a id="toc-Resource-Usage-And-Limitation-1" href="Resource-Usage-And-Limitation.html">22 Resource Usage And Limitation</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Resource-Usage-1" href="Resource-Usage.html">22.1 Resource Usage</a></li>
+    <li><a id="toc-Limiting-Resource-Usage" href="Limits-on-Resources.html">22.2 Limiting Resource Usage</a></li>
+    <li><a id="toc-Process-CPU-Priority-And-Scheduling" href="Priority.html">22.3 Process CPU Priority And Scheduling</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Absolute-Priority-1" href="Absolute-Priority.html">22.3.1 Absolute Priority</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Using-Absolute-Priority" href="Absolute-Priority.html#Using-Absolute-Priority">22.3.1.1 Using Absolute Priority</a></li>
+      </ul></li>
+      <li><a id="toc-Realtime-Scheduling-1" href="Realtime-Scheduling.html">22.3.2 Realtime Scheduling</a></li>
+      <li><a id="toc-Basic-Scheduling-Functions-1" href="Basic-Scheduling-Functions.html">22.3.3 Basic Scheduling Functions</a></li>
+      <li><a id="toc-Traditional-Scheduling-1" href="Traditional-Scheduling.html">22.3.4 Traditional Scheduling</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Introduction-To-Traditional-Scheduling" href="Traditional-Scheduling-Intro.html">22.3.4.1 Introduction To Traditional Scheduling</a></li>
+        <li><a id="toc-Functions-For-Traditional-Scheduling" href="Traditional-Scheduling-Functions.html">22.3.4.2 Functions For Traditional Scheduling</a></li>
+      </ul></li>
+      <li><a id="toc-Limiting-execution-to-certain-CPUs" href="CPU-Affinity.html">22.3.5 Limiting execution to certain CPUs</a></li>
+    </ul></li>
+    <li><a id="toc-Querying-memory-available-resources" href="Memory-Resources.html">22.4 Querying memory available resources</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Overview-about-traditional-Unix-memory-handling" href="Memory-Subsystem.html">22.4.1 Overview about traditional Unix memory handling</a></li>
+      <li><a id="toc-How-to-get-information-about-the-memory-subsystem_003f" href="Query-Memory-Parameters.html">22.4.2 How to get information about the memory subsystem?</a></li>
+    </ul></li>
+    <li><a id="toc-Learn-about-the-processors-available" href="Processor-Resources.html">22.5 Learn about the processors available</a></li>
+  </ul></li>
+  <li><a id="toc-Non_002dLocal-Exits-1" href="Non_002dLocal-Exits.html">23 Non-Local Exits</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Introduction-to-Non_002dLocal-Exits" href="Non_002dLocal-Intro.html">23.1 Introduction to Non-Local Exits</a></li>
+    <li><a id="toc-Details-of-Non_002dLocal-Exits" href="Non_002dLocal-Details.html">23.2 Details of Non-Local Exits</a></li>
+    <li><a id="toc-Non_002dLocal-Exits-and-Signals-1" href="Non_002dLocal-Exits-and-Signals.html">23.3 Non-Local Exits and Signals</a></li>
+    <li><a id="toc-Complete-Context-Control" href="System-V-contexts.html">23.4 Complete Context Control</a></li>
+  </ul></li>
+  <li><a id="toc-Signal-Handling-1" href="Signal-Handling.html">24 Signal Handling</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Basic-Concepts-of-Signals" href="Concepts-of-Signals.html">24.1 Basic Concepts of Signals</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Some-Kinds-of-Signals" href="Kinds-of-Signals.html">24.1.1 Some Kinds of Signals</a></li>
+      <li><a id="toc-Concepts-of-Signal-Generation" href="Signal-Generation.html">24.1.2 Concepts of Signal Generation</a></li>
+      <li><a id="toc-How-Signals-Are-Delivered" href="Delivery-of-Signal.html">24.1.3 How Signals Are Delivered</a></li>
+    </ul></li>
+    <li><a id="toc-Standard-Signals-1" href="Standard-Signals.html">24.2 Standard Signals</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Program-Error-Signals-1" href="Program-Error-Signals.html">24.2.1 Program Error Signals</a></li>
+      <li><a id="toc-Termination-Signals-1" href="Termination-Signals.html">24.2.2 Termination Signals</a></li>
+      <li><a id="toc-Alarm-Signals-1" href="Alarm-Signals.html">24.2.3 Alarm Signals</a></li>
+      <li><a id="toc-Asynchronous-I_002fO-Signals-1" href="Asynchronous-I_002fO-Signals.html">24.2.4 Asynchronous I/O Signals</a></li>
+      <li><a id="toc-Job-Control-Signals-1" href="Job-Control-Signals.html">24.2.5 Job Control Signals</a></li>
+      <li><a id="toc-Operation-Error-Signals-1" href="Operation-Error-Signals.html">24.2.6 Operation Error Signals</a></li>
+      <li><a id="toc-Miscellaneous-Signals-1" href="Miscellaneous-Signals.html">24.2.7 Miscellaneous Signals</a></li>
+      <li><a id="toc-Signal-Messages-1" href="Signal-Messages.html">24.2.8 Signal Messages</a></li>
+    </ul></li>
+    <li><a id="toc-Specifying-Signal-Actions" href="Signal-Actions.html">24.3 Specifying Signal Actions</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Basic-Signal-Handling-1" href="Basic-Signal-Handling.html">24.3.1 Basic Signal Handling</a></li>
+      <li><a id="toc-Advanced-Signal-Handling-1" href="Advanced-Signal-Handling.html">24.3.2 Advanced Signal Handling</a></li>
+      <li><a id="toc-Interaction-of-signal-and-sigaction" href="Signal-and-Sigaction.html">24.3.3 Interaction of <code>signal</code> and <code>sigaction</code></a></li>
+      <li><a id="toc-sigaction-Function-Example" href="Sigaction-Function-Example.html">24.3.4 <code>sigaction</code> Function Example</a></li>
+      <li><a id="toc-Flags-for-sigaction" href="Flags-for-Sigaction.html">24.3.5 Flags for <code>sigaction</code></a></li>
+      <li><a id="toc-Initial-Signal-Actions-1" href="Initial-Signal-Actions.html">24.3.6 Initial Signal Actions</a></li>
+    </ul></li>
+    <li><a id="toc-Defining-Signal-Handlers" href="Defining-Handlers.html">24.4 Defining Signal Handlers</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Signal-Handlers-that-Return" href="Handler-Returns.html">24.4.1 Signal Handlers that Return</a></li>
+      <li><a id="toc-Handlers-That-Terminate-the-Process" href="Termination-in-Handler.html">24.4.2 Handlers That Terminate the Process</a></li>
+      <li><a id="toc-Nonlocal-Control-Transfer-in-Handlers" href="Longjmp-in-Handler.html">24.4.3 Nonlocal Control Transfer in Handlers</a></li>
+      <li><a id="toc-Signals-Arriving-While-a-Handler-Runs" href="Signals-in-Handler.html">24.4.4 Signals Arriving While a Handler Runs</a></li>
+      <li><a id="toc-Signals-Close-Together-Merge-into-One" href="Merged-Signals.html">24.4.5 Signals Close Together Merge into One</a></li>
+      <li><a id="toc-Signal-Handling-and-Nonreentrant-Functions" href="Nonreentrancy.html">24.4.6 Signal Handling and Nonreentrant Functions</a></li>
+      <li><a id="toc-Atomic-Data-Access-and-Signal-Handling" href="Atomic-Data-Access.html">24.4.7 Atomic Data Access and Signal Handling</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Problems-with-Non_002dAtomic-Access" href="Non_002datomic-Example.html">24.4.7.1 Problems with Non-Atomic Access</a></li>
+        <li><a id="toc-Atomic-Types-1" href="Atomic-Types.html">24.4.7.2 Atomic Types</a></li>
+        <li><a id="toc-Atomic-Usage-Patterns" href="Atomic-Usage.html">24.4.7.3 Atomic Usage Patterns</a></li>
+      </ul></li>
+    </ul></li>
+    <li><a id="toc-Primitives-Interrupted-by-Signals" href="Interrupted-Primitives.html">24.5 Primitives Interrupted by Signals</a></li>
+    <li><a id="toc-Generating-Signals-1" href="Generating-Signals.html">24.6 Generating Signals</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Signaling-Yourself-1" href="Signaling-Yourself.html">24.6.1 Signaling Yourself</a></li>
+      <li><a id="toc-Signaling-Another-Process-1" href="Signaling-Another-Process.html">24.6.2 Signaling Another Process</a></li>
+      <li><a id="toc-Permission-for-using-kill" href="Permission-for-kill.html">24.6.3 Permission for using <code>kill</code></a></li>
+      <li><a id="toc-Using-kill-for-Communication" href="Kill-Example.html">24.6.4 Using <code>kill</code> for Communication</a></li>
+    </ul></li>
+    <li><a id="toc-Blocking-Signals-1" href="Blocking-Signals.html">24.7 Blocking Signals</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Why-Blocking-Signals-is-Useful" href="Why-Block.html">24.7.1 Why Blocking Signals is Useful</a></li>
+      <li><a id="toc-Signal-Sets-1" href="Signal-Sets.html">24.7.2 Signal Sets</a></li>
+      <li><a id="toc-Process-Signal-Mask-1" href="Process-Signal-Mask.html">24.7.3 Process Signal Mask</a></li>
+      <li><a id="toc-Blocking-to-Test-for-Delivery-of-a-Signal" href="Testing-for-Delivery.html">24.7.4 Blocking to Test for Delivery of a Signal</a></li>
+      <li><a id="toc-Blocking-Signals-for-a-Handler" href="Blocking-for-Handler.html">24.7.5 Blocking Signals for a Handler</a></li>
+      <li><a id="toc-Checking-for-Pending-Signals-1" href="Checking-for-Pending-Signals.html">24.7.6 Checking for Pending Signals</a></li>
+      <li><a id="toc-Remembering-a-Signal-to-Act-On-Later" href="Remembering-a-Signal.html">24.7.7 Remembering a Signal to Act On Later</a></li>
+    </ul></li>
+    <li><a id="toc-Waiting-for-a-Signal-1" href="Waiting-for-a-Signal.html">24.8 Waiting for a Signal</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Using-pause" href="Using-Pause.html">24.8.1 Using <code>pause</code></a></li>
+      <li><a id="toc-Problems-with-pause" href="Pause-Problems.html">24.8.2 Problems with <code>pause</code></a></li>
+      <li><a id="toc-Using-sigsuspend" href="Sigsuspend.html">24.8.3 Using <code>sigsuspend</code></a></li>
+    </ul></li>
+    <li><a id="toc-Using-a-Separate-Signal-Stack" href="Signal-Stack.html">24.9 Using a Separate Signal Stack</a></li>
+    <li><a id="toc-BSD-Signal-Handling-1" href="BSD-Signal-Handling.html">24.10 BSD Signal Handling</a></li>
+  </ul></li>
+  <li><a id="toc-The-Basic-Program_002fSystem-Interface" href="Program-Basics.html">25 The Basic Program/System Interface</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Program-Arguments-1" href="Program-Arguments.html">25.1 Program Arguments</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Program-Argument-Syntax-Conventions" href="Argument-Syntax.html">25.1.1 Program Argument Syntax Conventions</a></li>
+      <li><a id="toc-Parsing-Program-Arguments-1" href="Parsing-Program-Arguments.html">25.1.2 Parsing Program Arguments</a></li>
+    </ul></li>
+    <li><a id="toc-Parsing-program-options-using-getopt" href="Getopt.html">25.2 Parsing program options using <code>getopt</code></a>
+    <ul class="no-bullet">
+      <li><a id="toc-Using-the-getopt-function" href="Using-Getopt.html">25.2.1 Using the <code>getopt</code> function</a></li>
+      <li><a id="toc-Example-of-Parsing-Arguments-with-getopt" href="Example-of-Getopt.html">25.2.2 Example of Parsing Arguments with <code>getopt</code></a></li>
+      <li><a id="toc-Parsing-Long-Options-with-getopt_005flong" href="Getopt-Long-Options.html">25.2.3 Parsing Long Options with <code>getopt_long</code></a></li>
+      <li><a id="toc-Example-of-Parsing-Long-Options-with-getopt_005flong" href="Getopt-Long-Option-Example.html">25.2.4 Example of Parsing Long Options with <code>getopt_long</code></a></li>
+    </ul></li>
+    <li><a id="toc-Parsing-Program-Options-with-Argp" href="Argp.html">25.3 Parsing Program Options with Argp</a>
+    <ul class="no-bullet">
+      <li><a id="toc-The-argp_005fparse-Function" href="Argp.html#The-argp_005fparse-Function">25.3.1 The <code>argp_parse</code> Function</a></li>
+      <li><a id="toc-Argp-Global-Variables-1" href="Argp-Global-Variables.html">25.3.2 Argp Global Variables</a></li>
+      <li><a id="toc-Specifying-Argp-Parsers" href="Argp-Parsers.html">25.3.3 Specifying Argp Parsers</a></li>
+      <li><a id="toc-Specifying-Options-in-an-Argp-Parser" href="Argp-Option-Vectors.html">25.3.4 Specifying Options in an Argp Parser</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Flags-for-Argp-Options" href="Argp-Option-Flags.html">25.3.4.1 Flags for Argp Options</a></li>
+      </ul></li>
+      <li><a id="toc-Argp-Parser-Functions-1" href="Argp-Parser-Functions.html">25.3.5 Argp Parser Functions</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Special-Keys-for-Argp-Parser-Functions" href="Argp-Special-Keys.html">25.3.5.1 Special Keys for Argp Parser Functions</a></li>
+        <li><a id="toc-Argp-Parsing-State-1" href="Argp-Parsing-State.html">25.3.5.2 Argp Parsing State</a></li>
+        <li><a id="toc-Functions-For-Use-in-Argp-Parsers" href="Argp-Helper-Functions.html">25.3.5.3 Functions For Use in Argp Parsers</a></li>
+      </ul></li>
+      <li><a id="toc-Combining-Multiple-Argp-Parsers" href="Argp-Children.html">25.3.6 Combining Multiple Argp Parsers</a></li>
+      <li><a id="toc-Flags-for-argp_005fparse" href="Argp-Flags.html">25.3.7 Flags for <code>argp_parse</code></a></li>
+      <li><a id="toc-Customizing-Argp-Help-Output" href="Argp-Help-Filtering.html">25.3.8 Customizing Argp Help Output</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Special-Keys-for-Argp-Help-Filter-Functions" href="Argp-Help-Filter-Keys.html">25.3.8.1 Special Keys for Argp Help Filter Functions</a></li>
+      </ul></li>
+      <li><a id="toc-The-argp_005fhelp-Function" href="Argp-Help.html">25.3.9 The <code>argp_help</code> Function</a></li>
+      <li><a id="toc-Flags-for-the-argp_005fhelp-Function" href="Argp-Help-Flags.html">25.3.10 Flags for the <code>argp_help</code> Function</a></li>
+      <li><a id="toc-Argp-Examples-1" href="Argp-Examples.html">25.3.11 Argp Examples</a>
+      <ul class="no-bullet">
+        <li><a id="toc-A-Minimal-Program-Using-Argp" href="Argp-Example-1.html">25.3.11.1 A Minimal Program Using Argp</a></li>
+        <li><a id="toc-A-Program-Using-Argp-with-Only-Default-Options" href="Argp-Example-2.html">25.3.11.2 A Program Using Argp with Only Default Options</a></li>
+        <li><a id="toc-A-Program-Using-Argp-with-User-Options" href="Argp-Example-3.html">25.3.11.3 A Program Using Argp with User Options</a></li>
+        <li><a id="toc-A-Program-Using-Multiple-Combined-Argp-Parsers" href="Argp-Example-4.html">25.3.11.4 A Program Using Multiple Combined Argp Parsers</a></li>
+      </ul></li>
+      <li><a id="toc-Argp-User-Customization-1" href="Argp-User-Customization.html">25.3.12 Argp User Customization</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Parsing-of-Suboptions" href="Suboptions.html">25.3.12.1 Parsing of Suboptions</a></li>
+      </ul></li>
+      <li><a id="toc-Parsing-of-Suboptions-Example" href="Suboptions-Example.html">25.3.13 Parsing of Suboptions Example</a></li>
+    </ul></li>
+    <li><a id="toc-Environment-Variables-1" href="Environment-Variables.html">25.4 Environment Variables</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Environment-Access-1" href="Environment-Access.html">25.4.1 Environment Access</a></li>
+      <li><a id="toc-Standard-Environment-Variables" href="Standard-Environment.html">25.4.2 Standard Environment Variables</a></li>
+    </ul></li>
+    <li><a id="toc-Auxiliary-Vector-1" href="Auxiliary-Vector.html">25.5 Auxiliary Vector</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Definition-of-getauxval" href="Auxiliary-Vector.html#Definition-of-getauxval">25.5.1 Definition of <code>getauxval</code></a></li>
+    </ul></li>
+    <li><a id="toc-System-Calls-1" href="System-Calls.html">25.6 System Calls</a></li>
+    <li><a id="toc-Program-Termination-1" href="Program-Termination.html">25.7 Program Termination</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Normal-Termination-1" href="Normal-Termination.html">25.7.1 Normal Termination</a></li>
+      <li><a id="toc-Exit-Status-1" href="Exit-Status.html">25.7.2 Exit Status</a></li>
+      <li><a id="toc-Cleanups-on-Exit-1" href="Cleanups-on-Exit.html">25.7.3 Cleanups on Exit</a></li>
+      <li><a id="toc-Aborting-a-Program-1" href="Aborting-a-Program.html">25.7.4 Aborting a Program</a></li>
+      <li><a id="toc-Termination-Internals-1" href="Termination-Internals.html">25.7.5 Termination Internals</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-Processes-1" href="Processes.html">26 Processes</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Running-a-Command-1" href="Running-a-Command.html">26.1 Running a Command</a></li>
+    <li><a id="toc-Process-Creation-Concepts-1" href="Process-Creation-Concepts.html">26.2 Process Creation Concepts</a></li>
+    <li><a id="toc-Process-Identification-1" href="Process-Identification.html">26.3 Process Identification</a></li>
+    <li><a id="toc-Creating-a-Process-1" href="Creating-a-Process.html">26.4 Creating a Process</a></li>
+    <li><a id="toc-Executing-a-File-1" href="Executing-a-File.html">26.5 Executing a File</a></li>
+    <li><a id="toc-Process-Completion-1" href="Process-Completion.html">26.6 Process Completion</a></li>
+    <li><a id="toc-Process-Completion-Status-1" href="Process-Completion-Status.html">26.7 Process Completion Status</a></li>
+    <li><a id="toc-BSD-Process-Wait-Function" href="BSD-Wait-Functions.html">26.8 BSD Process Wait Function</a></li>
+    <li><a id="toc-Process-Creation-Example-1" href="Process-Creation-Example.html">26.9 Process Creation Example</a></li>
+  </ul></li>
+  <li><a id="toc-Inter_002dProcess-Communication-1" href="Inter_002dProcess-Communication.html">27 Inter-Process Communication</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Semaphores-1" href="Semaphores.html">27.1 Semaphores</a>
+    <ul class="no-bullet">
+      <li><a id="toc-System-V-Semaphores" href="Semaphores.html#System-V-Semaphores">27.1.1 System V Semaphores</a></li>
+      <li><a id="toc-POSIX-Semaphores" href="Semaphores.html#POSIX-Semaphores">27.1.2 POSIX Semaphores</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-Job-Control-1" href="Job-Control.html">28 Job Control</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Concepts-of-Job-Control-1" href="Concepts-of-Job-Control.html">28.1 Concepts of Job Control</a></li>
+    <li><a id="toc-Controlling-Terminal-of-a-Process" href="Controlling-Terminal.html">28.2 Controlling Terminal of a Process</a></li>
+    <li><a id="toc-Access-to-the-Controlling-Terminal" href="Access-to-the-Terminal.html">28.3 Access to the Controlling Terminal</a></li>
+    <li><a id="toc-Orphaned-Process-Groups-1" href="Orphaned-Process-Groups.html">28.4 Orphaned Process Groups</a></li>
+    <li><a id="toc-Implementing-a-Job-Control-Shell" href="Implementing-a-Shell.html">28.5 Implementing a Job Control Shell</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Data-Structures-for-the-Shell" href="Data-Structures.html">28.5.1 Data Structures for the Shell</a></li>
+      <li><a id="toc-Initializing-the-Shell-1" href="Initializing-the-Shell.html">28.5.2 Initializing the Shell</a></li>
+      <li><a id="toc-Launching-Jobs-1" href="Launching-Jobs.html">28.5.3 Launching Jobs</a></li>
+      <li><a id="toc-Foreground-and-Background-1" href="Foreground-and-Background.html">28.5.4 Foreground and Background</a></li>
+      <li><a id="toc-Stopped-and-Terminated-Jobs-1" href="Stopped-and-Terminated-Jobs.html">28.5.5 Stopped and Terminated Jobs</a></li>
+      <li><a id="toc-Continuing-Stopped-Jobs-1" href="Continuing-Stopped-Jobs.html">28.5.6 Continuing Stopped Jobs</a></li>
+      <li><a id="toc-The-Missing-Pieces" href="Missing-Pieces.html">28.5.7 The Missing Pieces</a></li>
+    </ul></li>
+    <li><a id="toc-Functions-for-Job-Control-1" href="Functions-for-Job-Control.html">28.6 Functions for Job Control</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Identifying-the-Controlling-Terminal" href="Identifying-the-Terminal.html">28.6.1 Identifying the Controlling Terminal</a></li>
+      <li><a id="toc-Process-Group-Functions-1" href="Process-Group-Functions.html">28.6.2 Process Group Functions</a></li>
+      <li><a id="toc-Functions-for-Controlling-Terminal-Access" href="Terminal-Access-Functions.html">28.6.3 Functions for Controlling Terminal Access</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-System-Databases-and-Name-Service-Switch" href="Name-Service-Switch.html">29 System Databases and Name Service Switch</a>
+  <ul class="no-bullet">
+    <li><a id="toc-NSS-Basics-1" href="NSS-Basics.html">29.1 NSS Basics</a></li>
+    <li><a id="toc-The-NSS-Configuration-File" href="NSS-Configuration-File.html">29.2 The NSS Configuration File</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Services-in-the-NSS-configuration-File" href="Services-in-the-NSS-configuration.html">29.2.1 Services in the NSS configuration File</a></li>
+      <li><a id="toc-Actions-in-the-NSS-configuration-1" href="Actions-in-the-NSS-configuration.html">29.2.2 Actions in the NSS configuration</a></li>
+      <li><a id="toc-Notes-on-the-NSS-Configuration-File" href="Notes-on-NSS-Configuration-File.html">29.2.3 Notes on the NSS Configuration File</a></li>
+    </ul></li>
+    <li><a id="toc-NSS-Module-Internals-1" href="NSS-Module-Internals.html">29.3 NSS Module Internals</a>
+    <ul class="no-bullet">
+      <li><a id="toc-The-Naming-Scheme-of-the-NSS-Modules" href="NSS-Module-Names.html">29.3.1 The Naming Scheme of the NSS Modules</a></li>
+      <li><a id="toc-The-Interface-of-the-Function-in-NSS-Modules" href="NSS-Modules-Interface.html">29.3.2 The Interface of the Function in NSS Modules</a></li>
+    </ul></li>
+    <li><a id="toc-Extending-NSS-1" href="Extending-NSS.html">29.4 Extending NSS</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Adding-another-Service-to-NSS-1" href="Adding-another-Service-to-NSS.html">29.4.1 Adding another Service to NSS</a></li>
+      <li><a id="toc-Internals-of-the-NSS-Module-Functions" href="NSS-Module-Function-Internals.html">29.4.2 Internals of the NSS Module Functions</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-Users-and-Groups-1" href="Users-and-Groups.html">30 Users and Groups</a>
+  <ul class="no-bullet">
+    <li><a id="toc-User-and-Group-IDs-1" href="User-and-Group-IDs.html">30.1 User and Group IDs</a></li>
+    <li><a id="toc-The-Persona-of-a-Process" href="Process-Persona.html">30.2 The Persona of a Process</a></li>
+    <li><a id="toc-Why-Change-the-Persona-of-a-Process_003f" href="Why-Change-Persona.html">30.3 Why Change the Persona of a Process?</a></li>
+    <li><a id="toc-How-an-Application-Can-Change-Persona" href="How-Change-Persona.html">30.4 How an Application Can Change Persona</a></li>
+    <li><a id="toc-Reading-the-Persona-of-a-Process" href="Reading-Persona.html">30.5 Reading the Persona of a Process</a></li>
+    <li><a id="toc-Setting-the-User-ID" href="Setting-User-ID.html">30.6 Setting the User ID</a></li>
+    <li><a id="toc-Setting-the-Group-IDs" href="Setting-Groups.html">30.7 Setting the Group IDs</a></li>
+    <li><a id="toc-Enabling-and-Disabling-Setuid-Access" href="Enable_002fDisable-Setuid.html">30.8 Enabling and Disabling Setuid Access</a></li>
+    <li><a id="toc-Setuid-Program-Example-1" href="Setuid-Program-Example.html">30.9 Setuid Program Example</a></li>
+    <li><a id="toc-Tips-for-Writing-Setuid-Programs" href="Tips-for-Setuid.html">30.10 Tips for Writing Setuid Programs</a></li>
+    <li><a id="toc-Identifying-Who-Logged-In" href="Who-Logged-In.html">30.11 Identifying Who Logged In</a></li>
+    <li><a id="toc-The-User-Accounting-Database" href="User-Accounting-Database.html">30.12 The User Accounting Database</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Manipulating-the-User-Accounting-Database" href="Manipulating-the-Database.html">30.12.1 Manipulating the User Accounting Database</a></li>
+      <li><a id="toc-XPG-User-Accounting-Database-Functions" href="XPG-Functions.html">30.12.2 XPG User Accounting Database Functions</a></li>
+      <li><a id="toc-Logging-In-and-Out-1" href="Logging-In-and-Out.html">30.12.3 Logging In and Out</a></li>
+    </ul></li>
+    <li><a id="toc-User-Database-1" href="User-Database.html">30.13 User Database</a>
+    <ul class="no-bullet">
+      <li><a id="toc-The-Data-Structure-that-Describes-a-User" href="User-Data-Structure.html">30.13.1 The Data Structure that Describes a User</a></li>
+      <li><a id="toc-Looking-Up-One-User" href="Lookup-User.html">30.13.2 Looking Up One User</a></li>
+      <li><a id="toc-Scanning-the-List-of-All-Users" href="Scanning-All-Users.html">30.13.3 Scanning the List of All Users</a></li>
+      <li><a id="toc-Writing-a-User-Entry-1" href="Writing-a-User-Entry.html">30.13.4 Writing a User Entry</a></li>
+    </ul></li>
+    <li><a id="toc-Group-Database-1" href="Group-Database.html">30.14 Group Database</a>
+    <ul class="no-bullet">
+      <li><a id="toc-The-Data-Structure-for-a-Group" href="Group-Data-Structure.html">30.14.1 The Data Structure for a Group</a></li>
+      <li><a id="toc-Looking-Up-One-Group" href="Lookup-Group.html">30.14.2 Looking Up One Group</a></li>
+      <li><a id="toc-Scanning-the-List-of-All-Groups" href="Scanning-All-Groups.html">30.14.3 Scanning the List of All Groups</a></li>
+    </ul></li>
+    <li><a id="toc-User-and-Group-Database-Example" href="Database-Example.html">30.15 User and Group Database Example</a></li>
+    <li><a id="toc-Netgroup-Database-1" href="Netgroup-Database.html">30.16 Netgroup Database</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Netgroup-Data-1" href="Netgroup-Data.html">30.16.1 Netgroup Data</a></li>
+      <li><a id="toc-Looking-up-one-Netgroup" href="Lookup-Netgroup.html">30.16.2 Looking up one Netgroup</a></li>
+      <li><a id="toc-Testing-for-Netgroup-Membership" href="Netgroup-Membership.html">30.16.3 Testing for Netgroup Membership</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-System-Management-1" href="System-Management.html">31 System Management</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Host-Identification-1" href="Host-Identification.html">31.1 Host Identification</a></li>
+    <li><a id="toc-Platform-Type-Identification" href="Platform-Type.html">31.2 Platform Type Identification</a></li>
+    <li><a id="toc-Controlling-and-Querying-Mounts" href="Filesystem-Handling.html">31.3 Controlling and Querying Mounts</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Mount-Information-1" href="Mount-Information.html">31.3.1 Mount Information</a>
+      <ul class="no-bullet">
+        <li><a id="toc-The-fstab-file" href="fstab.html">31.3.1.1 The <samp>fstab</samp> file</a></li>
+        <li><a id="toc-The-mtab-file" href="mtab.html">31.3.1.2 The <samp>mtab</samp> file</a></li>
+        <li><a id="toc-Other-_0028Non_002dlibc_0029-Sources-of-Mount-Information" href="Other-Mount-Information.html">31.3.1.3 Other (Non-libc) Sources of Mount Information</a></li>
+      </ul></li>
+      <li><a id="toc-Mount_002c-Unmount_002c-Remount" href="Mount_002dUnmount_002dRemount.html">31.3.2 Mount, Unmount, Remount</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-System-Configuration-Parameters" href="System-Configuration.html">32 System Configuration Parameters</a>
+  <ul class="no-bullet">
+    <li><a id="toc-General-Capacity-Limits" href="General-Limits.html">32.1 General Capacity Limits</a></li>
+    <li><a id="toc-Overall-System-Options" href="System-Options.html">32.2 Overall System Options</a></li>
+    <li><a id="toc-Which-Version-of-POSIX-is-Supported" href="Version-Supported.html">32.3 Which Version of POSIX is Supported</a></li>
+    <li><a id="toc-Using-sysconf" href="Sysconf.html">32.4 Using <code>sysconf</code></a>
+    <ul class="no-bullet">
+      <li><a id="toc-Definition-of-sysconf" href="Sysconf-Definition.html">32.4.1 Definition of <code>sysconf</code></a></li>
+      <li><a id="toc-Constants-for-sysconf-Parameters" href="Constants-for-Sysconf.html">32.4.2 Constants for <code>sysconf</code> Parameters</a></li>
+      <li><a id="toc-Examples-of-sysconf" href="Examples-of-Sysconf.html">32.4.3 Examples of <code>sysconf</code></a></li>
+    </ul></li>
+    <li><a id="toc-Minimum-Values-for-General-Capacity-Limits" href="Minimums.html">32.5 Minimum Values for General Capacity Limits</a></li>
+    <li><a id="toc-Limits-on-File-System-Capacity" href="Limits-for-Files.html">32.6 Limits on File System Capacity</a></li>
+    <li><a id="toc-Optional-Features-in-File-Support" href="Options-for-Files.html">32.7 Optional Features in File Support</a></li>
+    <li><a id="toc-Minimum-Values-for-File-System-Limits" href="File-Minimums.html">32.8 Minimum Values for File System Limits</a></li>
+    <li><a id="toc-Using-pathconf" href="Pathconf.html">32.9 Using <code>pathconf</code></a></li>
+    <li><a id="toc-Utility-Program-Capacity-Limits" href="Utility-Limits.html">32.10 Utility Program Capacity Limits</a></li>
+    <li><a id="toc-Minimum-Values-for-Utility-Limits" href="Utility-Minimums.html">32.11 Minimum Values for Utility Limits</a></li>
+    <li><a id="toc-String_002dValued-Parameters" href="String-Parameters.html">32.12 String-Valued Parameters</a></li>
+  </ul></li>
+  <li><a id="toc-Cryptographic-Functions-1" href="Cryptographic-Functions.html">33 Cryptographic Functions</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Passphrase-Storage-1" href="Passphrase-Storage.html">33.1 Passphrase Storage</a></li>
+    <li><a id="toc-Generating-Unpredictable-Bytes" href="Unpredictable-Bytes.html">33.2 Generating Unpredictable Bytes</a></li>
+  </ul></li>
+  <li><a id="toc-Debugging-support" href="Debugging-Support.html">34 Debugging support</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Backtraces-1" href="Backtraces.html">34.1 Backtraces</a></li>
+  </ul></li>
+  <li><a id="toc-Threads-1" href="Threads.html">35 Threads</a>
+  <ul class="no-bullet">
+    <li><a id="toc-ISO-C-Threads-1" href="ISO-C-Threads.html">35.1 ISO C Threads</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Return-Values" href="ISO-C-Threads-Return-Values.html">35.1.1 Return Values</a></li>
+      <li><a id="toc-Creation-and-Control" href="ISO-C-Thread-Management.html">35.1.2 Creation and Control</a></li>
+      <li><a id="toc-Call-Once-1" href="Call-Once.html">35.1.3 Call Once</a></li>
+      <li><a id="toc-Mutexes" href="ISO-C-Mutexes.html">35.1.4 Mutexes</a></li>
+      <li><a id="toc-Condition-Variables" href="ISO-C-Condition-Variables.html">35.1.5 Condition Variables</a></li>
+      <li><a id="toc-Thread_002dlocal-Storage" href="ISO-C-Thread_002dlocal-Storage.html">35.1.6 Thread-local Storage</a></li>
+    </ul></li>
+    <li><a id="toc-POSIX-Threads-1" href="POSIX-Threads.html">35.2 POSIX Threads</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Thread_002dspecific-Data-1" href="Thread_002dspecific-Data.html">35.2.1 Thread-specific Data</a></li>
+      <li><a id="toc-Non_002dPOSIX-Extensions-1" href="Non_002dPOSIX-Extensions.html">35.2.2 Non-POSIX Extensions</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Setting-Process_002dwide-defaults-for-thread-attributes" href="Default-Thread-Attributes.html">35.2.2.1 Setting Process-wide defaults for thread attributes</a></li>
+        <li><a id="toc-Controlling-the-Initial-Signal-Mask-of-a-New-Thread" href="Initial-Thread-Signal-Mask.html">35.2.2.2 Controlling the Initial Signal Mask of a New Thread</a></li>
+        <li><a id="toc-Functions-for-Waiting-According-to-a-Specific-Clock" href="Waiting-with-Explicit-Clocks.html">35.2.2.3 Functions for Waiting According to a Specific Clock</a></li>
+        <li><a id="toc-Detecting-Single_002dThreaded-Execution" href="Single_002dThreaded.html">35.2.2.4 Detecting Single-Threaded Execution</a></li>
+        <li><a id="toc-Restartable-Sequences-1" href="Restartable-Sequences.html">35.2.2.5 Restartable Sequences</a></li>
+      </ul></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-Dynamic-Linker-1" href="Dynamic-Linker.html">36 Dynamic Linker</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Dynamic-Linker-Introspection-1" href="Dynamic-Linker-Introspection.html">36.1 Dynamic Linker Introspection</a></li>
+  </ul></li>
+  <li><a id="toc-Internal-probes" href="Internal-Probes.html">37 Internal probes</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Memory-Allocation-Probes-1" href="Memory-Allocation-Probes.html">37.1 Memory Allocation Probes</a></li>
+    <li><a id="toc-Non_002dlocal-Goto-Probes-1" href="Non_002dlocal-Goto-Probes.html">37.2 Non-local Goto Probes</a></li>
+  </ul></li>
+  <li><a id="toc-Tunables-1" href="Tunables.html">38 Tunables</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Tunable-names-1" href="Tunable-names.html">38.1 Tunable names</a></li>
+    <li><a id="toc-Memory-Allocation-Tunables-1" href="Memory-Allocation-Tunables.html">38.2 Memory Allocation Tunables</a></li>
+    <li><a id="toc-Dynamic-Linking-Tunables-1" href="Dynamic-Linking-Tunables.html">38.3 Dynamic Linking Tunables</a></li>
+    <li><a id="toc-Elision-Tunables-1" href="Elision-Tunables.html">38.4 Elision Tunables</a></li>
+    <li><a id="toc-POSIX-Thread-Tunables-1" href="POSIX-Thread-Tunables.html">38.5 POSIX Thread Tunables</a></li>
+    <li><a id="toc-Hardware-Capability-Tunables-1" href="Hardware-Capability-Tunables.html">38.6 Hardware Capability Tunables</a></li>
+    <li><a id="toc-Memory-Related-Tunables-1" href="Memory-Related-Tunables.html">38.7 Memory Related Tunables</a></li>
+  </ul></li>
+  <li><a id="toc-C-Language-Facilities-in-the-Library" href="Language-Features.html">Appendix A C Language Facilities in the Library</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Explicitly-Checking-Internal-Consistency" href="Consistency-Checking.html">A.1 Explicitly Checking Internal Consistency</a></li>
+    <li><a id="toc-Variadic-Functions-1" href="Variadic-Functions.html">A.2 Variadic Functions</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Why-Variadic-Functions-are-Used" href="Why-Variadic.html">A.2.1 Why Variadic Functions are Used</a></li>
+      <li><a id="toc-How-Variadic-Functions-are-Defined-and-Used" href="How-Variadic.html">A.2.2 How Variadic Functions are Defined and Used</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Syntax-for-Variable-Arguments" href="Variadic-Prototypes.html">A.2.2.1 Syntax for Variable Arguments</a></li>
+        <li><a id="toc-Receiving-the-Argument-Values" href="Receiving-Arguments.html">A.2.2.2 Receiving the Argument Values</a></li>
+        <li><a id="toc-How-Many-Arguments-Were-Supplied" href="How-Many-Arguments.html">A.2.2.3 How Many Arguments Were Supplied</a></li>
+        <li><a id="toc-Calling-Variadic-Functions" href="Calling-Variadics.html">A.2.2.4 Calling Variadic Functions</a></li>
+        <li><a id="toc-Argument-Access-Macros" href="Argument-Macros.html">A.2.2.5 Argument Access Macros</a></li>
+      </ul></li>
+      <li><a id="toc-Example-of-a-Variadic-Function" href="Variadic-Example.html">A.2.3 Example of a Variadic Function</a></li>
+    </ul></li>
+    <li><a id="toc-Null-Pointer-Constant-1" href="Null-Pointer-Constant.html">A.3 Null Pointer Constant</a></li>
+    <li><a id="toc-Important-Data-Types-1" href="Important-Data-Types.html">A.4 Important Data Types</a></li>
+    <li><a id="toc-Data-Type-Measurements-1" href="Data-Type-Measurements.html">A.5 Data Type Measurements</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Width-of-an-Integer-Type" href="Width-of-Type.html">A.5.1 Width of an Integer Type</a></li>
+      <li><a id="toc-Range-of-an-Integer-Type" href="Range-of-Type.html">A.5.2 Range of an Integer Type</a></li>
+      <li><a id="toc-Floating-Type-Macros-1" href="Floating-Type-Macros.html">A.5.3 Floating Type Macros</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Floating-Point-Representation-Concepts" href="Floating-Point-Concepts.html">A.5.3.1 Floating Point Representation Concepts</a></li>
+        <li><a id="toc-Floating-Point-Parameters-1" href="Floating-Point-Parameters.html">A.5.3.2 Floating Point Parameters</a></li>
+        <li><a id="toc-IEEE-Floating-Point-1" href="IEEE-Floating-Point.html">A.5.3.3 IEEE Floating Point</a></li>
+      </ul></li>
+      <li><a id="toc-Structure-Field-Offset-Measurement" href="Structure-Measurement.html">A.5.4 Structure Field Offset Measurement</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-Summary-of-Library-Facilities" href="Library-Summary.html">Appendix B Summary of Library Facilities</a></li>
+  <li><a id="toc-Installing-the-GNU-C-Library" href="Installation.html">Appendix C Installing the GNU C Library</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Configuring-and-compiling-the-GNU-C-Library" href="Configuring-and-compiling.html">C.1 Configuring and compiling the GNU C Library</a></li>
+    <li><a id="toc-Installing-the-C-Library" href="Running-make-install.html">C.2 Installing the C Library</a></li>
+    <li><a id="toc-Recommended-Tools-for-Compilation" href="Tools-for-Compilation.html">C.3 Recommended Tools for Compilation</a></li>
+    <li><a id="toc-Specific-advice-for-GNU_002fLinux-systems" href="Linux.html">C.4 Specific advice for GNU/Linux systems</a></li>
+    <li><a id="toc-Reporting-Bugs-1" href="Reporting-Bugs.html">C.5 Reporting Bugs</a></li>
+  </ul></li>
+  <li><a id="toc-Library-Maintenance" href="Maintenance.html">Appendix D Library Maintenance</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Adding-New-Functions" href="Source-Layout.html">D.1 Adding New Functions</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Platform_002dspecific-types_002c-macros-and-functions" href="Adding-Platform_002dspecific.html">D.1.1 Platform-specific types, macros and functions</a></li>
+    </ul></li>
+    <li><a id="toc-Symbol-handling-in-the-GNU-C-Library" href="Symbol-handling.html">D.2 Symbol handling in the GNU C Library</a>
+    <ul class="no-bullet">
+      <li><a id="toc-64_002dbit-time-symbol-handling-in-the-GNU-C-Library" href="64_002dbit-time-symbol-handling.html">D.2.1 64-bit time symbol handling in the GNU C Library</a></li>
+    </ul></li>
+    <li><a id="toc-Porting-the-GNU-C-Library" href="Porting.html">D.3 Porting the GNU C Library</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Layout-of-the-sysdeps-Directory-Hierarchy" href="Hierarchy-Conventions.html">D.3.1 Layout of the <samp>sysdeps</samp> Directory Hierarchy</a></li>
+      <li><a id="toc-Porting-the-GNU-C-Library-to-Unix-Systems" href="Porting-to-Unix.html">D.3.2 Porting the GNU C Library to Unix Systems</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-Platform_002dspecific-facilities" href="Platform.html">Appendix E Platform-specific facilities</a>
+  <ul class="no-bullet">
+    <li><a id="toc-PowerPC_002dspecific-Facilities" href="PowerPC.html">E.1 PowerPC-specific Facilities</a></li>
+    <li><a id="toc-RISC_002dV_002dspecific-Facilities" href="RISC_002dV.html">E.2 RISC-V-specific Facilities</a></li>
+    <li><a id="toc-X86_002dspecific-Facilities" href="X86.html">E.3 X86-specific Facilities</a></li>
+  </ul></li>
+  <li><a id="toc-Contributors-to-the-GNU-C-Library" href="Contributors.html">Appendix F Contributors to the GNU C Library</a></li>
+  <li><a id="toc-Free-Software-Needs-Free-Documentation" href="Free-Manuals.html">Appendix G Free Software Needs Free Documentation</a></li>
+  <li><a id="toc-GNU-Lesser-General-Public-License" href="Copying.html">Appendix H GNU Lesser General Public License</a></li>
+  <li><a id="toc-GNU-Free-Documentation-License" href="Documentation-License.html">Appendix I GNU Free Documentation License</a></li>
+  <li><a id="toc-Concept-Index-1" href="Concept-Index.html" rel="index">Concept Index</a></li>
+  <li><a id="toc-Type-Index-1" href="Type-Index.html" rel="index">Type Index</a></li>
+  <li><a id="toc-Function-and-Macro-Index" href="Function-Index.html" rel="index">Function and Macro Index</a></li>
+  <li><a id="toc-Variable-and-Constant-Macro-Index" href="Variable-Index.html" rel="index">Variable and Constant Macro Index</a></li>
+  <li><a id="toc-Program-and-File-Index" href="File-Index.html" rel="index">Program and File Index</a></li>
+</ul>
+</div>
+</div>
+<div class="Overview_element" id="SEC_Overview">
+<h2 class="shortcontents-heading">Short Table of Contents</h2>
+
+<div class="shortcontents">
+<ul class="no-bullet">
+<li><a id="stoc-Introduction-1" href="#toc-Introduction-1">1 Introduction</a></li>
+<li><a id="stoc-Error-Reporting-1" href="#toc-Error-Reporting-1">2 Error Reporting</a></li>
+<li><a id="stoc-Virtual-Memory-Allocation-And-Paging" href="#toc-Virtual-Memory-Allocation-And-Paging">3 Virtual Memory Allocation And Paging</a></li>
+<li><a id="stoc-Character-Handling-1" href="#toc-Character-Handling-1">4 Character Handling</a></li>
+<li><a id="stoc-String-and-Array-Utilities-1" href="#toc-String-and-Array-Utilities-1">5 String and Array Utilities</a></li>
+<li><a id="stoc-Character-Set-Handling-1" href="#toc-Character-Set-Handling-1">6 Character Set Handling</a></li>
+<li><a id="stoc-Locales-and-Internationalization" href="#toc-Locales-and-Internationalization">7 Locales and Internationalization</a></li>
+<li><a id="stoc-Message-Translation-1" href="#toc-Message-Translation-1">8 Message Translation</a></li>
+<li><a id="stoc-Searching-and-Sorting-1" href="#toc-Searching-and-Sorting-1">9 Searching and Sorting</a></li>
+<li><a id="stoc-Pattern-Matching-1" href="#toc-Pattern-Matching-1">10 Pattern Matching</a></li>
+<li><a id="stoc-Input_002fOutput-Overview" href="#toc-Input_002fOutput-Overview">11 Input/Output Overview</a></li>
+<li><a id="stoc-Input_002fOutput-on-Streams" href="#toc-Input_002fOutput-on-Streams">12 Input/Output on Streams</a></li>
+<li><a id="stoc-Low_002dLevel-Input_002fOutput" href="#toc-Low_002dLevel-Input_002fOutput">13 Low-Level Input/Output</a></li>
+<li><a id="stoc-File-System-Interface-1" href="#toc-File-System-Interface-1">14 File System Interface</a></li>
+<li><a id="stoc-Pipes-and-FIFOs-1" href="#toc-Pipes-and-FIFOs-1">15 Pipes and FIFOs</a></li>
+<li><a id="stoc-Sockets-1" href="#toc-Sockets-1">16 Sockets</a></li>
+<li><a id="stoc-Low_002dLevel-Terminal-Interface-1" href="#toc-Low_002dLevel-Terminal-Interface-1">17 Low-Level Terminal Interface</a></li>
+<li><a id="stoc-Syslog-1" href="#toc-Syslog-1">18 Syslog</a></li>
+<li><a id="stoc-Mathematics-1" href="#toc-Mathematics-1">19 Mathematics</a></li>
+<li><a id="stoc-Arithmetic-Functions-1" href="#toc-Arithmetic-Functions-1">20 Arithmetic Functions</a></li>
+<li><a id="stoc-Date-and-Time-1" href="#toc-Date-and-Time-1">21 Date and Time</a></li>
+<li><a id="stoc-Resource-Usage-And-Limitation-1" href="#toc-Resource-Usage-And-Limitation-1">22 Resource Usage And Limitation</a></li>
+<li><a id="stoc-Non_002dLocal-Exits-1" href="#toc-Non_002dLocal-Exits-1">23 Non-Local Exits</a></li>
+<li><a id="stoc-Signal-Handling-1" href="#toc-Signal-Handling-1">24 Signal Handling</a></li>
+<li><a id="stoc-The-Basic-Program_002fSystem-Interface" href="#toc-The-Basic-Program_002fSystem-Interface">25 The Basic Program/System Interface</a></li>
+<li><a id="stoc-Processes-1" href="#toc-Processes-1">26 Processes</a></li>
+<li><a id="stoc-Inter_002dProcess-Communication-1" href="#toc-Inter_002dProcess-Communication-1">27 Inter-Process Communication</a></li>
+<li><a id="stoc-Job-Control-1" href="#toc-Job-Control-1">28 Job Control</a></li>
+<li><a id="stoc-System-Databases-and-Name-Service-Switch" href="#toc-System-Databases-and-Name-Service-Switch">29 System Databases and Name Service Switch</a></li>
+<li><a id="stoc-Users-and-Groups-1" href="#toc-Users-and-Groups-1">30 Users and Groups</a></li>
+<li><a id="stoc-System-Management-1" href="#toc-System-Management-1">31 System Management</a></li>
+<li><a id="stoc-System-Configuration-Parameters" href="#toc-System-Configuration-Parameters">32 System Configuration Parameters</a></li>
+<li><a id="stoc-Cryptographic-Functions-1" href="#toc-Cryptographic-Functions-1">33 Cryptographic Functions</a></li>
+<li><a id="stoc-Debugging-support" href="#toc-Debugging-support">34 Debugging support</a></li>
+<li><a id="stoc-Threads-1" href="#toc-Threads-1">35 Threads</a></li>
+<li><a id="stoc-Dynamic-Linker-1" href="#toc-Dynamic-Linker-1">36 Dynamic Linker</a></li>
+<li><a id="stoc-Internal-probes" href="#toc-Internal-probes">37 Internal probes</a></li>
+<li><a id="stoc-Tunables-1" href="#toc-Tunables-1">38 Tunables</a></li>
+<li><a id="stoc-C-Language-Facilities-in-the-Library" href="#toc-C-Language-Facilities-in-the-Library">Appendix A C Language Facilities in the Library</a></li>
+<li><a id="stoc-Summary-of-Library-Facilities" href="#toc-Summary-of-Library-Facilities">Appendix B Summary of Library Facilities</a></li>
+<li><a id="stoc-Installing-the-GNU-C-Library" href="#toc-Installing-the-GNU-C-Library">Appendix C Installing the GNU C Library</a></li>
+<li><a id="stoc-Library-Maintenance" href="#toc-Library-Maintenance">Appendix D Library Maintenance</a></li>
+<li><a id="stoc-Platform_002dspecific-facilities" href="#toc-Platform_002dspecific-facilities">Appendix E Platform-specific facilities</a></li>
+<li><a id="stoc-Contributors-to-the-GNU-C-Library" href="#toc-Contributors-to-the-GNU-C-Library">Appendix F Contributors to the GNU C Library</a></li>
+<li><a id="stoc-Free-Software-Needs-Free-Documentation" href="#toc-Free-Software-Needs-Free-Documentation">Appendix G Free Software Needs Free Documentation</a></li>
+<li><a id="stoc-GNU-Lesser-General-Public-License" href="#toc-GNU-Lesser-General-Public-License">Appendix H GNU Lesser General Public License</a></li>
+<li><a id="stoc-GNU-Free-Documentation-License" href="#toc-GNU-Free-Documentation-License">Appendix I GNU Free Documentation License</a></li>
+<li><a id="stoc-Concept-Index-1" href="#toc-Concept-Index-1" rel="index">Concept Index</a></li>
+<li><a id="stoc-Type-Index-1" href="#toc-Type-Index-1" rel="index">Type Index</a></li>
+<li><a id="stoc-Function-and-Macro-Index" href="#toc-Function-and-Macro-Index" rel="index">Function and Macro Index</a></li>
+<li><a id="stoc-Variable-and-Constant-Macro-Index" href="#toc-Variable-and-Constant-Macro-Index" rel="index">Variable and Constant Macro Index</a></li>
+<li><a id="stoc-Program-and-File-Index" href="#toc-Program-and-File-Index" rel="index">Program and File Index</a></li>
+</ul>
+</div>
+</div>
+</div>
+<hr>
+<div class="header">
+<p>
+Next: <a href="Introduction.html" accesskey="n" rel="next">Introduction</a>, Previous: <a href="../dir/index.html" accesskey="p" rel="prev">(dir)</a>, Up: <a href="../dir/index.html" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

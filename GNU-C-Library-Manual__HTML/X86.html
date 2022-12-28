@@ -1,0 +1,484 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This is
+The GNU C Library Reference Manual, for version
+2.36.
+
+Copyright (C) 1993-2022 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version
+1.3 or any later version published by the Free
+Software Foundation; with the Invariant Sections being "Free Software
+Needs Free Documentation" and "GNU Lesser General Public License",
+the Front-Cover texts being "A GNU Manual", and with the Back-Cover
+Texts as in (a) below.  A copy of the license is included in the
+section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: "You have the freedom to
+copy and modify this GNU manual.  Buying copies from the FSF
+supports it in developing GNU and promoting software freedom." -->
+<title>X86 (The GNU C Library)</title>
+
+<meta name="description" content="X86 (The GNU C Library)">
+<meta name="keywords" content="X86 (The GNU C Library)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Platform.html" rel="up" title="Platform">
+<link href="RISC_002dV.html" rel="prev" title="RISC-V">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<div class="appendixsec" id="X86">
+<div class="header">
+<p>
+Previous: <a href="RISC_002dV.html" accesskey="p" rel="prev">RISC-V-specific Facilities</a>, Up: <a href="Platform.html" accesskey="u" rel="up">Platform-specific facilities</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="X86_002dspecific-Facilities"></span><h3 class="appendixsec">E.3 X86-specific Facilities</h3>
+
+<p>Facilities specific to X86 that are not specific to a particular
+operating system are declared in <samp>sys/platform/x86.h</samp>.
+</p>
+<dl class="def">
+<dt id="index-_005f_005fx86_005fget_005fcpuid_005ffeature_005fleaf"><span class="category">Function: </span><span><em>const struct cpuid_feature *</em> <strong>__x86_get_cpuid_feature_leaf</strong> <em>(unsigned int <var>leaf</var>)</em><a href='#index-_005f_005fx86_005fget_005fcpuid_005ffeature_005fleaf' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>Return a pointer to x86 CPU feature structure used by query macros for x86
+CPU feature <var>leaf</var>.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-CPU_005fFEATURE_005fPRESENT"><span class="category">Macro: </span><span><em>int</em> <strong>CPU_FEATURE_PRESENT</strong> <em>(<var>name</var>)</em><a href='#index-CPU_005fFEATURE_005fPRESENT' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>This macro returns a nonzero value (true) if the processor has the feature
+<var>name</var>.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-CPU_005fFEATURE_005fACTIVE"><span class="category">Macro: </span><span><em>int</em> <strong>CPU_FEATURE_ACTIVE</strong> <em>(<var>name</var>)</em><a href='#index-CPU_005fFEATURE_005fACTIVE' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>This macro returns a nonzero value (true) if the processor has the feature
+<var>name</var> and the feature is active.  There may be other preconditions,
+like sufficient stack space or further setup for AMX, which must be
+satisfied before the feature can be used.
+</p></dd></dl>
+
+<p>The supported processor features are:
+</p>
+<ul>
+<li> <code>ACPI</code> &ndash; Thermal Monitor and Software Controlled Clock Facilities.
+
+</li><li> <code>ADX</code> &ndash; ADX instruction extensions.
+
+</li><li> <code>APIC</code> &ndash; APIC On-Chip.
+
+</li><li> <code>AES</code> &ndash; The AES instruction extensions.
+
+</li><li> <code>AESKLE</code> &ndash; AES Key Locker instructions are enabled by OS.
+
+</li><li> <code>AMD_IBPB</code> &ndash; Indirect branch predictor barrier (IBPB) for AMD cpus.
+
+</li><li> <code>AMD_IBRS</code> &ndash; Indirect branch restricted speculation (IBPB) for AMD cpus.
+
+</li><li> <code>AMD_SSBD</code> &ndash; Speculative Store Bypass Disable (SSBD) for AMD cpus.
+
+</li><li> <code>AMD_STIBP</code> &ndash; Single thread indirect branch predictors (STIBP) for AMD cpus.
+
+</li><li> <code>AMD_VIRT_SSBD</code> &ndash; Speculative Store Bypass Disable (SSBD) for AMD cpus (older systems).
+
+</li><li> <code>AMX_BF16</code> &ndash; Tile computational operations on bfloat16 numbers.
+
+</li><li> <code>AMX_INT8</code> &ndash; Tile computational operations on 8-bit numbers.
+
+</li><li> <code>AMX_TILE</code> &ndash; Tile architecture.
+
+</li><li> <code>ARCH_CAPABILITIES</code> &ndash; IA32_ARCH_CAPABILITIES MSR.
+
+</li><li> <code>AVX</code> &ndash; The AVX instruction extensions.
+
+</li><li> <code>AVX2</code> &ndash; The AVX2 instruction extensions.
+
+</li><li> <code>AVX_VNNI</code> &ndash; The AVX-VNNI instruction extensions.
+
+</li><li> <code>AVX512_4FMAPS</code> &ndash; The AVX512_4FMAPS instruction extensions.
+
+</li><li> <code>AVX512_4VNNIW</code> &ndash; The AVX512_4VNNIW instruction extensions.
+
+</li><li> <code>AVX512_BF16</code> &ndash; The AVX512_BF16 instruction extensions.
+
+</li><li> <code>AVX512_BITALG</code> &ndash; The AVX512_BITALG instruction extensions.
+
+</li><li> <code>AVX512_FP16</code> &ndash; The AVX512_FP16 instruction extensions.
+
+</li><li> <code>AVX512_IFMA</code> &ndash; The AVX512_IFMA instruction extensions.
+
+</li><li> <code>AVX512_VBMI</code> &ndash; The AVX512_VBMI instruction extensions.
+
+</li><li> <code>AVX512_VBMI2</code> &ndash; The AVX512_VBMI2 instruction extensions.
+
+</li><li> <code>AVX512_VNNI</code> &ndash; The AVX512_VNNI instruction extensions.
+
+</li><li> <code>AVX512_VP2INTERSECT</code> &ndash; The AVX512_VP2INTERSECT instruction
+extensions.
+
+</li><li> <code>AVX512_VPOPCNTDQ</code> &ndash; The AVX512_VPOPCNTDQ instruction extensions.
+
+</li><li> <code>AVX512BW</code> &ndash; The AVX512BW instruction extensions.
+
+</li><li> <code>AVX512CD</code> &ndash; The AVX512CD instruction extensions.
+
+</li><li> <code>AVX512ER</code> &ndash; The AVX512ER instruction extensions.
+
+</li><li> <code>AVX512DQ</code> &ndash; The AVX512DQ instruction extensions.
+
+</li><li> <code>AVX512F</code> &ndash; The AVX512F instruction extensions.
+
+</li><li> <code>AVX512PF</code> &ndash; The AVX512PF instruction extensions.
+
+</li><li> <code>AVX512VL</code> &ndash; The AVX512VL instruction extensions.
+
+</li><li> <code>BMI1</code> &ndash; BMI1 instructions.
+
+</li><li> <code>BMI2</code> &ndash; BMI2 instructions.
+
+</li><li> <code>CLDEMOTE</code> &ndash; CLDEMOTE instruction.
+
+</li><li> <code>CLFLUSHOPT</code> &ndash; CLFLUSHOPT instruction.
+
+</li><li> <code>CLFSH</code> &ndash; CLFLUSH instruction.
+
+</li><li> <code>CLWB</code> &ndash; CLWB instruction.
+
+</li><li> <code>CMOV</code> &ndash; Conditional Move instructions.
+
+</li><li> <code>CMPXCHG16B</code> &ndash; CMPXCHG16B instruction.
+
+</li><li> <code>CNXT_ID</code> &ndash; L1 Context ID.
+
+</li><li> <code>CORE_CAPABILITIES</code> &ndash; IA32_CORE_CAPABILITIES MSR.
+
+</li><li> <code>CX8</code> &ndash; CMPXCHG8B instruction.
+
+</li><li> <code>DCA</code> &ndash; Data prefetch from a memory mapped device.
+
+</li><li> <code>DE</code> &ndash; Debugging Extensions.
+
+</li><li> <code>DEPR_FPU_CS_DS</code> &ndash; Deprecates FPU CS and FPU DS values.
+
+</li><li> <code>DS</code> &ndash; Debug Store.
+
+</li><li> <code>DS_CPL</code> &ndash; CPL Qualified Debug Store.
+
+</li><li> <code>DTES64</code> &ndash; 64-bit DS Area.
+
+</li><li> <code>EIST</code> &ndash; Enhanced Intel SpeedStep technology.
+
+</li><li> <code>ENQCMD</code> &ndash; Enqueue Stores instructions.
+
+</li><li> <code>ERMS</code> &ndash; Enhanced REP MOVSB/STOSB.
+
+</li><li> <code>F16C</code> &ndash; 16-bit floating-point conversion instructions.
+
+</li><li> <code>FMA</code> &ndash; FMA extensions using YMM state.
+
+</li><li> <code>FMA4</code> &ndash; FMA4 instruction extensions.
+
+</li><li> <code>FPU</code> &ndash; X87 Floating Point Unit On-Chip.
+
+</li><li> <code>FSGSBASE</code> &ndash; RDFSBASE/RDGSBASE/WRFSBASE/WRGSBASE instructions.
+
+</li><li> <code>FSRCS</code> &ndash; Fast Short REP CMP and SCA.
+
+</li><li> <code>FSRM</code> &ndash; Fast Short REP MOV.
+
+</li><li> <code>FSRS</code> &ndash; Fast Short REP STO.
+
+</li><li> <code>FXSR</code> &ndash; FXSAVE and FXRSTOR instructions.
+
+</li><li> <code>FZLRM</code> &ndash; Fast Zero-Length REP MOV.
+
+</li><li> <code>GFNI</code> &ndash; GFNI instruction extensions.
+
+</li><li> <code>HLE</code> &ndash; HLE instruction extensions.
+
+</li><li> <code>HTT</code> &ndash; Max APIC IDs reserved field is Valid.
+
+</li><li> <code>HRESET</code> &ndash; History reset.
+
+</li><li> <code>HYBRID</code> &ndash; Hybrid processor.
+
+</li><li> <code>IBRS_IBPB</code> &ndash; Indirect branch restricted speculation (IBRS) and
+the indirect branch predictor barrier (IBPB).
+
+</li><li> <code>IBT</code> &ndash; Intel Indirect Branch Tracking instruction extensions.
+
+</li><li> <code>INVARIANT_TSC</code> &ndash; Invariant TSC.
+
+</li><li> <code>INVPCID</code> &ndash; INVPCID instruction.
+
+</li><li> <code>KL</code> &ndash; AES Key Locker instructions.
+
+</li><li> <code>LAM</code> &ndash; Linear Address Masking.
+
+</li><li> <code>L1D_FLUSH</code> &ndash; IA32_FLUSH_CMD MSR.
+
+</li><li> <code>LAHF64_SAHF64</code> &ndash; LAHF/SAHF available in 64-bit mode.
+
+</li><li> <code>LM</code> &ndash; Long mode.
+
+</li><li> <code>LWP</code> &ndash; Lightweight profiling.
+
+</li><li> <code>LZCNT</code> &ndash; LZCNT instruction.
+
+</li><li> <code>MCA</code> &ndash; Machine Check Architecture.
+
+</li><li> <code>MCE</code> &ndash; Machine Check Exception.
+
+</li><li> <code>MD_CLEAR</code> &ndash; MD_CLEAR.
+
+</li><li> <code>MMX</code> &ndash; Intel MMX Technology.
+
+</li><li> <code>MONITOR</code> &ndash;  MONITOR/MWAIT instructions.
+
+</li><li> <code>MOVBE</code> &ndash; MOVBE instruction.
+
+</li><li> <code>MOVDIRI</code> &ndash; MOVDIRI instruction.
+
+</li><li> <code>MOVDIR64B</code> &ndash; MOVDIR64B instruction.
+
+</li><li> <code>MPX</code> &ndash; Intel Memory Protection Extensions.
+
+</li><li> <code>MSR</code> &ndash; Model Specific Registers RDMSR and WRMSR instructions.
+
+</li><li> <code>MTRR</code> &ndash; Memory Type Range Registers.
+
+</li><li> <code>NX</code> &ndash; No-execute page protection.
+
+</li><li> <code>OSPKE</code> &ndash; OS has set CR4.PKE to enable protection keys.
+
+</li><li> <code>OSXSAVE</code> &ndash; The OS has set CR4.OSXSAVE[bit 18] to enable
+XSETBV/XGETBV instructions to access XCR0 and to support processor
+extended state management using XSAVE/XRSTOR.
+
+</li><li> <code>PAE</code> &ndash; Physical Address Extension.
+
+</li><li> <code>PAGE1GB</code> &ndash; 1-GByte page.
+
+</li><li> <code>PAT</code> &ndash; Page Attribute Table.
+
+</li><li> <code>PBE</code> &ndash; Pending Break Enable.
+
+</li><li> <code>PCID</code> &ndash; Process-context identifiers.
+
+</li><li> <code>PCLMULQDQ</code> &ndash; PCLMULQDQ instruction.
+
+</li><li> <code>PCONFIG</code> &ndash; PCONFIG instruction.
+
+</li><li> <code>PDCM</code> &ndash; Perfmon and Debug Capability.
+
+</li><li> <code>PGE</code> &ndash; Page Global Bit.
+
+</li><li> <code>PKS</code> &ndash; Protection keys for supervisor-mode pages.
+
+</li><li> <code>PKU</code> &ndash; Protection keys for user-mode pages.
+
+</li><li> <code>POPCNT</code> &ndash; POPCNT instruction.
+
+</li><li> <code>PREFETCHW</code> &ndash; PREFETCHW instruction.
+
+</li><li> <code>PREFETCHWT1</code> &ndash; PREFETCHWT1 instruction.
+
+</li><li> <code>PSE</code> &ndash; Page Size Extension.
+
+</li><li> <code>PSE_36</code> &ndash; 36-Bit Page Size Extension.
+
+</li><li> <code>PSN</code> &ndash; Processor Serial Number.
+
+</li><li> <code>PTWRITE</code> &ndash; PTWRITE instruction.
+
+</li><li> <code>RDPID</code> &ndash; RDPID instruction.
+
+</li><li> <code>RDRAND</code> &ndash; RDRAND instruction.
+
+</li><li> <code>RDSEED</code> &ndash; RDSEED instruction.
+
+</li><li> <code>RDT_A</code> &ndash; Intel Resource Director Technology (Intel RDT) Allocation
+capability.
+
+</li><li> <code>RDT_M</code> &ndash; Intel Resource Director Technology (Intel RDT) Monitoring
+capability.
+
+</li><li> <code>RDTSCP</code> &ndash; RDTSCP instruction.
+
+</li><li> <code>RTM</code> &ndash; RTM instruction extensions.
+
+</li><li> <code>RTM_ALWAYS_ABORT</code> &ndash; Transactions always abort, making RTM unusable.
+
+</li><li> <code>SDBG</code> &ndash; IA32_DEBUG_INTERFACE MSR for silicon debug.
+
+</li><li> <code>SEP</code> &ndash; SYSENTER and SYSEXIT instructions.
+
+</li><li> <code>SERIALIZE</code> &ndash; SERIALIZE instruction.
+
+</li><li> <code>SGX</code> &ndash; Intel Software Guard Extensions.
+
+</li><li> <code>SGX_LC</code> &ndash; SGX Launch Configuration.
+
+</li><li> <code>SHA</code> &ndash; SHA instruction extensions.
+
+</li><li> <code>SHSTK</code> &ndash; Intel Shadow Stack instruction extensions.
+
+</li><li> <code>SMAP</code> &ndash; Supervisor-Mode Access Prevention.
+
+</li><li> <code>SMEP</code> &ndash; Supervisor-Mode Execution Prevention.
+
+</li><li> <code>SMX</code> &ndash; Safer Mode Extensions.
+
+</li><li> <code>SS</code> &ndash; Self Snoop.
+
+</li><li> <code>SSBD</code> &ndash; Speculative Store Bypass Disable (SSBD).
+
+</li><li> <code>SSE</code> &ndash; Streaming SIMD Extensions.
+
+</li><li> <code>SSE2</code> &ndash; Streaming SIMD Extensions 2.
+
+</li><li> <code>SSE3</code> &ndash; Streaming SIMD Extensions 3.
+
+</li><li> <code>SSE4_1</code> &ndash; Streaming SIMD Extensions 4.1.
+
+</li><li> <code>SSE4_2</code> &ndash; Streaming SIMD Extensions 4.2.
+
+</li><li> <code>SSE4A</code> &ndash; SSE4A instruction extensions.
+
+</li><li> <code>SSSE3</code> &ndash; Supplemental Streaming SIMD Extensions 3.
+
+</li><li> <code>STIBP</code> &ndash; Single thread indirect branch predictors (STIBP).
+
+</li><li> <code>SVM</code> &ndash; Secure Virtual Machine.
+
+</li><li> <code>SYSCALL_SYSRET</code> &ndash; SYSCALL/SYSRET instructions.
+
+</li><li> <code>TBM</code> &ndash; Trailing bit manipulation instructions.
+
+</li><li> <code>TM</code> &ndash; Thermal Monitor.
+
+</li><li> <code>TM2</code> &ndash; Thermal Monitor 2.
+
+</li><li> <code>TRACE</code> &ndash; Intel Processor Trace.
+
+</li><li> <code>TSC</code> &ndash; Time Stamp Counter.  RDTSC instruction.
+
+</li><li> <code>TSC_ADJUST</code> &ndash; IA32_TSC_ADJUST MSR.
+
+</li><li> <code>TSC_DEADLINE</code> &ndash; Local APIC timer supports one-shot operation
+using a TSC deadline value.
+
+</li><li> <code>TSXLDTRK</code> &ndash; TSXLDTRK instructions.
+
+</li><li> <code>UINTR</code> &ndash; User interrupts.
+
+</li><li> <code>UMIP</code> &ndash; User-mode instruction prevention.
+
+</li><li> <code>VAES</code> &ndash; VAES instruction extensions.
+
+</li><li> <code>VME</code> &ndash; Virtual 8086 Mode Enhancements.
+
+</li><li> <code>VMX</code> &ndash; Virtual Machine Extensions.
+
+</li><li> <code>VPCLMULQDQ</code> &ndash; VPCLMULQDQ instruction.
+
+</li><li> <code>WAITPKG</code> &ndash; WAITPKG instruction extensions.
+
+</li><li> <code>WBNOINVD</code> &ndash; WBINVD/WBNOINVD instructions.
+
+</li><li> <code>WIDE_KL</code> &ndash; AES wide Key Locker instructions.
+
+</li><li> <code>X2APIC</code> &ndash; x2APIC.
+
+</li><li> <code>XFD</code> &ndash; Extended Feature Disable (XFD).
+
+</li><li> <code>XGETBV_ECX_1</code> &ndash; XGETBV with ECX = 1.
+
+</li><li> <code>XOP</code> &ndash; XOP instruction extensions.
+
+</li><li> <code>XSAVE</code> &ndash; The XSAVE/XRSTOR processor extended states feature, the
+XSETBV/XGETBV instructions, and XCR0.
+
+</li><li> <code>XSAVEC</code> &ndash; XSAVEC instruction.
+
+</li><li> <code>XSAVEOPT</code> &ndash; XSAVEOPT instruction.
+
+</li><li> <code>XSAVES</code> &ndash; XSAVES/XRSTORS instructions.
+
+</li><li> <code>XTPRUPDCTRL</code> &ndash; xTPR Update Control.
+
+</li></ul>
+
+<p>You could query if a processor supports <code>AVX</code> with:
+</p>
+<div class="example">
+<pre class="example">#include &lt;sys/platform/x86.h&gt;
+
+int
+avx_present (void)
+{
+  return CPU_FEATURE_PRESENT (AVX);
+}
+</pre></div>
+
+<p>and if <code>AVX</code> is active and may be used with:
+</p>
+<div class="example">
+<pre class="example">#include &lt;sys/platform/x86.h&gt;
+
+int
+avx_active (void)
+{
+  return CPU_FEATURE_ACTIVE (AVX);
+}
+</pre></div>
+</div>
+<hr>
+<div class="header">
+<p>
+Previous: <a href="RISC_002dV.html">RISC-V-specific Facilities</a>, Up: <a href="Platform.html">Platform-specific facilities</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

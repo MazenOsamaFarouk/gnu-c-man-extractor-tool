@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This is
+The GNU C Library Reference Manual, for version
+2.36.
+
+Copyright (C) 1993-2022 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version
+1.3 or any later version published by the Free
+Software Foundation; with the Invariant Sections being "Free Software
+Needs Free Documentation" and "GNU Lesser General Public License",
+the Front-Cover texts being "A GNU Manual", and with the Back-Cover
+Texts as in (a) below.  A copy of the license is included in the
+section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: "You have the freedom to
+copy and modify this GNU manual.  Buying copies from the FSF
+supports it in developing GNU and promoting software freedom." -->
+<title>Notes on NSS Configuration File (The GNU C Library)</title>
+
+<meta name="description" content="Notes on NSS Configuration File (The GNU C Library)">
+<meta name="keywords" content="Notes on NSS Configuration File (The GNU C Library)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="NSS-Configuration-File.html" rel="up" title="NSS Configuration File">
+<link href="Actions-in-the-NSS-configuration.html" rel="prev" title="Actions in the NSS configuration">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<div class="subsection" id="Notes-on-NSS-Configuration-File">
+<div class="header">
+<p>
+Previous: <a href="Actions-in-the-NSS-configuration.html" accesskey="p" rel="prev">Actions in the NSS configuration</a>, Up: <a href="NSS-Configuration-File.html" accesskey="u" rel="up">The NSS Configuration File</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Notes-on-the-NSS-Configuration-File"></span><h4 class="subsection">29.2.3 Notes on the NSS Configuration File</h4>
+
+<p>Finally a few more hints.  The NSS implementation is not completely
+helpless if <samp>/etc/nsswitch.conf</samp> does not exist.  For
+all supported databases there is a default value so it should normally
+be possible to get the system running even if the file is corrupted or
+missing.
+</p>
+<span id="index-default-value_002c-and-NSS"></span>
+<p>For the <code>hosts</code> and <code>networks</code> databases the default value is
+<code>files dns</code>.  I.e., local configuration will override the contents
+of the domain name system (DNS).
+</p>
+<p>The <code>passwd</code>, <code>group</code>, and <code>shadow</code> databases was
+traditionally handled in a special way.  The appropriate files in the
+<samp>/etc</samp> directory were read but if an entry with a name starting
+with a <code>+</code> character was found NIS was used.  This kind of lookup
+was removed and now the default value for the services is <code>files</code>.
+libnss_compat no longer depends on libnsl and can be used without NIS.
+</p>
+<p>For all other databases the default value is <code>files</code>.
+</p>
+<span id="index-optimizing-NSS"></span>
+<p>A second point is that the user should try to optimize the lookup
+process.  The different service have different response times.
+A simple file look up on a local file could be fast, but if the file
+is long and the needed entry is near the end of the file this may take
+quite some time.  In this case it might be better to use the <code>db</code>
+service which allows fast local access to large data sets.
+</p>
+<p>Often the situation is that some global information like NIS must be
+used.  So it is unavoidable to use service entries like <code>nis</code> etc.
+But one should avoid slow services like this if possible.
+</p>
+
+</div>
+<hr>
+<div class="header">
+<p>
+Previous: <a href="Actions-in-the-NSS-configuration.html">Actions in the NSS configuration</a>, Up: <a href="NSS-Configuration-File.html">The NSS Configuration File</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This is
+The GNU C Library Reference Manual, for version
+2.36.
+
+Copyright (C) 1993-2022 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version
+1.3 or any later version published by the Free
+Software Foundation; with the Invariant Sections being "Free Software
+Needs Free Documentation" and "GNU Lesser General Public License",
+the Front-Cover texts being "A GNU Manual", and with the Back-Cover
+Texts as in (a) below.  A copy of the license is included in the
+section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: "You have the freedom to
+copy and modify this GNU manual.  Buying copies from the FSF
+supports it in developing GNU and promoting software freedom." -->
+<title>Restartable Sequences (The GNU C Library)</title>
+
+<meta name="description" content="Restartable Sequences (The GNU C Library)">
+<meta name="keywords" content="Restartable Sequences (The GNU C Library)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Non_002dPOSIX-Extensions.html" rel="up" title="Non-POSIX Extensions">
+<link href="Single_002dThreaded.html" rel="prev" title="Single-Threaded">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<div class="subsubsection" id="Restartable-Sequences">
+<div class="header">
+<p>
+Previous: <a href="Single_002dThreaded.html" accesskey="p" rel="prev">Detecting Single-Threaded Execution</a>, Up: <a href="Non_002dPOSIX-Extensions.html" accesskey="u" rel="up">Non-POSIX Extensions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Restartable-Sequences-1"></span><h4 class="subsubsection">35.2.2.5 Restartable Sequences</h4>
+
+<p>This section describes restartable sequences integration for
+the GNU C Library.  This functionality is only available on Linux.
+</p>
+<dl class="def">
+<dt id="index-struct-rseq"><span class="category">Data Type: </span><span><strong>struct rseq</strong><a href='#index-struct-rseq' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>The type of the restartable sequences area.  Future versions
+of Linux may add additional fields to the end of this structure.
+</p>
+
+<p>Users need to obtain the address of the restartable sequences area using
+the thread pointer and the <code>__rseq_offset</code> variable, described
+below.
+</p>
+<p>One use of the restartable sequences area is to read the current CPU
+number from its <code>cpu_id</code> field, as an inline version of
+<code>sched_getcpu</code>.  The GNU C Library sets the <code>cpu_id</code> field to
+<code>RSEQ_CPU_ID_REGISTRATION_FAILED</code> if registration failed or was
+explicitly disabled.
+</p>
+<p>Furthermore, users can store the address of a <code>struct rseq_cs</code>
+object into the <code>rseq_cs</code> field of <code>struct rseq</code>, thus
+informing the kernel that the thread enters a restartable sequence
+critical section.  This pointer and the code areas it itself points to
+must not be left pointing to memory areas which are freed or re-used.
+Several approaches can guarantee this.  If the application or library
+can guarantee that the memory used to hold the <code>struct rseq_cs</code> and
+the code areas it refers to are never freed or re-used, no special
+action must be taken.  Else, before that memory is re-used of freed, the
+application is responsible for setting the <code>rseq_cs</code> field to
+<code>NULL</code> in each thread&rsquo;s restartable sequence area to guarantee that
+it does not leak dangling references.  Because the application does not
+typically have knowledge of libraries&rsquo; use of restartable sequences, it
+is recommended that libraries using restartable sequences which may end
+up freeing or re-using their memory set the <code>rseq_cs</code> field to
+<code>NULL</code> before returning from library functions which use
+restartable sequences.
+</p>
+<p>The manual for the <code>rseq</code> system call can be found
+at <a href="https://git.kernel.org/pub/scm/libs/librseq/librseq.git/tree/doc/man/rseq.2">https://git.kernel.org/pub/scm/libs/librseq/librseq.git/tree/doc/man/rseq.2</a>.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-_005f_005frseq_005foffset"><span class="category">Variable: </span><span><em>ptrdiff_t</em> <strong>__rseq_offset</strong><a href='#index-_005f_005frseq_005foffset' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>This variable contains the offset between the thread pointer (as defined
+by <code>__builtin_thread_pointer</code> or the thread pointer register for
+the architecture) and the restartable sequences area.  This value is the
+same for all threads in the process.  If the restartable sequences area
+is located at a lower address than the location to which the thread
+pointer points, the value is negative.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-_005f_005frseq_005fsize"><span class="category">Variable: </span><span><em>unsigned int</em> <strong>__rseq_size</strong><a href='#index-_005f_005frseq_005fsize' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>This variable is either zero (if restartable sequence registration
+failed or has been disabled) or the size of the restartable sequence
+registration.  This can be different from the size of <code>struct rseq</code>
+if the kernel has extended the size of the registration.  If
+registration is successful, <code>__rseq_size</code> is at least 32 (the
+initial size of <code>struct rseq</code>).
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-_005f_005frseq_005fflags"><span class="category">Variable: </span><span><em>unsigned int</em> <strong>__rseq_flags</strong><a href='#index-_005f_005frseq_005fflags' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>The flags used during restartable sequence registration with the kernel.
+Currently zero.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-RSEQ_005fSIG"><span class="category">Macro: </span><span><em>int</em> <strong>RSEQ_SIG</strong><a href='#index-RSEQ_005fSIG' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Each supported architecture provides a <code>RSEQ_SIG</code> macro in
+<samp>sys/rseq.h</samp> which contains a signature.  That signature is
+expected to be present in the code before each restartable sequences
+abort handler.  Failure to provide the expected signature may terminate
+the process with a segmentation fault.
+</p></dd></dl>
+
+</div>
+<hr>
+<div class="header">
+<p>
+Previous: <a href="Single_002dThreaded.html">Detecting Single-Threaded Execution</a>, Up: <a href="Non_002dPOSIX-Extensions.html">Non-POSIX Extensions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

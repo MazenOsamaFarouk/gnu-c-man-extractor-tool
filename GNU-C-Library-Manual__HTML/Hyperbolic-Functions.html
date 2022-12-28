@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This is
+The GNU C Library Reference Manual, for version
+2.36.
+
+Copyright (C) 1993-2022 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version
+1.3 or any later version published by the Free
+Software Foundation; with the Invariant Sections being "Free Software
+Needs Free Documentation" and "GNU Lesser General Public License",
+the Front-Cover texts being "A GNU Manual", and with the Back-Cover
+Texts as in (a) below.  A copy of the license is included in the
+section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: "You have the freedom to
+copy and modify this GNU manual.  Buying copies from the FSF
+supports it in developing GNU and promoting software freedom." -->
+<title>Hyperbolic Functions (The GNU C Library)</title>
+
+<meta name="description" content="Hyperbolic Functions (The GNU C Library)">
+<meta name="keywords" content="Hyperbolic Functions (The GNU C Library)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Mathematics.html" rel="up" title="Mathematics">
+<link href="Special-Functions.html" rel="next" title="Special Functions">
+<link href="Exponents-and-Logarithms.html" rel="prev" title="Exponents and Logarithms">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<div class="section" id="Hyperbolic-Functions">
+<div class="header">
+<p>
+Next: <a href="Special-Functions.html" accesskey="n" rel="next">Special Functions</a>, Previous: <a href="Exponents-and-Logarithms.html" accesskey="p" rel="prev">Exponentiation and Logarithms</a>, Up: <a href="Mathematics.html" accesskey="u" rel="up">Mathematics</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Hyperbolic-Functions-1"></span><h3 class="section">19.5 Hyperbolic Functions</h3>
+<span id="index-hyperbolic-functions"></span>
+
+<p>The functions in this section are related to the exponential functions;
+see <a href="Exponents-and-Logarithms.html">Exponentiation and Logarithms</a>.
+</p>
+<dl class="def">
+<dt id="index-sinh"><span class="category">Function: </span><span><em>double</em> <strong>sinh</strong> <em>(double <var>x</var>)</em><a href='#index-sinh' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-sinhf"><span class="category">Function: </span><span><em>float</em> <strong>sinhf</strong> <em>(float <var>x</var>)</em><a href='#index-sinhf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-sinhl"><span class="category">Function: </span><span><em>long double</em> <strong>sinhl</strong> <em>(long double <var>x</var>)</em><a href='#index-sinhl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-sinhfN"><span class="category">Function: </span><span><em>_FloatN</em> <strong>sinhfN</strong> <em>(_Float<var>N</var> <var>x</var>)</em><a href='#index-sinhfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-sinhfNx"><span class="category">Function: </span><span><em>_FloatNx</em> <strong>sinhfNx</strong> <em>(_Float<var>N</var>x <var>x</var>)</em><a href='#index-sinhfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>These functions return the hyperbolic sine of <var>x</var>, defined
+mathematically as <code>(exp&nbsp;(<var>x</var>)&nbsp;<span class="nolinebreak">-</span>&nbsp;exp&nbsp;<span class="nolinebreak">(-</span><var>x</var>))&nbsp;/&nbsp;2</code><!-- /@w -->.  They
+may signal overflow if <var>x</var> is too large.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-cosh"><span class="category">Function: </span><span><em>double</em> <strong>cosh</strong> <em>(double <var>x</var>)</em><a href='#index-cosh' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-coshf"><span class="category">Function: </span><span><em>float</em> <strong>coshf</strong> <em>(float <var>x</var>)</em><a href='#index-coshf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-coshl"><span class="category">Function: </span><span><em>long double</em> <strong>coshl</strong> <em>(long double <var>x</var>)</em><a href='#index-coshl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-coshfN"><span class="category">Function: </span><span><em>_FloatN</em> <strong>coshfN</strong> <em>(_Float<var>N</var> <var>x</var>)</em><a href='#index-coshfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-coshfNx"><span class="category">Function: </span><span><em>_FloatNx</em> <strong>coshfNx</strong> <em>(_Float<var>N</var>x <var>x</var>)</em><a href='#index-coshfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>These functions return the hyperbolic cosine of <var>x</var>,
+defined mathematically as <code>(exp&nbsp;(<var>x</var>)&nbsp;+&nbsp;exp&nbsp;<span class="nolinebreak">(-</span><var>x</var>))&nbsp;/&nbsp;2</code><!-- /@w -->.
+They may signal overflow if <var>x</var> is too large.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-tanh"><span class="category">Function: </span><span><em>double</em> <strong>tanh</strong> <em>(double <var>x</var>)</em><a href='#index-tanh' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-tanhf"><span class="category">Function: </span><span><em>float</em> <strong>tanhf</strong> <em>(float <var>x</var>)</em><a href='#index-tanhf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-tanhl"><span class="category">Function: </span><span><em>long double</em> <strong>tanhl</strong> <em>(long double <var>x</var>)</em><a href='#index-tanhl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-tanhfN"><span class="category">Function: </span><span><em>_FloatN</em> <strong>tanhfN</strong> <em>(_Float<var>N</var> <var>x</var>)</em><a href='#index-tanhfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-tanhfNx"><span class="category">Function: </span><span><em>_FloatNx</em> <strong>tanhfNx</strong> <em>(_Float<var>N</var>x <var>x</var>)</em><a href='#index-tanhfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>These functions return the hyperbolic tangent of <var>x</var>,
+defined mathematically as <code>sinh&nbsp;(<var>x</var>)&nbsp;/&nbsp;cosh&nbsp;(<var>x</var>)</code><!-- /@w -->.
+They may signal overflow if <var>x</var> is too large.
+</p></dd></dl>
+
+<span id="index-hyperbolic-functions-1"></span>
+
+<p>There are counterparts for the hyperbolic functions which take
+complex arguments.
+</p>
+<dl class="def">
+<dt id="index-csinh"><span class="category">Function: </span><span><em>complex double</em> <strong>csinh</strong> <em>(complex double <var>z</var>)</em><a href='#index-csinh' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-csinhf"><span class="category">Function: </span><span><em>complex float</em> <strong>csinhf</strong> <em>(complex float <var>z</var>)</em><a href='#index-csinhf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-csinhl"><span class="category">Function: </span><span><em>complex long double</em> <strong>csinhl</strong> <em>(complex long double <var>z</var>)</em><a href='#index-csinhl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-csinhfN"><span class="category">Function: </span><span><em>complex _FloatN</em> <strong>csinhfN</strong> <em>(complex _Float<var>N</var> <var>z</var>)</em><a href='#index-csinhfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-csinhfNx"><span class="category">Function: </span><span><em>complex _FloatNx</em> <strong>csinhfNx</strong> <em>(complex _Float<var>N</var>x <var>z</var>)</em><a href='#index-csinhfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>These functions return the complex hyperbolic sine of <var>z</var>, defined
+mathematically as <code>(exp&nbsp;(<var>z</var>)&nbsp;<span class="nolinebreak">-</span>&nbsp;exp&nbsp;<span class="nolinebreak">(-</span><var>z</var>))&nbsp;/&nbsp;2</code><!-- /@w -->.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-ccosh"><span class="category">Function: </span><span><em>complex double</em> <strong>ccosh</strong> <em>(complex double <var>z</var>)</em><a href='#index-ccosh' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-ccoshf"><span class="category">Function: </span><span><em>complex float</em> <strong>ccoshf</strong> <em>(complex float <var>z</var>)</em><a href='#index-ccoshf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-ccoshl"><span class="category">Function: </span><span><em>complex long double</em> <strong>ccoshl</strong> <em>(complex long double <var>z</var>)</em><a href='#index-ccoshl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-ccoshfN"><span class="category">Function: </span><span><em>complex _FloatN</em> <strong>ccoshfN</strong> <em>(complex _Float<var>N</var> <var>z</var>)</em><a href='#index-ccoshfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-ccoshfNx"><span class="category">Function: </span><span><em>complex _FloatNx</em> <strong>ccoshfNx</strong> <em>(complex _Float<var>N</var>x <var>z</var>)</em><a href='#index-ccoshfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>These functions return the complex hyperbolic cosine of <var>z</var>, defined
+mathematically as <code>(exp&nbsp;(<var>z</var>)&nbsp;+&nbsp;exp&nbsp;<span class="nolinebreak">(-</span><var>z</var>))&nbsp;/&nbsp;2</code><!-- /@w -->.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-ctanh"><span class="category">Function: </span><span><em>complex double</em> <strong>ctanh</strong> <em>(complex double <var>z</var>)</em><a href='#index-ctanh' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-ctanhf"><span class="category">Function: </span><span><em>complex float</em> <strong>ctanhf</strong> <em>(complex float <var>z</var>)</em><a href='#index-ctanhf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-ctanhl"><span class="category">Function: </span><span><em>complex long double</em> <strong>ctanhl</strong> <em>(complex long double <var>z</var>)</em><a href='#index-ctanhl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-ctanhfN"><span class="category">Function: </span><span><em>complex _FloatN</em> <strong>ctanhfN</strong> <em>(complex _Float<var>N</var> <var>z</var>)</em><a href='#index-ctanhfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-ctanhfNx"><span class="category">Function: </span><span><em>complex _FloatNx</em> <strong>ctanhfNx</strong> <em>(complex _Float<var>N</var>x <var>z</var>)</em><a href='#index-ctanhfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>These functions return the complex hyperbolic tangent of <var>z</var>,
+defined mathematically as <code>csinh&nbsp;(<var>z</var>)&nbsp;/&nbsp;ccosh&nbsp;(<var>z</var>)</code><!-- /@w -->.
+</p></dd></dl>
+
+
+<span id="index-inverse-hyperbolic-functions"></span>
+
+<dl class="def">
+<dt id="index-asinh"><span class="category">Function: </span><span><em>double</em> <strong>asinh</strong> <em>(double <var>x</var>)</em><a href='#index-asinh' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-asinhf"><span class="category">Function: </span><span><em>float</em> <strong>asinhf</strong> <em>(float <var>x</var>)</em><a href='#index-asinhf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-asinhl"><span class="category">Function: </span><span><em>long double</em> <strong>asinhl</strong> <em>(long double <var>x</var>)</em><a href='#index-asinhl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-asinhfN"><span class="category">Function: </span><span><em>_FloatN</em> <strong>asinhfN</strong> <em>(_Float<var>N</var> <var>x</var>)</em><a href='#index-asinhfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-asinhfNx"><span class="category">Function: </span><span><em>_FloatNx</em> <strong>asinhfNx</strong> <em>(_Float<var>N</var>x <var>x</var>)</em><a href='#index-asinhfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>These functions return the inverse hyperbolic sine of <var>x</var>&mdash;the
+value whose hyperbolic sine is <var>x</var>.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-acosh"><span class="category">Function: </span><span><em>double</em> <strong>acosh</strong> <em>(double <var>x</var>)</em><a href='#index-acosh' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-acoshf"><span class="category">Function: </span><span><em>float</em> <strong>acoshf</strong> <em>(float <var>x</var>)</em><a href='#index-acoshf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-acoshl"><span class="category">Function: </span><span><em>long double</em> <strong>acoshl</strong> <em>(long double <var>x</var>)</em><a href='#index-acoshl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-acoshfN"><span class="category">Function: </span><span><em>_FloatN</em> <strong>acoshfN</strong> <em>(_Float<var>N</var> <var>x</var>)</em><a href='#index-acoshfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-acoshfNx"><span class="category">Function: </span><span><em>_FloatNx</em> <strong>acoshfNx</strong> <em>(_Float<var>N</var>x <var>x</var>)</em><a href='#index-acoshfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>These functions return the inverse hyperbolic cosine of <var>x</var>&mdash;the
+value whose hyperbolic cosine is <var>x</var>.  If <var>x</var> is less than
+<code>1</code>, <code>acosh</code> signals a domain error.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-atanh"><span class="category">Function: </span><span><em>double</em> <strong>atanh</strong> <em>(double <var>x</var>)</em><a href='#index-atanh' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-atanhf"><span class="category">Function: </span><span><em>float</em> <strong>atanhf</strong> <em>(float <var>x</var>)</em><a href='#index-atanhf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-atanhl"><span class="category">Function: </span><span><em>long double</em> <strong>atanhl</strong> <em>(long double <var>x</var>)</em><a href='#index-atanhl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-atanhfN"><span class="category">Function: </span><span><em>_FloatN</em> <strong>atanhfN</strong> <em>(_Float<var>N</var> <var>x</var>)</em><a href='#index-atanhfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-atanhfNx"><span class="category">Function: </span><span><em>_FloatNx</em> <strong>atanhfNx</strong> <em>(_Float<var>N</var>x <var>x</var>)</em><a href='#index-atanhfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>These functions return the inverse hyperbolic tangent of <var>x</var>&mdash;the
+value whose hyperbolic tangent is <var>x</var>.  If the absolute value of
+<var>x</var> is greater than <code>1</code>, <code>atanh</code> signals a domain error;
+if it is equal to 1, <code>atanh</code> returns infinity.
+</p></dd></dl>
+
+<span id="index-inverse-complex-hyperbolic-functions"></span>
+
+<dl class="def">
+<dt id="index-casinh"><span class="category">Function: </span><span><em>complex double</em> <strong>casinh</strong> <em>(complex double <var>z</var>)</em><a href='#index-casinh' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-casinhf"><span class="category">Function: </span><span><em>complex float</em> <strong>casinhf</strong> <em>(complex float <var>z</var>)</em><a href='#index-casinhf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-casinhl"><span class="category">Function: </span><span><em>complex long double</em> <strong>casinhl</strong> <em>(complex long double <var>z</var>)</em><a href='#index-casinhl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-casinhfN"><span class="category">Function: </span><span><em>complex _FloatN</em> <strong>casinhfN</strong> <em>(complex _Float<var>N</var> <var>z</var>)</em><a href='#index-casinhfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-casinhfNx"><span class="category">Function: </span><span><em>complex _FloatNx</em> <strong>casinhfNx</strong> <em>(complex _Float<var>N</var>x <var>z</var>)</em><a href='#index-casinhfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>These functions return the inverse complex hyperbolic sine of
+<var>z</var>&mdash;the value whose complex hyperbolic sine is <var>z</var>.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-cacosh"><span class="category">Function: </span><span><em>complex double</em> <strong>cacosh</strong> <em>(complex double <var>z</var>)</em><a href='#index-cacosh' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-cacoshf"><span class="category">Function: </span><span><em>complex float</em> <strong>cacoshf</strong> <em>(complex float <var>z</var>)</em><a href='#index-cacoshf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-cacoshl"><span class="category">Function: </span><span><em>complex long double</em> <strong>cacoshl</strong> <em>(complex long double <var>z</var>)</em><a href='#index-cacoshl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-cacoshfN"><span class="category">Function: </span><span><em>complex _FloatN</em> <strong>cacoshfN</strong> <em>(complex _Float<var>N</var> <var>z</var>)</em><a href='#index-cacoshfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-cacoshfNx"><span class="category">Function: </span><span><em>complex _FloatNx</em> <strong>cacoshfNx</strong> <em>(complex _Float<var>N</var>x <var>z</var>)</em><a href='#index-cacoshfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>These functions return the inverse complex hyperbolic cosine of
+<var>z</var>&mdash;the value whose complex hyperbolic cosine is <var>z</var>.  Unlike
+the real-valued functions, there are no restrictions on the value of <var>z</var>.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-catanh"><span class="category">Function: </span><span><em>complex double</em> <strong>catanh</strong> <em>(complex double <var>z</var>)</em><a href='#index-catanh' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-catanhf"><span class="category">Function: </span><span><em>complex float</em> <strong>catanhf</strong> <em>(complex float <var>z</var>)</em><a href='#index-catanhf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-catanhl"><span class="category">Function: </span><span><em>complex long double</em> <strong>catanhl</strong> <em>(complex long double <var>z</var>)</em><a href='#index-catanhl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-catanhfN"><span class="category">Function: </span><span><em>complex _FloatN</em> <strong>catanhfN</strong> <em>(complex _Float<var>N</var> <var>z</var>)</em><a href='#index-catanhfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-catanhfNx"><span class="category">Function: </span><span><em>complex _FloatNx</em> <strong>catanhfNx</strong> <em>(complex _Float<var>N</var>x <var>z</var>)</em><a href='#index-catanhfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>These functions return the inverse complex hyperbolic tangent of
+<var>z</var>&mdash;the value whose complex hyperbolic tangent is <var>z</var>.  Unlike
+the real-valued functions, there are no restrictions on the value of
+<var>z</var>.
+</p></dd></dl>
+
+</div>
+<hr>
+<div class="header">
+<p>
+Next: <a href="Special-Functions.html">Special Functions</a>, Previous: <a href="Exponents-and-Logarithms.html">Exponentiation and Logarithms</a>, Up: <a href="Mathematics.html">Mathematics</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

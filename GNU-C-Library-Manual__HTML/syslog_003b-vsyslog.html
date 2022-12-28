@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This is
+The GNU C Library Reference Manual, for version
+2.36.
+
+Copyright (C) 1993-2022 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version
+1.3 or any later version published by the Free
+Software Foundation; with the Invariant Sections being "Free Software
+Needs Free Documentation" and "GNU Lesser General Public License",
+the Front-Cover texts being "A GNU Manual", and with the Back-Cover
+Texts as in (a) below.  A copy of the license is included in the
+section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: "You have the freedom to
+copy and modify this GNU manual.  Buying copies from the FSF
+supports it in developing GNU and promoting software freedom." -->
+<title>syslog; vsyslog (The GNU C Library)</title>
+
+<meta name="description" content="syslog; vsyslog (The GNU C Library)">
+<meta name="keywords" content="syslog; vsyslog (The GNU C Library)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Submitting-Syslog-Messages.html" rel="up" title="Submitting Syslog Messages">
+<link href="closelog.html" rel="next" title="closelog">
+<link href="openlog.html" rel="prev" title="openlog">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<div class="subsection" id="syslog_003b-vsyslog">
+<div class="header">
+<p>
+Next: <a href="closelog.html" accesskey="n" rel="next">closelog</a>, Previous: <a href="openlog.html" accesskey="p" rel="prev">openlog</a>, Up: <a href="Submitting-Syslog-Messages.html" accesskey="u" rel="up">Submitting Syslog Messages</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="syslog_002c-vsyslog"></span><h4 class="subsection">18.2.2 syslog, vsyslog</h4>
+
+<p>The symbols referred to in this section are declared in the file
+<samp>syslog.h</samp>.
+</p>
+<dl class="def">
+<dt id="index-syslog"><span class="category">Function: </span><span><em>void</em> <strong>syslog</strong> <em>(int <var>facility_priority</var>, const char *<var>format</var>, &hellip;)</em><a href='#index-syslog' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Preliminary:
+| MT-Safe env locale
+| AS-Unsafe corrupt heap lock dlopen
+| AC-Unsafe corrupt lock mem fd
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+
+<p><code>syslog</code> submits a message to the Syslog facility.  It does this by
+writing to the Unix domain socket <code>/dev/log</code>.
+</p>
+<p><code>syslog</code> submits the message with the facility and priority indicated
+by <var>facility_priority</var>.  The macro <code>LOG_MAKEPRI</code> generates a
+facility/priority from a facility and a priority, as in the following
+example:
+</p>
+<div class="example">
+<pre class="example">LOG_MAKEPRI(LOG_USER, LOG_WARNING)
+</pre></div>
+
+<p>The possible values for the facility code are (macros):
+</p>
+
+<dl compact="compact">
+<dt id='index-LOG_005fUSER'><span><code>LOG_USER</code><a href='#index-LOG_005fUSER' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>A miscellaneous user process
+</p></dd>
+<dt id='index-LOG_005fMAIL'><span><code>LOG_MAIL</code><a href='#index-LOG_005fMAIL' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Mail
+</p></dd>
+<dt id='index-LOG_005fDAEMON'><span><code>LOG_DAEMON</code><a href='#index-LOG_005fDAEMON' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>A miscellaneous system daemon
+</p></dd>
+<dt id='index-LOG_005fAUTH'><span><code>LOG_AUTH</code><a href='#index-LOG_005fAUTH' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Security (authorization)
+</p></dd>
+<dt id='index-LOG_005fSYSLOG'><span><code>LOG_SYSLOG</code><a href='#index-LOG_005fSYSLOG' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Syslog
+</p></dd>
+<dt id='index-LOG_005fLPR'><span><code>LOG_LPR</code><a href='#index-LOG_005fLPR' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Central printer
+</p></dd>
+<dt id='index-LOG_005fNEWS'><span><code>LOG_NEWS</code><a href='#index-LOG_005fNEWS' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Network news (e.g. Usenet)
+</p></dd>
+<dt id='index-LOG_005fUUCP'><span><code>LOG_UUCP</code><a href='#index-LOG_005fUUCP' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>UUCP
+</p></dd>
+<dt id='index-LOG_005fCRON'><span><code>LOG_CRON</code><a href='#index-LOG_005fCRON' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Cron and At
+</p></dd>
+<dt id='index-LOG_005fAUTHPRIV'><span><code>LOG_AUTHPRIV</code><a href='#index-LOG_005fAUTHPRIV' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Private security (authorization)
+</p></dd>
+<dt id='index-LOG_005fFTP'><span><code>LOG_FTP</code><a href='#index-LOG_005fFTP' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Ftp server
+</p></dd>
+<dt id='index-LOG_005fLOCAL0'><span><code>LOG_LOCAL0</code><a href='#index-LOG_005fLOCAL0' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Locally defined
+</p></dd>
+<dt id='index-LOG_005fLOCAL1'><span><code>LOG_LOCAL1</code><a href='#index-LOG_005fLOCAL1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Locally defined
+</p></dd>
+<dt id='index-LOG_005fLOCAL2'><span><code>LOG_LOCAL2</code><a href='#index-LOG_005fLOCAL2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Locally defined
+</p></dd>
+<dt id='index-LOG_005fLOCAL3'><span><code>LOG_LOCAL3</code><a href='#index-LOG_005fLOCAL3' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Locally defined
+</p></dd>
+<dt id='index-LOG_005fLOCAL4'><span><code>LOG_LOCAL4</code><a href='#index-LOG_005fLOCAL4' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Locally defined
+</p></dd>
+<dt id='index-LOG_005fLOCAL5'><span><code>LOG_LOCAL5</code><a href='#index-LOG_005fLOCAL5' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Locally defined
+</p></dd>
+<dt id='index-LOG_005fLOCAL6'><span><code>LOG_LOCAL6</code><a href='#index-LOG_005fLOCAL6' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Locally defined
+</p></dd>
+<dt id='index-LOG_005fLOCAL7'><span><code>LOG_LOCAL7</code><a href='#index-LOG_005fLOCAL7' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Locally defined
+</p></dd>
+</dl>
+
+<p>Results are undefined if the facility code is anything else.
+</p>
+<p><strong>NB:</strong> <code>syslog</code> recognizes one other facility code: that of
+the kernel.  But you can&rsquo;t specify that facility code with these
+functions.  If you try, it looks the same to <code>syslog</code> as if you are
+requesting the default facility.  But you wouldn&rsquo;t want to anyway,
+because any program that uses the GNU C Library is not the kernel.
+</p>
+<p>You can use just a priority code as <var>facility_priority</var>.  In that
+case, <code>syslog</code> assumes the default facility established when the
+Syslog connection was opened.  See <a href="Syslog-Example.html">Syslog Example</a>.
+</p>
+<p>The possible values for the priority code are (macros):
+</p>
+<dl compact="compact">
+<dt id='index-LOG_005fEMERG'><span><code>LOG_EMERG</code><a href='#index-LOG_005fEMERG' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>The message says the system is unusable.
+</p></dd>
+<dt id='index-LOG_005fALERT'><span><code>LOG_ALERT</code><a href='#index-LOG_005fALERT' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Action on the message must be taken immediately.
+</p></dd>
+<dt id='index-LOG_005fCRIT'><span><code>LOG_CRIT</code><a href='#index-LOG_005fCRIT' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>The message states a critical condition.
+</p></dd>
+<dt id='index-LOG_005fERR'><span><code>LOG_ERR</code><a href='#index-LOG_005fERR' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>The message describes an error.
+</p></dd>
+<dt id='index-LOG_005fWARNING'><span><code>LOG_WARNING</code><a href='#index-LOG_005fWARNING' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>The message is a warning.
+</p></dd>
+<dt id='index-LOG_005fNOTICE'><span><code>LOG_NOTICE</code><a href='#index-LOG_005fNOTICE' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>The message describes a normal but important event.
+</p></dd>
+<dt id='index-LOG_005fINFO'><span><code>LOG_INFO</code><a href='#index-LOG_005fINFO' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>The message is purely informational.
+</p></dd>
+<dt id='index-LOG_005fDEBUG'><span><code>LOG_DEBUG</code><a href='#index-LOG_005fDEBUG' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>The message is only for debugging purposes.
+</p></dd>
+</dl>
+
+<p>Results are undefined if the priority code is anything else.
+</p>
+<p>If the process does not presently have a Syslog connection open (i.e.,
+it did not call <code>openlog</code>), <code>syslog</code> implicitly opens the
+connection the same as <code>openlog</code> would, with the following defaults
+for information that would otherwise be included in an <code>openlog</code>
+call: The default identification string is the program name.  The
+default default facility is <code>LOG_USER</code>.  The default for all the
+connection options in <var>options</var> is as if those bits were off.
+<code>syslog</code> leaves the Syslog connection open.
+</p>
+<p>If the <samp>/dev/log</samp> socket is not open and connected, <code>syslog</code>
+opens and connects it, the same as <code>openlog</code> with the
+<code>LOG_NDELAY</code> option would.
+</p>
+<p><code>syslog</code> leaves <samp>/dev/log</samp> open and connected unless its attempt
+to send the message failed, in which case <code>syslog</code> closes it (with the
+hope that a future implicit open will restore the Syslog connection to a
+usable state).
+</p>
+<p>Example:
+</p>
+<div class="example">
+<pre class="example">
+
+#include &lt;syslog.h&gt;
+syslog (LOG_MAKEPRI(LOG_LOCAL1, LOG_ERROR),
+        &quot;Unable to make network connection to %s.  Error=%m&quot;, host);
+
+</pre></div>
+
+</dd></dl>
+
+
+<dl class="def">
+<dt id="index-vsyslog"><span class="category">Function: </span><span><em>void</em> <strong>vsyslog</strong> <em>(int <var>facility_priority</var>, const char *<var>format</var>, va_list <var>arglist</var>)</em><a href='#index-vsyslog' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Preliminary:
+| MT-Safe env locale
+| AS-Unsafe corrupt heap lock dlopen
+| AC-Unsafe corrupt lock mem fd
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+
+<p>This is functionally identical to <code>syslog</code>, with the BSD style variable
+length argument.
+</p>
+</dd></dl>
+
+
+</div>
+<hr>
+<div class="header">
+<p>
+Next: <a href="closelog.html">closelog</a>, Previous: <a href="openlog.html">openlog</a>, Up: <a href="Submitting-Syslog-Messages.html">Submitting Syslog Messages</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This is
+The GNU C Library Reference Manual, for version
+2.36.
+
+Copyright (C) 1993-2022 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version
+1.3 or any later version published by the Free
+Software Foundation; with the Invariant Sections being "Free Software
+Needs Free Documentation" and "GNU Lesser General Public License",
+the Front-Cover texts being "A GNU Manual", and with the Back-Cover
+Texts as in (a) below.  A copy of the license is included in the
+section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: "You have the freedom to
+copy and modify this GNU manual.  Buying copies from the FSF
+supports it in developing GNU and promoting software freedom." -->
+<title>Terminal Modes (The GNU C Library)</title>
+
+<meta name="description" content="Terminal Modes (The GNU C Library)">
+<meta name="keywords" content="Terminal Modes (The GNU C Library)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Low_002dLevel-Terminal-Interface.html" rel="up" title="Low-Level Terminal Interface">
+<link href="BSD-Terminal-Modes.html" rel="next" title="BSD Terminal Modes">
+<link href="Canonical-or-Not.html" rel="prev" title="Canonical or Not">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<div class="section" id="Terminal-Modes">
+<div class="header">
+<p>
+Next: <a href="BSD-Terminal-Modes.html" accesskey="n" rel="next">BSD Terminal Modes</a>, Previous: <a href="Canonical-or-Not.html" accesskey="p" rel="prev">Two Styles of Input: Canonical or Not</a>, Up: <a href="Low_002dLevel-Terminal-Interface.html" accesskey="u" rel="up">Low-Level Terminal Interface</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Terminal-Modes-1"></span><h3 class="section">17.4 Terminal Modes</h3>
+
+<span id="index-termios_002eh-1"></span>
+<p>This section describes the various terminal attributes that control how
+input and output are done.  The functions, data structures, and symbolic
+constants are all declared in the header file <samp>termios.h</samp>.
+</p>
+<p>Don&rsquo;t confuse terminal attributes with file attributes.  A device special
+file which is associated with a terminal has file attributes as described
+in <a href="File-Attributes.html">File Attributes</a>.  These are unrelated to the attributes of the
+terminal device itself, which are discussed in this section.
+</p>
+
+<ul class="section-toc">
+<li><a href="Mode-Data-Types.html" accesskey="1">Terminal Mode Data Types</a></li>
+<li><a href="Mode-Functions.html" accesskey="2">Terminal Mode Functions</a></li>
+<li><a href="Setting-Modes.html" accesskey="3">Setting Terminal Modes Properly</a></li>
+<li><a href="Input-Modes.html" accesskey="4">Input Modes</a></li>
+<li><a href="Output-Modes.html" accesskey="5">Output Modes</a></li>
+<li><a href="Control-Modes.html" accesskey="6">Control Modes</a></li>
+<li><a href="Local-Modes.html" accesskey="7">Local Modes</a></li>
+<li><a href="Line-Speed.html" accesskey="8">Line Speed</a></li>
+<li><a href="Special-Characters.html" accesskey="9">Special Characters</a></li>
+<li><a href="Noncanonical-Input.html">Noncanonical Input</a></li>
+</ul>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This is
+The GNU C Library Reference Manual, for version
+2.36.
+
+Copyright (C) 1993-2022 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version
+1.3 or any later version published by the Free
+Software Foundation; with the Invariant Sections being "Free Software
+Needs Free Documentation" and "GNU Lesser General Public License",
+the Front-Cover texts being "A GNU Manual", and with the Back-Cover
+Texts as in (a) below.  A copy of the license is included in the
+section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: "You have the freedom to
+copy and modify this GNU manual.  Buying copies from the FSF
+supports it in developing GNU and promoting software freedom." -->
+<title>Special Functions (The GNU C Library)</title>
+
+<meta name="description" content="Special Functions (The GNU C Library)">
+<meta name="keywords" content="Special Functions (The GNU C Library)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Mathematics.html" rel="up" title="Mathematics">
+<link href="Errors-in-Math-Functions.html" rel="next" title="Errors in Math Functions">
+<link href="Hyperbolic-Functions.html" rel="prev" title="Hyperbolic Functions">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<div class="section" id="Special-Functions">
+<div class="header">
+<p>
+Next: <a href="Errors-in-Math-Functions.html" accesskey="n" rel="next">Known Maximum Errors in Math Functions</a>, Previous: <a href="Hyperbolic-Functions.html" accesskey="p" rel="prev">Hyperbolic Functions</a>, Up: <a href="Mathematics.html" accesskey="u" rel="up">Mathematics</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Special-Functions-1"></span><h3 class="section">19.6 Special Functions</h3>
+<span id="index-special-functions"></span>
+<span id="index-Bessel-functions"></span>
+<span id="index-gamma-function"></span>
+
+<p>These are some more exotic mathematical functions which are sometimes
+useful.  Currently they only have real-valued versions.
+</p>
+<dl class="def">
+<dt id="index-erf"><span class="category">Function: </span><span><em>double</em> <strong>erf</strong> <em>(double <var>x</var>)</em><a href='#index-erf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-erff"><span class="category">Function: </span><span><em>float</em> <strong>erff</strong> <em>(float <var>x</var>)</em><a href='#index-erff' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-erfl"><span class="category">Function: </span><span><em>long double</em> <strong>erfl</strong> <em>(long double <var>x</var>)</em><a href='#index-erfl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-erffN"><span class="category">Function: </span><span><em>_FloatN</em> <strong>erffN</strong> <em>(_Float<var>N</var> <var>x</var>)</em><a href='#index-erffN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-erffNx"><span class="category">Function: </span><span><em>_FloatNx</em> <strong>erffNx</strong> <em>(_Float<var>N</var>x <var>x</var>)</em><a href='#index-erffNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p><code>erf</code> returns the error function of <var>x</var>.  The error
+function is defined as
+</p><div class="example">
+<pre class="example">erf (x) = 2/sqrt(pi) * integral from 0 to x of exp(-t^2) dt
+</pre></div>
+</dd></dl>
+
+<dl class="def">
+<dt id="index-erfc"><span class="category">Function: </span><span><em>double</em> <strong>erfc</strong> <em>(double <var>x</var>)</em><a href='#index-erfc' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-erfcf"><span class="category">Function: </span><span><em>float</em> <strong>erfcf</strong> <em>(float <var>x</var>)</em><a href='#index-erfcf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-erfcl"><span class="category">Function: </span><span><em>long double</em> <strong>erfcl</strong> <em>(long double <var>x</var>)</em><a href='#index-erfcl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-erfcfN"><span class="category">Function: </span><span><em>_FloatN</em> <strong>erfcfN</strong> <em>(_Float<var>N</var> <var>x</var>)</em><a href='#index-erfcfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-erfcfNx"><span class="category">Function: </span><span><em>_FloatNx</em> <strong>erfcfNx</strong> <em>(_Float<var>N</var>x <var>x</var>)</em><a href='#index-erfcfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p><code>erfc</code> returns <code>1.0 - erf(<var>x</var>)</code>, but computed in a
+fashion that avoids round-off error when <var>x</var> is large.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-lgamma"><span class="category">Function: </span><span><em>double</em> <strong>lgamma</strong> <em>(double <var>x</var>)</em><a href='#index-lgamma' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-lgammaf"><span class="category">Function: </span><span><em>float</em> <strong>lgammaf</strong> <em>(float <var>x</var>)</em><a href='#index-lgammaf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-lgammal"><span class="category">Function: </span><span><em>long double</em> <strong>lgammal</strong> <em>(long double <var>x</var>)</em><a href='#index-lgammal' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-lgammafN"><span class="category">Function: </span><span><em>_FloatN</em> <strong>lgammafN</strong> <em>(_Float<var>N</var> <var>x</var>)</em><a href='#index-lgammafN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-lgammafNx"><span class="category">Function: </span><span><em>_FloatNx</em> <strong>lgammafNx</strong> <em>(_Float<var>N</var>x <var>x</var>)</em><a href='#index-lgammafNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+<p>Preliminary:
+| MT-Unsafe race:signgam
+| AS-Unsafe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p><code>lgamma</code> returns the natural logarithm of the absolute value of
+the gamma function of <var>x</var>.  The gamma function is defined as
+</p><div class="example">
+<pre class="example">gamma (x) = integral from 0 to &#x221E; of t^(x-1) e^-t dt
+</pre></div>
+
+<span id="index-signgam"></span>
+<p>The sign of the gamma function is stored in the global variable
+<var>signgam</var>, which is declared in <samp>math.h</samp>.  It is <code>1</code> if
+the intermediate result was positive or zero, or <code>-1</code> if it was
+negative.
+</p>
+<p>To compute the real gamma function you can use the <code>tgamma</code>
+function or you can compute the values as follows:
+</p><div class="example">
+<pre class="example">lgam = lgamma(x);
+gam  = signgam*exp(lgam);
+</pre></div>
+
+<p>The gamma function has singularities at the non-positive integers.
+<code>lgamma</code> will raise the zero divide exception if evaluated at a
+singularity.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-lgamma_005fr"><span class="category">Function: </span><span><em>double</em> <strong>lgamma_r</strong> <em>(double <var>x</var>, int *<var>signp</var>)</em><a href='#index-lgamma_005fr' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-lgammaf_005fr"><span class="category">Function: </span><span><em>float</em> <strong>lgammaf_r</strong> <em>(float <var>x</var>, int *<var>signp</var>)</em><a href='#index-lgammaf_005fr' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-lgammal_005fr"><span class="category">Function: </span><span><em>long double</em> <strong>lgammal_r</strong> <em>(long double <var>x</var>, int *<var>signp</var>)</em><a href='#index-lgammal_005fr' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-lgammafN_005fr"><span class="category">Function: </span><span><em>_FloatN</em> <strong>lgammafN_r</strong> <em>(_Float<var>N</var> <var>x</var>, int *<var>signp</var>)</em><a href='#index-lgammafN_005fr' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-lgammafNx_005fr"><span class="category">Function: </span><span><em>_FloatNx</em> <strong>lgammafNx_r</strong> <em>(_Float<var>N</var>x <var>x</var>, int *<var>signp</var>)</em><a href='#index-lgammafNx_005fr' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p><code>lgamma_r</code> is just like <code>lgamma</code>, but it stores the sign of
+the intermediate result in the variable pointed to by <var>signp</var>
+instead of in the <var>signgam</var> global.  This means it is reentrant.
+</p>
+<p>The <code>lgammaf<var>N</var>_r</code> and <code>lgammaf<var>N</var>x_r</code> functions are
+GNU extensions.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-gamma"><span class="category">Function: </span><span><em>double</em> <strong>gamma</strong> <em>(double <var>x</var>)</em><a href='#index-gamma' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-gammaf"><span class="category">Function: </span><span><em>float</em> <strong>gammaf</strong> <em>(float <var>x</var>)</em><a href='#index-gammaf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-gammal"><span class="category">Function: </span><span><em>long double</em> <strong>gammal</strong> <em>(long double <var>x</var>)</em><a href='#index-gammal' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Preliminary:
+| MT-Unsafe race:signgam
+| AS-Unsafe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>These functions exist for compatibility reasons.  They are equivalent to
+<code>lgamma</code> etc.  It is better to use <code>lgamma</code> since for one the
+name reflects better the actual computation, and moreover <code>lgamma</code> is
+standardized in ISO&nbsp;C99<!-- /@w --> while <code>gamma</code> is not.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-tgamma"><span class="category">Function: </span><span><em>double</em> <strong>tgamma</strong> <em>(double <var>x</var>)</em><a href='#index-tgamma' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-tgammaf"><span class="category">Function: </span><span><em>float</em> <strong>tgammaf</strong> <em>(float <var>x</var>)</em><a href='#index-tgammaf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-tgammal"><span class="category">Function: </span><span><em>long double</em> <strong>tgammal</strong> <em>(long double <var>x</var>)</em><a href='#index-tgammal' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-tgammafN"><span class="category">Function: </span><span><em>_FloatN</em> <strong>tgammafN</strong> <em>(_Float<var>N</var> <var>x</var>)</em><a href='#index-tgammafN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-tgammafNx"><span class="category">Function: </span><span><em>_FloatNx</em> <strong>tgammafNx</strong> <em>(_Float<var>N</var>x <var>x</var>)</em><a href='#index-tgammafNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+
+
+
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p><code>tgamma</code> applies the gamma function to <var>x</var>.  The gamma
+function is defined as
+</p><div class="example">
+<pre class="example">gamma (x) = integral from 0 to &#x221E; of t^(x-1) e^-t dt
+</pre></div>
+
+<p>This function was introduced in ISO&nbsp;C99<!-- /@w -->.  The <code>_Float<var>N</var></code>
+and <code>_Float<var>N</var>x</code> variants were introduced in ISO/IEC&nbsp;TS&nbsp;<span class="nolinebreak">18661-3</span><!-- /@w -->.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-j0"><span class="category">Function: </span><span><em>double</em> <strong>j0</strong> <em>(double <var>x</var>)</em><a href='#index-j0' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-j0f"><span class="category">Function: </span><span><em>float</em> <strong>j0f</strong> <em>(float <var>x</var>)</em><a href='#index-j0f' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-j0l"><span class="category">Function: </span><span><em>long double</em> <strong>j0l</strong> <em>(long double <var>x</var>)</em><a href='#index-j0l' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-j0fN"><span class="category">Function: </span><span><em>_FloatN</em> <strong>j0fN</strong> <em>(_Float<var>N</var> <var>x</var>)</em><a href='#index-j0fN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-j0fNx"><span class="category">Function: </span><span><em>_FloatNx</em> <strong>j0fNx</strong> <em>(_Float<var>N</var>x <var>x</var>)</em><a href='#index-j0fNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p><code>j0</code> returns the Bessel function of the first kind of order 0 of
+<var>x</var>.  It may signal underflow if <var>x</var> is too large.
+</p>
+<p>The <code>_Float<var>N</var></code> and <code>_Float<var>N</var>x</code> variants are GNU
+extensions.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-j1"><span class="category">Function: </span><span><em>double</em> <strong>j1</strong> <em>(double <var>x</var>)</em><a href='#index-j1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-j1f"><span class="category">Function: </span><span><em>float</em> <strong>j1f</strong> <em>(float <var>x</var>)</em><a href='#index-j1f' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-j1l"><span class="category">Function: </span><span><em>long double</em> <strong>j1l</strong> <em>(long double <var>x</var>)</em><a href='#index-j1l' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-j1fN"><span class="category">Function: </span><span><em>_FloatN</em> <strong>j1fN</strong> <em>(_Float<var>N</var> <var>x</var>)</em><a href='#index-j1fN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-j1fNx"><span class="category">Function: </span><span><em>_FloatNx</em> <strong>j1fNx</strong> <em>(_Float<var>N</var>x <var>x</var>)</em><a href='#index-j1fNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p><code>j1</code> returns the Bessel function of the first kind of order 1 of
+<var>x</var>.  It may signal underflow if <var>x</var> is too large.
+</p>
+<p>The <code>_Float<var>N</var></code> and <code>_Float<var>N</var>x</code> variants are GNU
+extensions.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-jn"><span class="category">Function: </span><span><em>double</em> <strong>jn</strong> <em>(int <var>n</var>, double <var>x</var>)</em><a href='#index-jn' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-jnf"><span class="category">Function: </span><span><em>float</em> <strong>jnf</strong> <em>(int <var>n</var>, float <var>x</var>)</em><a href='#index-jnf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-jnl"><span class="category">Function: </span><span><em>long double</em> <strong>jnl</strong> <em>(int <var>n</var>, long double <var>x</var>)</em><a href='#index-jnl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-jnfN"><span class="category">Function: </span><span><em>_FloatN</em> <strong>jnfN</strong> <em>(int <var>n</var>, _Float<var>N</var> <var>x</var>)</em><a href='#index-jnfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-jnfNx"><span class="category">Function: </span><span><em>_FloatNx</em> <strong>jnfNx</strong> <em>(int <var>n</var>, _Float<var>N</var>x <var>x</var>)</em><a href='#index-jnfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p><code>jn</code> returns the Bessel function of the first kind of order
+<var>n</var> of <var>x</var>.  It may signal underflow if <var>x</var> is too large.
+</p>
+<p>The <code>_Float<var>N</var></code> and <code>_Float<var>N</var>x</code> variants are GNU
+extensions.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-y0"><span class="category">Function: </span><span><em>double</em> <strong>y0</strong> <em>(double <var>x</var>)</em><a href='#index-y0' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-y0f"><span class="category">Function: </span><span><em>float</em> <strong>y0f</strong> <em>(float <var>x</var>)</em><a href='#index-y0f' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-y0l"><span class="category">Function: </span><span><em>long double</em> <strong>y0l</strong> <em>(long double <var>x</var>)</em><a href='#index-y0l' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-y0fN"><span class="category">Function: </span><span><em>_FloatN</em> <strong>y0fN</strong> <em>(_Float<var>N</var> <var>x</var>)</em><a href='#index-y0fN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-y0fNx"><span class="category">Function: </span><span><em>_FloatNx</em> <strong>y0fNx</strong> <em>(_Float<var>N</var>x <var>x</var>)</em><a href='#index-y0fNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p><code>y0</code> returns the Bessel function of the second kind of order 0 of
+<var>x</var>.  It may signal underflow if <var>x</var> is too large.  If <var>x</var>
+is negative, <code>y0</code> signals a domain error; if it is zero,
+<code>y0</code> signals overflow and returns <em class='math'>-&#x221E;</em>.
+</p>
+<p>The <code>_Float<var>N</var></code> and <code>_Float<var>N</var>x</code> variants are GNU
+extensions.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-y1"><span class="category">Function: </span><span><em>double</em> <strong>y1</strong> <em>(double <var>x</var>)</em><a href='#index-y1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-y1f"><span class="category">Function: </span><span><em>float</em> <strong>y1f</strong> <em>(float <var>x</var>)</em><a href='#index-y1f' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-y1l"><span class="category">Function: </span><span><em>long double</em> <strong>y1l</strong> <em>(long double <var>x</var>)</em><a href='#index-y1l' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-y1fN"><span class="category">Function: </span><span><em>_FloatN</em> <strong>y1fN</strong> <em>(_Float<var>N</var> <var>x</var>)</em><a href='#index-y1fN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-y1fNx"><span class="category">Function: </span><span><em>_FloatNx</em> <strong>y1fNx</strong> <em>(_Float<var>N</var>x <var>x</var>)</em><a href='#index-y1fNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p><code>y1</code> returns the Bessel function of the second kind of order 1 of
+<var>x</var>.  It may signal underflow if <var>x</var> is too large.  If <var>x</var>
+is negative, <code>y1</code> signals a domain error; if it is zero,
+<code>y1</code> signals overflow and returns <em class='math'>-&#x221E;</em>.
+</p>
+<p>The <code>_Float<var>N</var></code> and <code>_Float<var>N</var>x</code> variants are GNU
+extensions.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-yn"><span class="category">Function: </span><span><em>double</em> <strong>yn</strong> <em>(int <var>n</var>, double <var>x</var>)</em><a href='#index-yn' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-ynf"><span class="category">Function: </span><span><em>float</em> <strong>ynf</strong> <em>(int <var>n</var>, float <var>x</var>)</em><a href='#index-ynf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-ynl"><span class="category">Function: </span><span><em>long double</em> <strong>ynl</strong> <em>(int <var>n</var>, long double <var>x</var>)</em><a href='#index-ynl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-ynfN"><span class="category">Function: </span><span><em>_FloatN</em> <strong>ynfN</strong> <em>(int <var>n</var>, _Float<var>N</var> <var>x</var>)</em><a href='#index-ynfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-ynfNx"><span class="category">Function: </span><span><em>_FloatNx</em> <strong>ynfNx</strong> <em>(int <var>n</var>, _Float<var>N</var>x <var>x</var>)</em><a href='#index-ynfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p><code>yn</code> returns the Bessel function of the second kind of order <var>n</var> of
+<var>x</var>.  It may signal underflow if <var>x</var> is too large.  If <var>x</var>
+is negative, <code>yn</code> signals a domain error; if it is zero,
+<code>yn</code> signals overflow and returns <em class='math'>-&#x221E;</em>.
+</p>
+<p>The <code>_Float<var>N</var></code> and <code>_Float<var>N</var>x</code> variants are GNU
+extensions.
+</p></dd></dl>
+
+</div>
+<hr>
+<div class="header">
+<p>
+Next: <a href="Errors-in-Math-Functions.html">Known Maximum Errors in Math Functions</a>, Previous: <a href="Hyperbolic-Functions.html">Hyperbolic Functions</a>, Up: <a href="Mathematics.html">Mathematics</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

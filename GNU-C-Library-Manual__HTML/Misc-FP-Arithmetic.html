@@ -1,0 +1,560 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This is
+The GNU C Library Reference Manual, for version
+2.36.
+
+Copyright (C) 1993-2022 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version
+1.3 or any later version published by the Free
+Software Foundation; with the Invariant Sections being "Free Software
+Needs Free Documentation" and "GNU Lesser General Public License",
+the Front-Cover texts being "A GNU Manual", and with the Back-Cover
+Texts as in (a) below.  A copy of the license is included in the
+section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: "You have the freedom to
+copy and modify this GNU manual.  Buying copies from the FSF
+supports it in developing GNU and promoting software freedom." -->
+<title>Misc FP Arithmetic (The GNU C Library)</title>
+
+<meta name="description" content="Misc FP Arithmetic (The GNU C Library)">
+<meta name="keywords" content="Misc FP Arithmetic (The GNU C Library)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Arithmetic-Functions.html" rel="up" title="Arithmetic Functions">
+<link href="FP-Comparison-Functions.html" rel="prev" title="FP Comparison Functions">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<div class="subsection" id="Misc-FP-Arithmetic">
+<div class="header">
+<p>
+Previous: <a href="FP-Comparison-Functions.html" accesskey="p" rel="prev">Floating-Point Comparison Functions</a>, Up: <a href="Arithmetic-Functions.html" accesskey="u" rel="up">Arithmetic Functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Miscellaneous-FP-arithmetic-functions"></span><h4 class="subsection">20.8.7 Miscellaneous FP arithmetic functions</h4>
+<span id="index-minimum"></span>
+<span id="index-maximum"></span>
+<span id="index-positive-difference"></span>
+<span id="index-multiply_002dadd"></span>
+
+<p>The functions in this section perform miscellaneous but common
+operations that are awkward to express with C operators.  On some
+processors these functions can use special machine instructions to
+perform these operations faster than the equivalent C code.
+</p>
+<dl class="def">
+<dt id="index-fmin"><span class="category">Function: </span><span><em>double</em> <strong>fmin</strong> <em>(double <var>x</var>, double <var>y</var>)</em><a href='#index-fmin' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fminf"><span class="category">Function: </span><span><em>float</em> <strong>fminf</strong> <em>(float <var>x</var>, float <var>y</var>)</em><a href='#index-fminf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fminl"><span class="category">Function: </span><span><em>long double</em> <strong>fminl</strong> <em>(long double <var>x</var>, long double <var>y</var>)</em><a href='#index-fminl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fminfN"><span class="category">Function: </span><span><em>_FloatN</em> <strong>fminfN</strong> <em>(_Float<var>N</var> <var>x</var>, _Float<var>N</var> <var>y</var>)</em><a href='#index-fminfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fminfNx"><span class="category">Function: </span><span><em>_FloatNx</em> <strong>fminfNx</strong> <em>(_Float<var>N</var>x <var>x</var>, _Float<var>N</var>x <var>y</var>)</em><a href='#index-fminfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>The <code>fmin</code> function returns the lesser of the two values <var>x</var>
+and <var>y</var>.  It is similar to the expression
+</p><div class="example">
+<pre class="example">((x) &lt; (y) ? (x) : (y))
+</pre></div>
+<p>except that <var>x</var> and <var>y</var> are only evaluated once.
+</p>
+<p>If an argument is a quiet NaN, the other argument is returned.  If both arguments
+are NaN, or either is a signaling NaN, NaN is returned.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-fmax"><span class="category">Function: </span><span><em>double</em> <strong>fmax</strong> <em>(double <var>x</var>, double <var>y</var>)</em><a href='#index-fmax' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fmaxf"><span class="category">Function: </span><span><em>float</em> <strong>fmaxf</strong> <em>(float <var>x</var>, float <var>y</var>)</em><a href='#index-fmaxf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fmaxl"><span class="category">Function: </span><span><em>long double</em> <strong>fmaxl</strong> <em>(long double <var>x</var>, long double <var>y</var>)</em><a href='#index-fmaxl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fmaxfN"><span class="category">Function: </span><span><em>_FloatN</em> <strong>fmaxfN</strong> <em>(_Float<var>N</var> <var>x</var>, _Float<var>N</var> <var>y</var>)</em><a href='#index-fmaxfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fmaxfNx"><span class="category">Function: </span><span><em>_FloatNx</em> <strong>fmaxfNx</strong> <em>(_Float<var>N</var>x <var>x</var>, _Float<var>N</var>x <var>y</var>)</em><a href='#index-fmaxfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>The <code>fmax</code> function returns the greater of the two values <var>x</var>
+and <var>y</var>.
+</p>
+<p>If an argument is a quiet NaN, the other argument is returned.  If both arguments
+are NaN, or either is a signaling NaN, NaN is returned.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-fminimum"><span class="category">Function: </span><span><em>double</em> <strong>fminimum</strong> <em>(double <var>x</var>, double <var>y</var>)</em><a href='#index-fminimum' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fminimumf"><span class="category">Function: </span><span><em>float</em> <strong>fminimumf</strong> <em>(float <var>x</var>, float <var>y</var>)</em><a href='#index-fminimumf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fminimuml"><span class="category">Function: </span><span><em>long double</em> <strong>fminimuml</strong> <em>(long double <var>x</var>, long double <var>y</var>)</em><a href='#index-fminimuml' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fminimumfN"><span class="category">Function: </span><span><em>_FloatN</em> <strong>fminimumfN</strong> <em>(_Float<var>N</var> <var>x</var>, _Float<var>N</var> <var>y</var>)</em><a href='#index-fminimumfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fminimumfNx"><span class="category">Function: </span><span><em>_FloatNx</em> <strong>fminimumfNx</strong> <em>(_Float<var>N</var>x <var>x</var>, _Float<var>N</var>x <var>y</var>)</em><a href='#index-fminimumfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>The <code>fminimum</code> function returns the lesser of the two values <var>x</var>
+and <var>y</var>.  Unlike <code>fmin</code>, if either argument is a NaN, NaN is returned.
+Positive zero is treated as greater than negative zero.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-fmaximum"><span class="category">Function: </span><span><em>double</em> <strong>fmaximum</strong> <em>(double <var>x</var>, double <var>y</var>)</em><a href='#index-fmaximum' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fmaximumf"><span class="category">Function: </span><span><em>float</em> <strong>fmaximumf</strong> <em>(float <var>x</var>, float <var>y</var>)</em><a href='#index-fmaximumf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fmaximuml"><span class="category">Function: </span><span><em>long double</em> <strong>fmaximuml</strong> <em>(long double <var>x</var>, long double <var>y</var>)</em><a href='#index-fmaximuml' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fmaximumfN"><span class="category">Function: </span><span><em>_FloatN</em> <strong>fmaximumfN</strong> <em>(_Float<var>N</var> <var>x</var>, _Float<var>N</var> <var>y</var>)</em><a href='#index-fmaximumfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fmaximumfNx"><span class="category">Function: </span><span><em>_FloatNx</em> <strong>fmaximumfNx</strong> <em>(_Float<var>N</var>x <var>x</var>, _Float<var>N</var>x <var>y</var>)</em><a href='#index-fmaximumfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>The <code>fmaximum</code> function returns the greater of the two values <var>x</var>
+and <var>y</var>.  Unlike <code>fmax</code>, if either argument is a NaN, NaN is returned.
+Positive zero is treated as greater than negative zero.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-fminimum_005fnum"><span class="category">Function: </span><span><em>double</em> <strong>fminimum_num</strong> <em>(double <var>x</var>, double <var>y</var>)</em><a href='#index-fminimum_005fnum' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fminimum_005fnumf"><span class="category">Function: </span><span><em>float</em> <strong>fminimum_numf</strong> <em>(float <var>x</var>, float <var>y</var>)</em><a href='#index-fminimum_005fnumf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fminimum_005fnuml"><span class="category">Function: </span><span><em>long double</em> <strong>fminimum_numl</strong> <em>(long double <var>x</var>, long double <var>y</var>)</em><a href='#index-fminimum_005fnuml' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fminimum_005fnumfN"><span class="category">Function: </span><span><em>_FloatN</em> <strong>fminimum_numfN</strong> <em>(_Float<var>N</var> <var>x</var>, _Float<var>N</var> <var>y</var>)</em><a href='#index-fminimum_005fnumfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fminimum_005fnumfNx"><span class="category">Function: </span><span><em>_FloatNx</em> <strong>fminimum_numfNx</strong> <em>(_Float<var>N</var>x <var>x</var>, _Float<var>N</var>x <var>y</var>)</em><a href='#index-fminimum_005fnumfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>The <code>fminimum_num</code> function returns the lesser of the two values
+<var>x</var> and <var>y</var>.  If one argument is a number and the other is a
+NaN, even a signaling NaN, the number is returned.  Positive zero is
+treated as greater than negative zero.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-fmaximum_005fnum"><span class="category">Function: </span><span><em>double</em> <strong>fmaximum_num</strong> <em>(double <var>x</var>, double <var>y</var>)</em><a href='#index-fmaximum_005fnum' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fmaximum_005fnumf"><span class="category">Function: </span><span><em>float</em> <strong>fmaximum_numf</strong> <em>(float <var>x</var>, float <var>y</var>)</em><a href='#index-fmaximum_005fnumf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fmaximum_005fnuml"><span class="category">Function: </span><span><em>long double</em> <strong>fmaximum_numl</strong> <em>(long double <var>x</var>, long double <var>y</var>)</em><a href='#index-fmaximum_005fnuml' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fmaximum_005fnumfN"><span class="category">Function: </span><span><em>_FloatN</em> <strong>fmaximum_numfN</strong> <em>(_Float<var>N</var> <var>x</var>, _Float<var>N</var> <var>y</var>)</em><a href='#index-fmaximum_005fnumfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fmaximum_005fnumfNx"><span class="category">Function: </span><span><em>_FloatNx</em> <strong>fmaximum_numfNx</strong> <em>(_Float<var>N</var>x <var>x</var>, _Float<var>N</var>x <var>y</var>)</em><a href='#index-fmaximum_005fnumfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>The <code>fmaximum_num</code> function returns the greater of the two values
+<var>x</var> and <var>y</var>.  If one argument is a number and the other is a
+NaN, even a signaling NaN, the number is returned.  Positive zero is
+treated as greater than negative zero.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-fminmag"><span class="category">Function: </span><span><em>double</em> <strong>fminmag</strong> <em>(double <var>x</var>, double <var>y</var>)</em><a href='#index-fminmag' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fminmagf"><span class="category">Function: </span><span><em>float</em> <strong>fminmagf</strong> <em>(float <var>x</var>, float <var>y</var>)</em><a href='#index-fminmagf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fminmagl"><span class="category">Function: </span><span><em>long double</em> <strong>fminmagl</strong> <em>(long double <var>x</var>, long double <var>y</var>)</em><a href='#index-fminmagl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fminmagfN"><span class="category">Function: </span><span><em>_FloatN</em> <strong>fminmagfN</strong> <em>(_Float<var>N</var> <var>x</var>, _Float<var>N</var> <var>y</var>)</em><a href='#index-fminmagfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fminmagfNx"><span class="category">Function: </span><span><em>_FloatNx</em> <strong>fminmagfNx</strong> <em>(_Float<var>N</var>x <var>x</var>, _Float<var>N</var>x <var>y</var>)</em><a href='#index-fminmagfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>These functions, from TS 18661-1:2014 and TS 18661-3:2015, return
+whichever of the two values <var>x</var> and <var>y</var> has the smaller absolute
+value.  If both have the same absolute value, or either is NaN, they
+behave the same as the <code>fmin</code> functions.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-fmaxmag"><span class="category">Function: </span><span><em>double</em> <strong>fmaxmag</strong> <em>(double <var>x</var>, double <var>y</var>)</em><a href='#index-fmaxmag' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fmaxmagf"><span class="category">Function: </span><span><em>float</em> <strong>fmaxmagf</strong> <em>(float <var>x</var>, float <var>y</var>)</em><a href='#index-fmaxmagf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fmaxmagl"><span class="category">Function: </span><span><em>long double</em> <strong>fmaxmagl</strong> <em>(long double <var>x</var>, long double <var>y</var>)</em><a href='#index-fmaxmagl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fmaxmagfN"><span class="category">Function: </span><span><em>_FloatN</em> <strong>fmaxmagfN</strong> <em>(_Float<var>N</var> <var>x</var>, _Float<var>N</var> <var>y</var>)</em><a href='#index-fmaxmagfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fmaxmagfNx"><span class="category">Function: </span><span><em>_FloatNx</em> <strong>fmaxmagfNx</strong> <em>(_Float<var>N</var>x <var>x</var>, _Float<var>N</var>x <var>y</var>)</em><a href='#index-fmaxmagfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>These functions, from TS 18661-1:2014, return whichever of the two
+values <var>x</var> and <var>y</var> has the greater absolute value.  If both
+have the same absolute value, or either is NaN, they behave the same
+as the <code>fmax</code> functions.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-fminimum_005fmag"><span class="category">Function: </span><span><em>double</em> <strong>fminimum_mag</strong> <em>(double <var>x</var>, double <var>y</var>)</em><a href='#index-fminimum_005fmag' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fminimum_005fmagf"><span class="category">Function: </span><span><em>float</em> <strong>fminimum_magf</strong> <em>(float <var>x</var>, float <var>y</var>)</em><a href='#index-fminimum_005fmagf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fminimum_005fmagl"><span class="category">Function: </span><span><em>long double</em> <strong>fminimum_magl</strong> <em>(long double <var>x</var>, long double <var>y</var>)</em><a href='#index-fminimum_005fmagl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fminimum_005fmagfN"><span class="category">Function: </span><span><em>_FloatN</em> <strong>fminimum_magfN</strong> <em>(_Float<var>N</var> <var>x</var>, _Float<var>N</var> <var>y</var>)</em><a href='#index-fminimum_005fmagfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fminimum_005fmagfNx"><span class="category">Function: </span><span><em>_FloatNx</em> <strong>fminimum_magfNx</strong> <em>(_Float<var>N</var>x <var>x</var>, _Float<var>N</var>x <var>y</var>)</em><a href='#index-fminimum_005fmagfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>These functions return whichever of the two values <var>x</var> and <var>y</var>
+has the smaller absolute value.  If both have the same absolute value,
+or either is NaN, they behave the same as the <code>fminimum</code>
+functions.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-fmaximum_005fmag"><span class="category">Function: </span><span><em>double</em> <strong>fmaximum_mag</strong> <em>(double <var>x</var>, double <var>y</var>)</em><a href='#index-fmaximum_005fmag' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fmaximum_005fmagf"><span class="category">Function: </span><span><em>float</em> <strong>fmaximum_magf</strong> <em>(float <var>x</var>, float <var>y</var>)</em><a href='#index-fmaximum_005fmagf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fmaximum_005fmagl"><span class="category">Function: </span><span><em>long double</em> <strong>fmaximum_magl</strong> <em>(long double <var>x</var>, long double <var>y</var>)</em><a href='#index-fmaximum_005fmagl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fmaximum_005fmagfN"><span class="category">Function: </span><span><em>_FloatN</em> <strong>fmaximum_magfN</strong> <em>(_Float<var>N</var> <var>x</var>, _Float<var>N</var> <var>y</var>)</em><a href='#index-fmaximum_005fmagfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fmaximum_005fmagfNx"><span class="category">Function: </span><span><em>_FloatNx</em> <strong>fmaximum_magfNx</strong> <em>(_Float<var>N</var>x <var>x</var>, _Float<var>N</var>x <var>y</var>)</em><a href='#index-fmaximum_005fmagfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>These functions return whichever of the two values <var>x</var> and <var>y</var>
+has the greater absolute value.  If both have the same absolute value,
+or either is NaN, they behave the same as the <code>fmaximum</code>
+functions.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-fminimum_005fmag_005fnum"><span class="category">Function: </span><span><em>double</em> <strong>fminimum_mag_num</strong> <em>(double <var>x</var>, double <var>y</var>)</em><a href='#index-fminimum_005fmag_005fnum' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fminimum_005fmag_005fnumf"><span class="category">Function: </span><span><em>float</em> <strong>fminimum_mag_numf</strong> <em>(float <var>x</var>, float <var>y</var>)</em><a href='#index-fminimum_005fmag_005fnumf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fminimum_005fmag_005fnuml"><span class="category">Function: </span><span><em>long double</em> <strong>fminimum_mag_numl</strong> <em>(long double <var>x</var>, long double <var>y</var>)</em><a href='#index-fminimum_005fmag_005fnuml' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fminimum_005fmag_005fnumfN"><span class="category">Function: </span><span><em>_FloatN</em> <strong>fminimum_mag_numfN</strong> <em>(_Float<var>N</var> <var>x</var>, _Float<var>N</var> <var>y</var>)</em><a href='#index-fminimum_005fmag_005fnumfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fminimum_005fmag_005fnumfNx"><span class="category">Function: </span><span><em>_FloatNx</em> <strong>fminimum_mag_numfNx</strong> <em>(_Float<var>N</var>x <var>x</var>, _Float<var>N</var>x <var>y</var>)</em><a href='#index-fminimum_005fmag_005fnumfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>These functions return whichever of the two values <var>x</var> and <var>y</var>
+has the smaller absolute value.  If both have the same absolute value,
+or either is NaN, they behave the same as the <code>fminimum_num</code>
+functions.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-fmaximum_005fmag_005fnum"><span class="category">Function: </span><span><em>double</em> <strong>fmaximum_mag_num</strong> <em>(double <var>x</var>, double <var>y</var>)</em><a href='#index-fmaximum_005fmag_005fnum' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fmaximum_005fmag_005fnumf"><span class="category">Function: </span><span><em>float</em> <strong>fmaximum_mag_numf</strong> <em>(float <var>x</var>, float <var>y</var>)</em><a href='#index-fmaximum_005fmag_005fnumf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fmaximum_005fmag_005fnuml"><span class="category">Function: </span><span><em>long double</em> <strong>fmaximum_mag_numl</strong> <em>(long double <var>x</var>, long double <var>y</var>)</em><a href='#index-fmaximum_005fmag_005fnuml' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fmaximum_005fmag_005fnumfN"><span class="category">Function: </span><span><em>_FloatN</em> <strong>fmaximum_mag_numfN</strong> <em>(_Float<var>N</var> <var>x</var>, _Float<var>N</var> <var>y</var>)</em><a href='#index-fmaximum_005fmag_005fnumfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fmaximum_005fmag_005fnumfNx"><span class="category">Function: </span><span><em>_FloatNx</em> <strong>fmaximum_mag_numfNx</strong> <em>(_Float<var>N</var>x <var>x</var>, _Float<var>N</var>x <var>y</var>)</em><a href='#index-fmaximum_005fmag_005fnumfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>These functions return whichever of the two values <var>x</var> and <var>y</var>
+has the greater absolute value.  If both have the same absolute value,
+or either is NaN, they behave the same as the <code>fmaximum_num</code>
+functions.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-fdim"><span class="category">Function: </span><span><em>double</em> <strong>fdim</strong> <em>(double <var>x</var>, double <var>y</var>)</em><a href='#index-fdim' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fdimf"><span class="category">Function: </span><span><em>float</em> <strong>fdimf</strong> <em>(float <var>x</var>, float <var>y</var>)</em><a href='#index-fdimf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fdiml"><span class="category">Function: </span><span><em>long double</em> <strong>fdiml</strong> <em>(long double <var>x</var>, long double <var>y</var>)</em><a href='#index-fdiml' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fdimfN"><span class="category">Function: </span><span><em>_FloatN</em> <strong>fdimfN</strong> <em>(_Float<var>N</var> <var>x</var>, _Float<var>N</var> <var>y</var>)</em><a href='#index-fdimfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fdimfNx"><span class="category">Function: </span><span><em>_FloatNx</em> <strong>fdimfNx</strong> <em>(_Float<var>N</var>x <var>x</var>, _Float<var>N</var>x <var>y</var>)</em><a href='#index-fdimfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>The <code>fdim</code> function returns the positive difference between
+<var>x</var> and <var>y</var>.  The positive difference is <em class='math'><var>x</var> -
+<var>y</var></em> if <var>x</var> is greater than <var>y</var>, and <em class='math'>0</em> otherwise.
+</p>
+<p>If <var>x</var>, <var>y</var>, or both are NaN, NaN is returned.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-fma"><span class="category">Function: </span><span><em>double</em> <strong>fma</strong> <em>(double <var>x</var>, double <var>y</var>, double <var>z</var>)</em><a href='#index-fma' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fmaf"><span class="category">Function: </span><span><em>float</em> <strong>fmaf</strong> <em>(float <var>x</var>, float <var>y</var>, float <var>z</var>)</em><a href='#index-fmaf' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fmal"><span class="category">Function: </span><span><em>long double</em> <strong>fmal</strong> <em>(long double <var>x</var>, long double <var>y</var>, long double <var>z</var>)</em><a href='#index-fmal' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fmafN"><span class="category">Function: </span><span><em>_FloatN</em> <strong>fmafN</strong> <em>(_Float<var>N</var> <var>x</var>, _Float<var>N</var> <var>y</var>, _Float<var>N</var> <var>z</var>)</em><a href='#index-fmafN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fmafNx"><span class="category">Function: </span><span><em>_FloatNx</em> <strong>fmafNx</strong> <em>(_Float<var>N</var>x <var>x</var>, _Float<var>N</var>x <var>y</var>, _Float<var>N</var>x <var>z</var>)</em><a href='#index-fmafNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+<span id="index-butterfly"></span>
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>The <code>fma</code> function performs floating-point multiply-add.  This is
+the operation <em class='math'>(<var>x</var> &#x00B7; <var>y</var>) + <var>z</var></em>, but the
+intermediate result is not rounded to the destination type.  This can
+sometimes improve the precision of a calculation.
+</p>
+<p>This function was introduced because some processors have a special
+instruction to perform multiply-add.  The C compiler cannot use it
+directly, because the expression &lsquo;<samp>x*y + z</samp>&rsquo; is defined to round the
+intermediate result.  <code>fma</code> lets you choose when you want to round
+only once.
+</p>
+<span id="index-FP_005fFAST_005fFMA"></span>
+<p>On processors which do not implement multiply-add in hardware,
+<code>fma</code> can be very slow since it must avoid intermediate rounding.
+<samp>math.h</samp> defines the symbols <code>FP_FAST_FMA</code>,
+<code>FP_FAST_FMAF</code>, and <code>FP_FAST_FMAL</code> when the corresponding
+version of <code>fma</code> is no slower than the expression &lsquo;<samp>x*y + z</samp>&rsquo;.
+In the GNU C Library, this always means the operation is implemented in
+hardware.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-fadd"><span class="category">Function: </span><span><em>float</em> <strong>fadd</strong> <em>(double <var>x</var>, double <var>y</var>)</em><a href='#index-fadd' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-faddl"><span class="category">Function: </span><span><em>float</em> <strong>faddl</strong> <em>(long double <var>x</var>, long double <var>y</var>)</em><a href='#index-faddl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-daddl"><span class="category">Function: </span><span><em>double</em> <strong>daddl</strong> <em>(long double <var>x</var>, long double <var>y</var>)</em><a href='#index-daddl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fMaddfN"><span class="category">Function: </span><span><em>_FloatM</em> <strong>fMaddfN</strong> <em>(_Float<var>N</var> <var>x</var>, _Float<var>N</var> <var>y</var>)</em><a href='#index-fMaddfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fMaddfNx"><span class="category">Function: </span><span><em>_FloatM</em> <strong>fMaddfNx</strong> <em>(_Float<var>N</var>x <var>x</var>, _Float<var>N</var>x <var>y</var>)</em><a href='#index-fMaddfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fMxaddfN"><span class="category">Function: </span><span><em>_FloatMx</em> <strong>fMxaddfN</strong> <em>(_Float<var>N</var> <var>x</var>, _Float<var>N</var> <var>y</var>)</em><a href='#index-fMxaddfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fMxaddfNx"><span class="category">Function: </span><span><em>_FloatMx</em> <strong>fMxaddfNx</strong> <em>(_Float<var>N</var>x <var>x</var>, _Float<var>N</var>x <var>y</var>)</em><a href='#index-fMxaddfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>These functions, from TS 18661-1:2014 and TS 18661-3:2015, return
+<em class='math'><var>x</var> + <var>y</var></em>, rounded once to the return type of the
+function without any intermediate rounding to the type of the
+arguments.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-fsub"><span class="category">Function: </span><span><em>float</em> <strong>fsub</strong> <em>(double <var>x</var>, double <var>y</var>)</em><a href='#index-fsub' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fsubl"><span class="category">Function: </span><span><em>float</em> <strong>fsubl</strong> <em>(long double <var>x</var>, long double <var>y</var>)</em><a href='#index-fsubl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-dsubl"><span class="category">Function: </span><span><em>double</em> <strong>dsubl</strong> <em>(long double <var>x</var>, long double <var>y</var>)</em><a href='#index-dsubl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fMsubfN"><span class="category">Function: </span><span><em>_FloatM</em> <strong>fMsubfN</strong> <em>(_Float<var>N</var> <var>x</var>, _Float<var>N</var> <var>y</var>)</em><a href='#index-fMsubfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fMsubfNx"><span class="category">Function: </span><span><em>_FloatM</em> <strong>fMsubfNx</strong> <em>(_Float<var>N</var>x <var>x</var>, _Float<var>N</var>x <var>y</var>)</em><a href='#index-fMsubfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fMxsubfN"><span class="category">Function: </span><span><em>_FloatMx</em> <strong>fMxsubfN</strong> <em>(_Float<var>N</var> <var>x</var>, _Float<var>N</var> <var>y</var>)</em><a href='#index-fMxsubfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fMxsubfNx"><span class="category">Function: </span><span><em>_FloatMx</em> <strong>fMxsubfNx</strong> <em>(_Float<var>N</var>x <var>x</var>, _Float<var>N</var>x <var>y</var>)</em><a href='#index-fMxsubfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>These functions, from TS 18661-1:2014 and TS 18661-3:2015, return
+<em class='math'><var>x</var> - <var>y</var></em>, rounded once to the return type of the
+function without any intermediate rounding to the type of the
+arguments.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-fmul"><span class="category">Function: </span><span><em>float</em> <strong>fmul</strong> <em>(double <var>x</var>, double <var>y</var>)</em><a href='#index-fmul' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fmull"><span class="category">Function: </span><span><em>float</em> <strong>fmull</strong> <em>(long double <var>x</var>, long double <var>y</var>)</em><a href='#index-fmull' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-dmull"><span class="category">Function: </span><span><em>double</em> <strong>dmull</strong> <em>(long double <var>x</var>, long double <var>y</var>)</em><a href='#index-dmull' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fMmulfN"><span class="category">Function: </span><span><em>_FloatM</em> <strong>fMmulfN</strong> <em>(_Float<var>N</var> <var>x</var>, _Float<var>N</var> <var>y</var>)</em><a href='#index-fMmulfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fMmulfNx"><span class="category">Function: </span><span><em>_FloatM</em> <strong>fMmulfNx</strong> <em>(_Float<var>N</var>x <var>x</var>, _Float<var>N</var>x <var>y</var>)</em><a href='#index-fMmulfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fMxmulfN"><span class="category">Function: </span><span><em>_FloatMx</em> <strong>fMxmulfN</strong> <em>(_Float<var>N</var> <var>x</var>, _Float<var>N</var> <var>y</var>)</em><a href='#index-fMxmulfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fMxmulfNx"><span class="category">Function: </span><span><em>_FloatMx</em> <strong>fMxmulfNx</strong> <em>(_Float<var>N</var>x <var>x</var>, _Float<var>N</var>x <var>y</var>)</em><a href='#index-fMxmulfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>These functions, from TS 18661-1:2014 and TS 18661-3:2015, return
+<em class='math'><var>x</var> * <var>y</var></em>, rounded once to the return type of the
+function without any intermediate rounding to the type of the
+arguments.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-fdiv"><span class="category">Function: </span><span><em>float</em> <strong>fdiv</strong> <em>(double <var>x</var>, double <var>y</var>)</em><a href='#index-fdiv' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fdivl"><span class="category">Function: </span><span><em>float</em> <strong>fdivl</strong> <em>(long double <var>x</var>, long double <var>y</var>)</em><a href='#index-fdivl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-ddivl"><span class="category">Function: </span><span><em>double</em> <strong>ddivl</strong> <em>(long double <var>x</var>, long double <var>y</var>)</em><a href='#index-ddivl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fMdivfN"><span class="category">Function: </span><span><em>_FloatM</em> <strong>fMdivfN</strong> <em>(_Float<var>N</var> <var>x</var>, _Float<var>N</var> <var>y</var>)</em><a href='#index-fMdivfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fMdivfNx"><span class="category">Function: </span><span><em>_FloatM</em> <strong>fMdivfNx</strong> <em>(_Float<var>N</var>x <var>x</var>, _Float<var>N</var>x <var>y</var>)</em><a href='#index-fMdivfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fMxdivfN"><span class="category">Function: </span><span><em>_FloatMx</em> <strong>fMxdivfN</strong> <em>(_Float<var>N</var> <var>x</var>, _Float<var>N</var> <var>y</var>)</em><a href='#index-fMxdivfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fMxdivfNx"><span class="category">Function: </span><span><em>_FloatMx</em> <strong>fMxdivfNx</strong> <em>(_Float<var>N</var>x <var>x</var>, _Float<var>N</var>x <var>y</var>)</em><a href='#index-fMxdivfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>These functions, from TS 18661-1:2014 and TS 18661-3:2015, return
+<em class='math'><var>x</var> / <var>y</var></em>, rounded once to the return type of the
+function without any intermediate rounding to the type of the
+arguments.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-fsqrt"><span class="category">Function: </span><span><em>float</em> <strong>fsqrt</strong> <em>(double <var>x</var>)</em><a href='#index-fsqrt' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fsqrtl"><span class="category">Function: </span><span><em>float</em> <strong>fsqrtl</strong> <em>(long double <var>x</var>)</em><a href='#index-fsqrtl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-dsqrtl"><span class="category">Function: </span><span><em>double</em> <strong>dsqrtl</strong> <em>(long double <var>x</var>)</em><a href='#index-dsqrtl' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fMsqrtfN"><span class="category">Function: </span><span><em>_FloatM</em> <strong>fMsqrtfN</strong> <em>(_Float<var>N</var> <var>x</var>)</em><a href='#index-fMsqrtfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fMsqrtfNx"><span class="category">Function: </span><span><em>_FloatM</em> <strong>fMsqrtfNx</strong> <em>(_Float<var>N</var>x <var>x</var>)</em><a href='#index-fMsqrtfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fMxsqrtfN"><span class="category">Function: </span><span><em>_FloatMx</em> <strong>fMxsqrtfN</strong> <em>(_Float<var>N</var> <var>x</var>)</em><a href='#index-fMxsqrtfN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fMxsqrtfNx"><span class="category">Function: </span><span><em>_FloatMx</em> <strong>fMxsqrtfNx</strong> <em>(_Float<var>N</var>x <var>x</var>)</em><a href='#index-fMxsqrtfNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>These functions, from TS 18661-1:2014 and TS 18661-3:2015, return the
+square root of <var>x</var>, rounded once to the return type of the
+function without any intermediate rounding to the type of the
+arguments.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-ffma"><span class="category">Function: </span><span><em>float</em> <strong>ffma</strong> <em>(double <var>x</var>, double <var>y</var>, double <var>z</var>)</em><a href='#index-ffma' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-ffmal"><span class="category">Function: </span><span><em>float</em> <strong>ffmal</strong> <em>(long double <var>x</var>, long double <var>y</var>, long double <var>z</var>)</em><a href='#index-ffmal' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-dfmal"><span class="category">Function: </span><span><em>double</em> <strong>dfmal</strong> <em>(long double <var>x</var>, long double <var>y</var>, long double <var>z</var>)</em><a href='#index-dfmal' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fMfmafN"><span class="category">Function: </span><span><em>_FloatM</em> <strong>fMfmafN</strong> <em>(_Float<var>N</var> <var>x</var>, _Float<var>N</var> <var>y</var>, _Float<var>N</var> <var>z</var>)</em><a href='#index-fMfmafN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fMfmafNx"><span class="category">Function: </span><span><em>_FloatM</em> <strong>fMfmafNx</strong> <em>(_Float<var>N</var>x <var>x</var>, _Float<var>N</var>x <var>y</var>, _Float<var>N</var>x <var>z</var>)</em><a href='#index-fMfmafNx' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fMxfmafN"><span class="category">Function: </span><span><em>_FloatMx</em> <strong>fMxfmafN</strong> <em>(_Float<var>N</var> <var>x</var>, _Float<var>N</var> <var>y</var>, _Float<var>N</var> <var>z</var>)</em><a href='#index-fMxfmafN' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-fMxfmafNx"><span class="category">Function: </span><span><em>_FloatMx</em> <strong>fMxfmafNx</strong> <em>(_Float<var>N</var>x <var>x</var>, _Float<var>N</var>x <var>y</var>, _Float<var>N</var>x <var>z</var>)</em><a href='#index-fMxfmafNx' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+
+
+
+
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+
+<p>These functions, from TS 18661-1:2014 and TS 18661-3:2015, return
+<em class='math'>(<var>x</var> &#x00B7; <var>y</var>) + <var>z</var></em>, rounded once to the return
+type of the function without any intermediate rounding to the type of
+the arguments and without any intermediate rounding of result of the
+multiplication.
+</p></dd></dl>
+
+</div>
+<hr>
+<div class="header">
+<p>
+Previous: <a href="FP-Comparison-Functions.html">Floating-Point Comparison Functions</a>, Up: <a href="Arithmetic-Functions.html">Arithmetic Functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

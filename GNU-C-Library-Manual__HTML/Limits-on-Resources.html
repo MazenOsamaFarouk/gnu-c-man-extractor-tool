@@ -1,0 +1,451 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This is
+The GNU C Library Reference Manual, for version
+2.36.
+
+Copyright (C) 1993-2022 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version
+1.3 or any later version published by the Free
+Software Foundation; with the Invariant Sections being "Free Software
+Needs Free Documentation" and "GNU Lesser General Public License",
+the Front-Cover texts being "A GNU Manual", and with the Back-Cover
+Texts as in (a) below.  A copy of the license is included in the
+section entitled "GNU Free Documentation License".
+
+(a) The FSF's Back-Cover Text is: "You have the freedom to
+copy and modify this GNU manual.  Buying copies from the FSF
+supports it in developing GNU and promoting software freedom." -->
+<title>Limits on Resources (The GNU C Library)</title>
+
+<meta name="description" content="Limits on Resources (The GNU C Library)">
+<meta name="keywords" content="Limits on Resources (The GNU C Library)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Concept-Index.html" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Resource-Usage-And-Limitation.html" rel="up" title="Resource Usage And Limitation">
+<link href="Priority.html" rel="next" title="Priority">
+<link href="Resource-Usage.html" rel="prev" title="Resource Usage">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<div class="section" id="Limits-on-Resources">
+<div class="header">
+<p>
+Next: <a href="Priority.html" accesskey="n" rel="next">Process CPU Priority And Scheduling</a>, Previous: <a href="Resource-Usage.html" accesskey="p" rel="prev">Resource Usage</a>, Up: <a href="Resource-Usage-And-Limitation.html" accesskey="u" rel="up">Resource Usage And Limitation</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<span id="Limiting-Resource-Usage"></span><h3 class="section">22.2 Limiting Resource Usage</h3>
+<span id="index-resource-limits"></span>
+<span id="index-limits-on-resource-usage"></span>
+<span id="index-usage-limits"></span>
+
+<p>You can specify limits for the resource usage of a process.  When the
+process tries to exceed a limit, it may get a signal, or the system call
+by which it tried to do so may fail, depending on the resource.  Each
+process initially inherits its limit values from its parent, but it can
+subsequently change them.
+</p>
+<p>There are two per-process limits associated with a resource:
+<span id="index-limit"></span>
+</p>
+<dl compact="compact">
+<dt><span><em>current limit</em></span></dt>
+<dd><p>The current limit is the value the system will not allow usage to
+exceed.  It is also called the &ldquo;soft limit&rdquo; because the process being
+limited can generally raise the current limit at will.
+<span id="index-current-limit"></span>
+<span id="index-soft-limit"></span>
+</p>
+</dd>
+<dt><span><em>maximum limit</em></span></dt>
+<dd><p>The maximum limit is the maximum value to which a process is allowed to
+set its current limit.  It is also called the &ldquo;hard limit&rdquo; because
+there is no way for a process to get around it.  A process may lower
+its own maximum limit, but only the superuser may increase a maximum
+limit.
+<span id="index-maximum-limit"></span>
+<span id="index-hard-limit"></span>
+</p></dd>
+</dl>
+
+<span id="index-sys_002fresource_002eh-1"></span>
+<p>The symbols for use with <code>getrlimit</code>, <code>setrlimit</code>,
+<code>getrlimit64</code>, and <code>setrlimit64</code> are defined in
+<samp>sys/resource.h</samp>.
+</p>
+<dl class="def">
+<dt id="index-getrlimit"><span class="category">Function: </span><span><em>int</em> <strong>getrlimit</strong> <em>(int <var>resource</var>, struct rlimit *<var>rlp</var>)</em><a href='#index-getrlimit' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>Read the current and maximum limits for the resource <var>resource</var>
+and store them in <code>*<var>rlp</var></code>.
+</p>
+<p>The return value is <code>0</code> on success and <code>-1</code> on failure.  The
+only possible <code>errno</code> error condition is <code>EFAULT</code>.
+</p>
+<p>When the sources are compiled with <code>_FILE_OFFSET_BITS == 64</code> on a
+32-bit system this function is in fact <code>getrlimit64</code>.  Thus, the
+LFS interface transparently replaces the old interface.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-getrlimit64"><span class="category">Function: </span><span><em>int</em> <strong>getrlimit64</strong> <em>(int <var>resource</var>, struct rlimit64 *<var>rlp</var>)</em><a href='#index-getrlimit64' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>This function is similar to <code>getrlimit</code> but its second parameter is
+a pointer to a variable of type <code>struct rlimit64</code>, which allows it
+to read values which wouldn&rsquo;t fit in the member of a <code>struct
+rlimit</code>.
+</p>
+<p>If the sources are compiled with <code>_FILE_OFFSET_BITS == 64</code> on a
+32-bit machine, this function is available under the name
+<code>getrlimit</code> and so transparently replaces the old interface.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-setrlimit"><span class="category">Function: </span><span><em>int</em> <strong>setrlimit</strong> <em>(int <var>resource</var>, const struct rlimit *<var>rlp</var>)</em><a href='#index-setrlimit' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>Store the current and maximum limits for the resource <var>resource</var>
+in <code>*<var>rlp</var></code>.
+</p>
+<p>The return value is <code>0</code> on success and <code>-1</code> on failure.  The
+following <code>errno</code> error condition is possible:
+</p>
+<dl compact="compact">
+<dt><span><code>EPERM</code></span></dt>
+<dd><ul>
+<li> The process tried to raise a current limit beyond the maximum limit.
+
+</li><li> The process tried to raise a maximum limit, but is not superuser.
+</li></ul>
+</dd>
+</dl>
+
+<p>When the sources are compiled with <code>_FILE_OFFSET_BITS == 64</code> on a
+32-bit system this function is in fact <code>setrlimit64</code>.  Thus, the
+LFS interface transparently replaces the old interface.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-setrlimit64"><span class="category">Function: </span><span><em>int</em> <strong>setrlimit64</strong> <em>(int <var>resource</var>, const struct rlimit64 *<var>rlp</var>)</em><a href='#index-setrlimit64' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+<p>This function is similar to <code>setrlimit</code> but its second parameter is
+a pointer to a variable of type <code>struct rlimit64</code> which allows it
+to set values which wouldn&rsquo;t fit in the member of a <code>struct
+rlimit</code>.
+</p>
+<p>If the sources are compiled with <code>_FILE_OFFSET_BITS == 64</code> on a
+32-bit machine this function is available under the name
+<code>setrlimit</code> and so transparently replaces the old interface.
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-struct-rlimit"><span class="category">Data Type: </span><span><strong>struct rlimit</strong><a href='#index-struct-rlimit' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>This structure is used with <code>getrlimit</code> to receive limit values,
+and with <code>setrlimit</code> to specify limit values for a particular process
+and resource.  It has two fields:
+</p>
+<dl compact="compact">
+<dt><span><code>rlim_t rlim_cur</code></span></dt>
+<dd><p>The current limit
+</p>
+</dd>
+<dt><span><code>rlim_t rlim_max</code></span></dt>
+<dd><p>The maximum limit.
+</p></dd>
+</dl>
+
+<p>For <code>getrlimit</code>, the structure is an output; it receives the current
+values.  For <code>setrlimit</code>, it specifies the new values.
+</p></dd></dl>
+
+<p>For the LFS functions a similar type is defined in <samp>sys/resource.h</samp>.
+</p>
+<dl class="def">
+<dt id="index-struct-rlimit64"><span class="category">Data Type: </span><span><strong>struct rlimit64</strong><a href='#index-struct-rlimit64' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>This structure is analogous to the <code>rlimit</code> structure above, but
+its components have wider ranges.  It has two fields:
+</p>
+<dl compact="compact">
+<dt><span><code>rlim64_t rlim_cur</code></span></dt>
+<dd><p>This is analogous to <code>rlimit.rlim_cur</code>, but with a different type.
+</p>
+</dd>
+<dt><span><code>rlim64_t rlim_max</code></span></dt>
+<dd><p>This is analogous to <code>rlimit.rlim_max</code>, but with a different type.
+</p></dd>
+</dl>
+
+</dd></dl>
+
+<p>Here is a list of resources for which you can specify a limit.  Memory
+and file sizes are measured in bytes.
+</p>
+<dl compact="compact">
+<dt id='index-RLIMIT_005fCPU'><span><code>RLIMIT_CPU</code><a href='#index-RLIMIT_005fCPU' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>The maximum amount of CPU time the process can use.  If it runs for
+longer than this, it gets a signal: <code>SIGXCPU</code>.  The value is
+measured in seconds.  See <a href="Operation-Error-Signals.html">Operation Error Signals</a>.
+</p>
+</dd>
+<dt id='index-RLIMIT_005fFSIZE'><span><code>RLIMIT_FSIZE</code><a href='#index-RLIMIT_005fFSIZE' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>The maximum size of file the process can create.  Trying to write a
+larger file causes a signal: <code>SIGXFSZ</code>.  See <a href="Operation-Error-Signals.html">Operation Error Signals</a>.
+</p>
+</dd>
+<dt id='index-RLIMIT_005fDATA'><span><code>RLIMIT_DATA</code><a href='#index-RLIMIT_005fDATA' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>The maximum size of data memory for the process.  If the process tries
+to allocate data memory beyond this amount, the allocation function
+fails.
+</p>
+</dd>
+<dt id='index-RLIMIT_005fSTACK'><span><code>RLIMIT_STACK</code><a href='#index-RLIMIT_005fSTACK' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>The maximum stack size for the process.  If the process tries to extend
+its stack past this size, it gets a <code>SIGSEGV</code> signal.
+See <a href="Program-Error-Signals.html">Program Error Signals</a>.
+</p>
+</dd>
+<dt id='index-RLIMIT_005fCORE'><span><code>RLIMIT_CORE</code><a href='#index-RLIMIT_005fCORE' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>The maximum size core file that this process can create.  If the process
+terminates and would dump a core file larger than this, then no core
+file is created.  So setting this limit to zero prevents core files from
+ever being created.
+</p>
+</dd>
+<dt id='index-RLIMIT_005fRSS'><span><code>RLIMIT_RSS</code><a href='#index-RLIMIT_005fRSS' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>The maximum amount of physical memory that this process should get.
+This parameter is a guide for the system&rsquo;s scheduler and memory
+allocator; the system may give the process more memory when there is a
+surplus.
+</p>
+</dd>
+<dt id='index-RLIMIT_005fMEMLOCK'><span><code>RLIMIT_MEMLOCK</code><a href='#index-RLIMIT_005fMEMLOCK' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>The maximum amount of memory that can be locked into physical memory (so
+it will never be paged out).
+</p>
+</dd>
+<dt id='index-RLIMIT_005fNPROC'><span><code>RLIMIT_NPROC</code><a href='#index-RLIMIT_005fNPROC' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>The maximum number of processes that can be created with the same user ID.
+If you have reached the limit for your user ID, <code>fork</code> will fail
+with <code>EAGAIN</code>.  See <a href="Creating-a-Process.html">Creating a Process</a>.
+</p>
+</dd>
+<dt id='index-RLIMIT_005fNOFILE'><span><code>RLIMIT_NOFILE</code><a href='#index-RLIMIT_005fNOFILE' class='copiable-anchor'> &para;</a></span></dt>
+<dt id='index-RLIMIT_005fOFILE'><span><code>RLIMIT_OFILE</code><a href='#index-RLIMIT_005fOFILE' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>The maximum number of files that the process can open.  If it tries to
+open more files than this, its open attempt fails with <code>errno</code>
+<code>EMFILE</code>.  See <a href="Error-Codes.html">Error Codes</a>.  Not all systems support this limit;
+GNU does, and 4.4 BSD does.
+</p>
+</dd>
+<dt id='index-RLIMIT_005fAS'><span><code>RLIMIT_AS</code><a href='#index-RLIMIT_005fAS' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>The maximum size of total memory that this process should get.  If the
+process tries to allocate more memory beyond this amount with, for
+example, <code>brk</code>, <code>malloc</code>, <code>mmap</code> or <code>sbrk</code>, the
+allocation function fails.
+</p>
+</dd>
+<dt id='index-RLIM_005fNLIMITS'><span><code>RLIM_NLIMITS</code><a href='#index-RLIM_005fNLIMITS' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>The number of different resource limits.  Any valid <var>resource</var>
+operand must be less than <code>RLIM_NLIMITS</code>.
+</p></dd>
+</dl>
+
+<dl class="def">
+<dt id="index-RLIM_005fINFINITY"><span class="category">Constant: </span><span><em>rlim_t</em> <strong>RLIM_INFINITY</strong><a href='#index-RLIM_005fINFINITY' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>This constant stands for a value of &ldquo;infinity&rdquo; when supplied as
+the limit value in <code>setrlimit</code>.
+</p></dd></dl>
+
+
+<p>The following are historical functions to do some of what the functions
+above do.  The functions above are better choices.
+</p>
+<p><code>ulimit</code> and the command symbols are declared in <samp>ulimit.h</samp>.
+<span id="index-ulimit_002eh"></span>
+</p>
+<dl class="def">
+<dt id="index-ulimit"><span class="category">Function: </span><span><em>long int</em> <strong>ulimit</strong> <em>(int <var>cmd</var>, &hellip;)</em><a href='#index-ulimit' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Preliminary:
+| MT-Safe 
+| AS-Safe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+
+<p><code>ulimit</code> gets the current limit or sets the current and maximum
+limit for a particular resource for the calling process according to the
+command <var>cmd</var>.
+</p>
+<p>If you are getting a limit, the command argument is the only argument.
+If you are setting a limit, there is a second argument:
+<code>long int</code> <var>limit</var> which is the value to which you are setting
+the limit.
+</p>
+<p>The <var>cmd</var> values and the operations they specify are:
+</p><dl compact="compact">
+<dt id='index-GETFSIZE'><span><code>GETFSIZE</code><a href='#index-GETFSIZE' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Get the current limit on the size of a file, in units of 512 bytes.
+</p>
+</dd>
+<dt id='index-SETFSIZE'><span><code>SETFSIZE</code><a href='#index-SETFSIZE' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Set the current and maximum limit on the size of a file to <var>limit</var> *
+512 bytes.
+</p>
+</dd>
+</dl>
+
+<p>There are also some other <var>cmd</var> values that may do things on some
+systems, but they are not supported.
+</p>
+<p>Only the superuser may increase a maximum limit.
+</p>
+<p>When you successfully get a limit, the return value of <code>ulimit</code> is
+that limit, which is never negative.  When you successfully set a limit,
+the return value is zero.  When the function fails, the return value is
+<code>-1</code> and <code>errno</code> is set according to the reason:
+</p>
+<dl compact="compact">
+<dt><span><code>EPERM</code></span></dt>
+<dd><p>A process tried to increase a maximum limit, but is not superuser.
+</p></dd>
+</dl>
+
+
+</dd></dl>
+
+<p><code>vlimit</code> and its resource symbols are declared in <samp>sys/vlimit.h</samp>.
+<span id="index-sys_002fvlimit_002eh"></span>
+</p>
+<dl class="def">
+<dt id="index-vlimit"><span class="category">Function: </span><span><em>int</em> <strong>vlimit</strong> <em>(int <var>resource</var>, int <var>limit</var>)</em><a href='#index-vlimit' class='copiable-anchor'> &para;</a></span></dt>
+<dd>
+<p>Preliminary:
+| MT-Unsafe race:setrlimit
+| AS-Unsafe 
+| AC-Safe 
+| See <a href="POSIX-Safety-Concepts.html">POSIX Safety Concepts</a>.
+</p>
+
+
+<p><code>vlimit</code> sets the current limit for a resource for a process.
+</p>
+<p><var>resource</var> identifies the resource:
+</p>
+<dl compact="compact">
+<dt id='index-LIM_005fCPU'><span><code>LIM_CPU</code><a href='#index-LIM_005fCPU' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Maximum CPU time.  Same as <code>RLIMIT_CPU</code> for <code>setrlimit</code>.
+</p></dd>
+<dt id='index-LIM_005fFSIZE'><span><code>LIM_FSIZE</code><a href='#index-LIM_005fFSIZE' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Maximum file size.  Same as <code>RLIMIT_FSIZE</code> for <code>setrlimit</code>.
+</p></dd>
+<dt id='index-LIM_005fDATA'><span><code>LIM_DATA</code><a href='#index-LIM_005fDATA' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Maximum data memory.  Same as <code>RLIMIT_DATA</code> for <code>setrlimit</code>.
+</p></dd>
+<dt id='index-LIM_005fSTACK'><span><code>LIM_STACK</code><a href='#index-LIM_005fSTACK' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Maximum stack size.  Same as <code>RLIMIT_STACK</code> for <code>setrlimit</code>.
+</p></dd>
+<dt id='index-LIM_005fCORE'><span><code>LIM_CORE</code><a href='#index-LIM_005fCORE' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Maximum core file size.  Same as <code>RLIMIT_COR</code> for <code>setrlimit</code>.
+</p></dd>
+<dt id='index-LIM_005fMAXRSS'><span><code>LIM_MAXRSS</code><a href='#index-LIM_005fMAXRSS' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>Maximum physical memory.  Same as <code>RLIMIT_RSS</code> for <code>setrlimit</code>.
+</p></dd>
+</dl>
+
+<p>The return value is zero for success, and <code>-1</code> with <code>errno</code> set
+accordingly for failure:
+</p>
+<dl compact="compact">
+<dt><span><code>EPERM</code></span></dt>
+<dd><p>The process tried to set its current limit beyond its maximum limit.
+</p></dd>
+</dl>
+
+</dd></dl>
+
+</div>
+<hr>
+<div class="header">
+<p>
+Next: <a href="Priority.html">Process CPU Priority And Scheduling</a>, Previous: <a href="Resource-Usage.html">Resource Usage</a>, Up: <a href="Resource-Usage-And-Limitation.html">Resource Usage And Limitation</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>
