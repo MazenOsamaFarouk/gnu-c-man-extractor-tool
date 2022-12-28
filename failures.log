@@ -1,0 +1,4 @@
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.gnu.org:443
+DEBUG:urllib3.connectionpool:https://www.gnu.org:443 "GET /software/libc/manual/html_node/Aborting-a-Program.html HTTP/1.1" 200 1830
+DEBUG:root:creating file -> Aborting-a-Program.html
+DEBUG:root:file Aborting-a-Program.html written successfully!
